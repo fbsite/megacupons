@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>🔥 (HOJE) 70% OFF: Cupons de Desconto Verificados | MegaCupons</title>
+    <meta name="description" content="Economize AGORA! Pegue cupons de desconto 100% grátis e verificados para Magazine Luiza, Amazon e mais. Ofertas expiram em 24h. Use já!">
+    <meta name="keywords" content="cupons de desconto, cupom, ofertas, promoção, economizar, magazine luiza, amazon, americanas, frete grátis, mega cupons">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="🔥 (HOJE) 70% OFF: Cupons de Desconto Verificados | MegaCupons">
+    <meta property="og:description" content="Economize AGORA! Ofertas que expiram em 24h. Use já!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.megacupons.com.br">
+    <meta property="og:image" content="https://placehold.co/1200x630/FF3B80/FFFFFF?text=MegaCupons&font=inter">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+    <!-- CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "MegaCupons",
+      "url": "https://www.megacupons.com.br",
+      "description": "Cupons de desconto verificados para as maiores lojas do Brasil."
+    }
+    </script>
+
+    <!-- CSS -->
+    <style>
+        :root {
+            --color-primary: #FF3B80;
+            --color-secondary: #00BFA6;
+            --color-warning: #FFA726;
+            --color-background: #121212;
+            --color-surface: #1E1E1E;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #B0B0B0;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Animações */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 59, 128, 0.7); }
+            70% { transform: scale(1.03); box-shadow: 0 0 10px 20px rgba(255, 59, 128, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 59, 128, 0); }
+        }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); }
+
+        /* Header */
+        .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
+        .header .container { 
+            display: flex; 
+            justify-content: center; /* Logo Centralizado */
+            align-items: center; 
+            gap: 10px; 
+        }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); text-decoration: none; }
+        .logo i { margin-right: 5px; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 40px 0; background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%); }
+        .hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; color: var(--color-text-primary); }
+        .hero h1 i { color: var(--color-warning); }
+        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 30px; }
+        .countdown-title { font-size: 1rem; font-weight: 700; color: var(--color-warning); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; animation: blink 1.5s infinite; }
+        .countdown-timer { display: flex; justify-content: center; gap: 15px; }
+        .timer-block { background-color: var(--color-surface); padding: 15px; border-radius: 8px; min-width: 70px; border: 1px solid #333; }
+        .timer-block span { display: block; font-size: 2rem; font-weight: 900; color: var(--color-primary); }
+        .timer-block p { font-size: 0.8rem; color: var(--color-text-secondary); text-transform: uppercase; }
+
+        /* Prova Social */
+        .social-proof { background-color: var(--color-background); padding: 30px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .social-proof .container { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 20px; }
+        .proof-item { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: var(--color-text-secondary); }
+        .proof-item i { font-size: 1.5rem; color: var(--color-secondary); }
+        .proof-item strong { color: var(--color-text-primary); }
+        .proof-item .fa-star { color: var(--color-warning); }
+
+        /* Lojas em Destaque */
+        .featured-stores-section { padding: 40px 0; background-color: var(--color-surface); }
+        .featured-stores-section h2 { font-size: 1.8rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
+        .stores-grid { 
+            display: grid; 
+            /* Ajuste para 2 colunas em mobile e 3 em tablet */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; 
+            justify-items: center;
+        }
+        .store-item { text-decoration: none; color: var(--color-text-secondary); transition: transform 0.3s ease; }
+        .store-item:hover { transform: scale(1.1); }
+        .store-item figure {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px auto;
+            border: 3px solid var(--color-primary);
+            overflow: hidden;
+        }
+        .store-item img { width: 70%; height: auto; object-fit: contain; }
+        .store-item p { font-size: 0.9rem; font-weight: 700; text-align: center; }
+
+        /* Barra de Filtros */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--color-surface);
+            border-radius: 8px;
+        }
+        .filter-group {
+            flex: 1 1 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-group label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            margin-bottom: 8px;
+        }
+        .filter-group select {
+            background-color: #333;
+            color: var(--color-text-primary);
+            border: 1px solid #555;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        /* Seção de Ofertas */
+        .offers-section { padding: 40px 0; }
+        .offers-section h2.section-title { font-size: 2rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
+        .coupons-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+
+        /* Card de Cupom */
+        .coupon-card { 
+            background-color: var(--color-surface); 
+            border-radius: 12px; 
+            border: 1px solid #333; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px; 
+            position: relative; 
+            overflow: hidden;
+        }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-logo { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; border: 1px solid #444; display: flex; justify-content: center; align-items: center; background-color: #fff; flex-shrink: 0; }
+        .card-logo img { width: 80%; height: auto; object-fit: contain; }
+        .card-info { flex-grow: 1; }
+        .card-discount { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); line-height: 1.1; margin-bottom: 5px; }
+        .card-title { font-size: 1.1rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card-validity { font-size: 0.9rem; font-weight: 700; color: var(--color-warning); }
+        .card-validity i { margin-right: 5px; }
+        
+        .coupon-cta { 
+            display: inline-block;
+            width: 100%; 
+            background-color: var(--color-primary); 
+            color: var(--color-text-primary); 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+            margin-top: auto;
+            text-align: center;
+            text-decoration: none;
+        }
+        .coupon-cta:hover { background-color: #e03070; transform: scale(1.02); }
+        .coupon-cta.copied { 
+            background-color: var(--color-secondary); 
+            font-weight: 900; 
+            pointer-events: none;
+        }
+
+        .badge { 
+            position: absolute; 
+            top: 20px;
+            right: -35px;
+            min-width: 150px;
+            text-align: center;
+            background-color: var(--color-warning); 
+            color: #000; 
+            font-size: 0.8rem; 
+            font-weight: 900; 
+            padding: 5px 10px;
+            transform: rotate(45deg); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            text-transform: uppercase; 
+        }
+        .badge-scarcity { background-color: var(--color-warning); color: #000; }
+        .badge-novelty { background-color: var(--color-primary); color: var(--color-text-primary); }
+
+        /* Footer */
+        .footer { background-color: var(--color-surface); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333; }
+        .footer p { color: var(--color-text-secondary); font-size: 0.9rem; }
+        .footer p:first-child { font-weight: 700; color: var(--color-text-primary); margin-bottom: 5px; }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .coupons-grid { grid-template-columns: 1fr 1fr; }
+            .stores-grid { grid-template-columns: repeat(3, 1fr); } /* 3 colunas em tablet */
+        }
+        @media (min-width: 1024px) {
+            .coupons-grid { grid-template-columns: 1fr 1fr 1fr; }
+            .stores-grid { grid-template-columns: repeat(6, 1fr); } /* MUDANÇA: 6 colunas em desktop */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Sua Economia Começa <span style="color: var(--color-primary);">AGORA!</span> <i class="fa-solid fa-bolt-lightning"></i></h1>
+                <p class="hero-subtitle">Ofertas imperdíveis que VÃO acabar. Não perca tempo.</p>
+                <div class="countdown">
+                    <h3 class="countdown-title">⚡ Ofertas Relâmpago terminam em:</h3>
+                    <div class="countdown-timer" id="timer">
+                        <div class="timer-block"><span id="hours">23</span><p>Horas</p></div>
+                        <div class="timer-block"><span id="minutes">59</span><p>Minutos</p></div>
+                        <div class="timer-block"><span id="seconds">40</span><p>Segundos</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <div class="container">
+                <div class="proof-item"><i class="fa-solid fa-users"></i><p><strong>+15.480</strong> pessoas usaram hoje</p></div>
+                <div class="proof-item"><i class="fa-solid fa-star"></i><p><strong>4.9/5</strong> (48.2k avaliações)</p></div>
+                <div class="proof-item"><i class="fa-solid fa-shield-halved"></i><p>Verificados há <strong>20 min</strong></p></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO "LOJAS EM DESTAQUE" ATUALIZADA -->
+        <section class="featured-stores-section">
+            <div class="container">
+                <h2><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Lojas em Destaque</h2>
+                <div class="stores-grid">
+                    <a href="#lomadee-link-magalu-destaque" target="_blank" class="store-item" title="Cupons Magazine Luiza">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Magalu&font=inter" alt="Logo Magazine Luiza"></figure>
+                        <p>Magazine Luiza</p>
+                    </a>
+                    <a href="#lomadee-link-amazon-destaque" target="_blank" class="store-item" title="Cupons Amazon">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter" alt="Logo Amazon"></figure>
+                        <p>Amazon</p>
+                    </a>
+                    <a href="#lomadee-link-americanas-destaque" target="_blank" class="store-item" title="Cupons Americanas">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Americanas&font=inter" alt="Logo Americanas"></figure>
+                        <p>Americanas</p>
+                    </a>
+                    <a href="#lomadee-link-netshoes-destaque" target="_blank" class="store-item" title="Cupons Netshoes">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Netshoes&font=inter" alt="Logo Netshoes"></figure>
+                        <p>Netshoes</p>
+                    </a>
+                    <!-- NOVO ITEM -->
+                    <a href="#lomadee-link-casasbahia-destaque" target="_blank" class="store-item" title="Cupons Casas Bahia">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Casas+Bahia&font=inter" alt="Logo Casas Bahia"></figure>
+                        <p>Casas Bahia</p>
+                    </a>
+                    <!-- NOVO ITEM -->
+                    <a href="#lomadee-link-ifood-destaque" target="_blank" class="store-item" title="Cupons iFood">
+                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=iFood&font=inter" alt="Logo iFood"></figure>
+                        <p>iFood</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="offers-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-fire" style="color: var(--color-primary);"></i> Top Cupons (EXPIRAM HOJE)</h2>
+
+                <!-- Barra de Filtros -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label for="filter-store">Por Loja:</label>
+                        <select id="filter-store">
+                            <option value="all">Todas as Lojas</option>
+                            <option value="magalu">Magazine Luiza</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="americanas">Americanas</option>
+                            <option value="casasbahia">Casas Bahia</option>
+                            <option value="netshoes">Netshoes</option>
+                            <option value="ponto">Ponto</option>
+                            <option value="boticario">O Boticário</option>
+                            <option value="sephora">Sephora</option>
+                            <option value="centauro">Centauro</option>
+                            <option value="ifood">iFood</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-type">Por Tipo de Desconto:</label>
+                        <select id="filter-type">
+                            <option value="all">Todos os Tipos</option>
+                            <option value="percent">Porcentagem (%)</option>
+                            <option value="cash">Dinheiro (R$)</option>
+                            <option value="shipping">Frete Grátis</option>
+                            <option value="offer">Oferta (Leve/Pague)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-category">Por Categoria:</label>
+                        <select id="filter-category">
+                            <option value="all">Todas as Categorias</option>
+                            <option value="eletronicos">Eletrônicos</option>
+                            <option value="livros">Livros</option>
+                            <option value="geral">Geral</option>
+                            <option value="moveis">Móveis</option>
+                            <option value="moda">Moda e Esporte</option>
+                            <option value="beleza">Beleza</option>
+                            <option value="comida">Comida</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grade de Cupons -->
+                <div class="coupons-grid">
+
+                    <article class="coupon-card hover-lift pulse-animation" data-store="magalu" data-type="percent" data-category="eletronicos">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Magalu&font=inter" alt="Logo Magazine Luiza"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">-70% OFF</div>
+                                <h3 class="card-title">TODA a seção de Eletrônicos</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira hoje!</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-novelty">Relâmpago!</div>
+                        <a href="#lomadee-link-1" target="_blank" class="coupon-cta" data-code="MAGALU70">Revelar Cupom</a>
+                    </article>
+
+                    <article class="coupon-card hover-lift" data-store="amazon" data-type="percent" data-category="livros">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter" alt="Logo Amazon"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">-50% + Frete</div>
+                                <h3 class="card-title">Livros e eBooks + Frete Grátis</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Últimas 48 horas</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-scarcity">Só 15</div>
+                        <a href="#lomadee-link-2" target="_blank" class="coupon-cta" data-code="AMZ50OFF">Revelar Cupom</a>
+                    </article>
+                    
+                    <article class="coupon-card hover-lift" data-store="americanas" data-type="cash" data-category="geral">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Americanas&font=inter" alt="Logo Americanas"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">R$100 OFF</div>
+                                <h3 class="card-title">Em compras acima de R$1000</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira em 3 dias</p>
+                            </div>
+                        </div>
+                        <a href="#lomadee-link-3" target="_blank" class="coupon-cta" data-code="PEGA100">Revelar Cupom</a>
+                    </article>
+
+                    <article class="coupon-card hover-lift" data-store="casasbahia" data-type="percent" data-category="moveis">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Casas+Bahia&font=inter" alt="Logo Casas Bahia"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">-20% OFF</div>
+                                <h3 class="card-title">Móveis e Eletrodomésticos</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Só este FDS!</p>
+                            </div>
+                        </div>
+                        <a href="#lomadee-link-4" target="_blank" class="coupon-cta" data-code="BAHIA20">Revelar Cupom</a>
+                    </article>
+                    
+                    <article class="coupon-card hover-lift" data-store="netshoes" data-type="percent" data-category="moda">
+                        <div class="card-header">
+                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Netshoes&font=inter" alt="Logo Netshoes"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">15% OFF</div>
+                                <h3 class="card-title">Tênis de todas as marcas</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira amanhã!</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-scarcity">QUASE LÁ</div>
+                        <a href="#lomadee-link-5" target="_blank" class="coupon-cta" data-code="TENIS15">Revelar Cupom</a>
+                    </article>
+
+                    <article class="coupon-card hover-lift" data-store="ponto" data-type="cash" data-category="eletronicos">
+                         <div class="card-header">
+                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Ponto&font=inter" alt="Logo Ponto"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">R$50 OFF</div>
+                                <h3 class="card-title">Smartphones selecionados</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Último dia!</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-novelty">NOVO!</div>
+                        <a href="#lomadee-link-6" target="_blank" class="coupon-cta" data-code="PONTO50">Revelar Cupom</a>
+                    </article>
+                    
+                    <article class="coupon-card hover-lift" data-store="boticario" data-type="offer" data-category="beleza">
+                        <div class="card-header">
+                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=O+Boticário&font=inter" alt="Logo O Boticário"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">3 por 2</div>
+                                <h3 class="card-title">Leve 3 pague 2 em perfumes</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Até sexta-feira</p>
+                            </div>
+                        </div>
+                        <a href="#lomadee-link-7" target="_blank" class="coupon-cta" data-code="BOTI3P2">Revelar Cupom</a>
+                    </article>
+
+                    <article class="coupon-card hover-lift" data-store="sephora" data-type="shipping" data-category="beleza">
+                         <div class="card-header">
+                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Sephora&font=inter" alt="Logo Sephora"></figure>
+                            <div class="card-info">
+                                <div class="card-discount">FRETE GRÁTIS</div>
+                                <h3 class="card-title">Em todo o site acima de R$199</h3>
+                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Tempo limitado!</p>
+                            </div>
+                        </div>
+                        <a href="#lomadee-link-8" target="_blank" class="coupon-cta" data-code="NOCODE">Ir para a Oferta</a>
+                    </article>
+                    
+                    <article class="coupon-card hover-lift" data-store="centauro" data-type="percent" data-category="moda">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Centauro&font=inter" alt="Logo Centauro"></figure>
+                           <div class="card-info">
+                               <div class="card-discount">25% OFF</div>
+                               <h3 class="card-title">Roupas e artigos esportivos</h3>
+                               <p class="card-validity"><i class="fa-solid fa-clock"></i> Só hoje!</p>
+                           </div>
+                       </div>
+                       <div class="badge badge-scarcity">ÚLTIMOS</div>
+                       <a href="#lomadee-link-9" target="_blank" class="coupon-cta" data-code="SPORT25">Revelar Cupom</a>
+                   </article>
+
+                    <article class="coupon-card hover-lift" data-store="ifood" data-type="cash" data-category="comida">
+                        <div class="card-header">
+                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=iFood&font=inter" alt="Logo iFood"></figure>
+                           <div class="card-info">
+                               <div class="card-discount">R$10 OFF</div>
+                               <h3 class="card-title">Primeiro pedido no restaurante</h3>
+                               <p class="card-validity"><i class="fa-solid fa-clock"></i> Válido 1 por usuário</p>
+                           </div>
+                       </div>
+                       <a href="#lomadee-link-10" target="_blank" class="coupon-cta" data-code="IFOOD10">Revelar Cupom</a>
+                   </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>MegaCupons &copy; <span id="current-year"></span> - Todos os direitos reservados.</p>
+            <p>Economia real, 100% grátis e verificada para você.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /**
+             * FUNCIONALIDADE 1: Ano Automático no Footer
+             */
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            /**
+             * FUNCIONALIDADE 2: Contador Regressivo (Gatilho de Urgência)
+             */
+            function startCountdown() {
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+
+                if (!hoursEl || !minutesEl || !secondsEl) {
+                    console.error("Elementos do contador não encontrados.");
+                    return;
+                }
+
+                let endTime = localStorage.getItem('countdownEndTime');
+                
+                if (!endTime || new Date().getTime() > endTime) {
+                    endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+                    localStorage.setItem('countdownEndTime', endTime);
+                }
+
+                function updateTimer() {
+                    const now = new Date().getTime();
+                    const distance = endTime - now;
+
+                    if (distance < 0) {
+                        localStorage.removeItem('countdownEndTime');
+                        startCountdown();
+                        return;
+                    }
+
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    hoursEl.textContent = String(hours).padStart(2, '0');
+                    minutesEl.textContent = String(minutes).padStart(2, '0');
+                    secondsEl.textContent = String(seconds).padStart(2, '0');
+                }
+                
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            }
+
+            startCountdown();
+
+            /**
+             * FUNCIONALIDADE 3: Copiar Cupom (Integrado com Lomadee)
+             */
+            const couponsGrid = document.querySelector('.coupons-grid');
+            
+            if(couponsGrid) {
+                couponsGrid.addEventListener('click', (e) => {
+                    const ctaButton = e.target.closest('.coupon-cta');
+                    
+                    if (!ctaButton) return;
+
+                    if (ctaButton.classList.contains('copied')) {
+                        e.preventDefault(); 
+                        return;
+                    }
+                    
+                    const couponCode = ctaButton.dataset.code;
+                    const originalText = ctaButton.textContent;
+
+                    if (couponCode === "NOCODE") {
+                        ctaButton.textContent = '✅ OFERTA ATIVADA';
+                        ctaButton.classList.add('copied');
+                        return;
+                    }
+
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = couponCode;
+                    tempTextarea.style.position = 'absolute';
+                    tempTextarea.style.left = '-9999px';
+                    
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        ctaButton.textContent = '✅ COPIADO!';
+                        ctaButton.classList.add('copied');
+                    } catch (err) {
+                        console.error('Falha ao copiar o cupom: ', err);
+                        ctaButton.textContent = 'Erro ao Copiar';
+                         setTimeout(() => { ctaButton.textContent = originalText; }, 2000);
+                    }
+                    
+                    document.body.removeChild(tempTextarea);
+                });
+            }
+
+            /**
+             * FUNCIONALIDADE 4: Lógica de Filtros
+             */
+            const filterStore = document.getElementById('filter-store');
+            const filterType = document.getElementById('filter-type');
+            const filterCategory = document.getElementById('filter-category');
+            const allCouponCards = document.querySelectorAll('.coupons-grid .coupon-card');
+
+            function applyFilters() {
+                const storeValue = filterStore.value;
+                const typeValue = filterType.value;
+                const categoryValue = filterCategory.value;
+
+                allCouponCards.forEach(card => {
+                    const cardStore = card.dataset.store;
+                    const cardType = card.dataset.type;
+                    const cardCategory = card.dataset.category;
+
+                    const showStore = storeValue === 'all' || storeValue === cardStore;
+                    const showType = typeValue === 'all' || typeValue === cardType;
+                    const showCategory = categoryValue === 'all' || categoryValue === cardCategory;
+
+                    if (showStore && showType && showCategory) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (filterStore) filterStore.addEventListener('change', applyFilters);
+            if (filterType) filterType.addEventListener('change', applyFilters);
+            if (filterCategory) filterCategory.addEventListener('change', applyFilters);
+        });
+    </script>
+
+</body>
+</html>
