@@ -4,42 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="lomadee" content="2324685" />
+    
 
-    <!-- SEO -->
-    <title>🔥 (HOJE) 70% OFF: Cupons de Desconto Verificados | MegaCupons</title>
-    <meta name="description" content="Economize AGORA! Pegue cupons de desconto 100% grátis e verificados para Magazine Luiza, Amazon e mais. Ofertas expiram em 24h. Use já!">
-    <meta name="keywords" content="cupons de desconto, cupom, ofertas, promoção, economizar, magazine luiza, amazon, americanas, frete grátis, mega cupons">
+<title>🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons</title>
+    <meta name="description" content="Economize AGORA! Pegue cupons, ofertas de produtos e campanhas 100% grátis para Magazine Luiza, Amazon e mais. Ofertas reais, atualizadas agora.">
+    <meta name="keywords" content="cupons de desconto, ofertas, lojas, produtos, campanhas, adsense, promoção, economizar, magazine luiza, amazon, americanas, frete grátis, mega cupons">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="🔥 (HOJE) 70% OFF: Cupons de Desconto Verificados | MegaCupons">
-    <meta property="og:description" content="Economize AGORA! Ofertas que expiram em 24h. Use já!">
+    
+
+<meta property="og:title" content="🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons">
+    <meta property="og:description" content="Economize AGORA! Ofertas reais que expiram em breve.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.megacupons.com.br">
     <meta property="og:image" content="https://placehold.co/1200x630/FF3B80/FFFFFF?text=MegaCupons&font=inter">
     
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    
 
-    <!-- CDNs -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+    
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Schema.org -->
-    <script type="application/ld+json">
+    
+
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "MegaCupons",
       "url": "https://www.megacupons.com.br",
-      "description": "Cupons de desconto verificados para as maiores lojas do Brasil."
+      "description": "Cupons de desconto, ofertas de produtos e campanhas reais e verificadas."
     }
     </script>
 
-    <!-- CSS -->
-    <style>
+    
+<script src="https://secure.lomadee.com.br/global/pixel.js" async></script>
+    
+
+    
+
+<style>
         :root {
             --color-primary: #FF3B80;
             --color-secondary: #00BFA6;
@@ -58,6 +66,7 @@
             background-color: var(--color-background);
             color: var(--color-text-primary);
             line-height: 1.6;
+            padding-bottom: 100px; 
         }
         img { max-width: 100%; height: auto; display: block; }
         .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
@@ -73,6 +82,15 @@
             white-space: nowrap;
             border-width: 0;
         }
+        
+        /* Título de Seção Padrão */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
 
         /* Animações */
         @keyframes pulse {
@@ -89,7 +107,7 @@
         .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
         .header .container { 
             display: flex; 
-            justify-content: center; /* Logo Centralizado */
+            justify-content: center;
             align-items: center; 
             gap: 10px; 
         }
@@ -115,12 +133,11 @@
         .proof-item strong { color: var(--color-text-primary); }
         .proof-item .fa-star { color: var(--color-warning); }
 
-        /* Lojas em Destaque */
+        /* Lojas em Destaque (Estático) */
         .featured-stores-section { padding: 40px 0; background-color: var(--color-surface); }
         .featured-stores-section h2 { font-size: 1.8rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
         .stores-grid { 
             display: grid; 
-            /* Ajuste para 2 colunas em mobile e 3 em tablet */
             grid-template-columns: repeat(2, 1fr);
             gap: 20px; 
             justify-items: center;
@@ -139,51 +156,158 @@
             border: 3px solid var(--color-primary);
             overflow: hidden;
         }
-        .store-item img { width: 70%; height: auto; object-fit: contain; }
+        .store-item img { 
+            width: 70%; 
+            height: auto; 
+            object-fit: contain; 
+        }
         .store-item p { font-size: 0.9rem; font-weight: 700; text-align: center; }
 
-        /* Barra de Filtros */
-        .filter-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding: 20px;
+        /* Link para "Ver Todas as Lojas" */
+        .view-all-link-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .view-all-cta {
+            display: inline-block;
+            padding: 12px 25px;
             background-color: var(--color-surface);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
             border-radius: 8px;
-        }
-        .filter-group {
-            flex: 1 1 200px;
-            display: flex;
-            flex-direction: column;
-        }
-        .filter-group label {
-            font-size: 0.9rem;
             font-weight: 700;
-            color: var(--color-text-secondary);
-            margin-bottom: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        .filter-group select {
-            background-color: #333;
+        .view-all-cta:hover {
+            background-color: var(--color-primary);
             color: var(--color-text-primary);
-            border: 1px solid #555;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 1rem;
-            font-family: var(--font-main);
-            font-weight: 700;
-            cursor: pointer;
         }
-        .filter-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 2px var(--color-primary);
+        .view-all-cta i {
+            margin-left: 8px;
         }
 
-        /* Seção de Ofertas */
-        .offers-section { padding: 40px 0; }
-        .offers-section h2.section-title { font-size: 2rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
-        .coupons-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+
+        /* Espaços de Anúncio */
+        .ad-space {
+            width: 100%;
+            max-width: 970px;
+            min-height: 100px;
+            background-color: var(--color-surface);
+            border: 2px dashed var(--color-warning);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 30px auto;
+            padding: 10px;
+        }
+        .ad-space h4 {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .ad-space p {
+            font-size: 0.8rem;
+            color: var(--color-warning);
+            text-align: center;
+        }
+
+        /* Seção de Campanhas */
+        .campaigns-section {
+            padding: 40px 0;
+            background-color: var(--color-background);
+        }
+        .campaigns-grid {
+            display: flex;
+            overflow-x: auto; 
+            gap: 15px;
+            padding-bottom: 20px; 
+            scrollbar-color: var(--color-primary) var(--color-surface);
+            scrollbar-width: thin;
+        }
+        .campaign-card {
+            flex: 0 0 280px; 
+            background-color: var(--color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--color-text-primary);
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+        .campaign-card:hover {
+            transform: scale(1.03);
+        }
+        .campaign-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-primary);
+        }
+        .campaign-card-content {
+            padding: 15px;
+        }
+        .campaign-card-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .campaign-card-content p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        
+        /* Seção de Ofertas (Cupons e Produtos) */
+        .offers-section, .products-section { padding: 40px 0; }
+        
+        /* Loading Spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 8px solid var(--color-surface);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            margin: 40px auto;
+            animation: spin 1s linear infinite;
+            display: block; /* Começa visível */
+        }
+        
+        /* Mensagem de Erro API */
+        .api-error {
+            display: none;
+            background-color: var(--color-surface);
+            border: 2px solid var(--color-warning);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .api-error h3 {
+            color: var(--color-warning);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .api-error p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Grid de Cupons e Produtos */
+        .coupons-grid, .products-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 25px; 
+            min-height: 200px;
+        }
 
         /* Card de Cupom */
         .coupon-card { 
@@ -198,7 +322,11 @@
         }
         .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
         .card-logo { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; border: 1px solid #444; display: flex; justify-content: center; align-items: center; background-color: #fff; flex-shrink: 0; }
-        .card-logo img { width: 80%; height: auto; object-fit: contain; }
+        .card-logo img { 
+            width: 80%;
+            height: auto; 
+            object-fit: contain; 
+        }
         .card-info { flex-grow: 1; }
         .card-discount { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); line-height: 1.1; margin-bottom: 5px; }
         .card-title { font-size: 1.1rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 10px; }
@@ -226,7 +354,6 @@
         .coupon-cta.copied { 
             background-color: var(--color-secondary); 
             font-weight: 900; 
-            pointer-events: none;
         }
 
         .badge { 
@@ -244,23 +371,182 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
             text-transform: uppercase; 
         }
-        .badge-scarcity { background-color: var(--color-warning); color: #000; }
-        .badge-novelty { background-color: var(--color-primary); color: var(--color-text-primary); }
+        
+        /* Card de Produto */
+        .product-card {
+            background-color: var(--color-surface);
+            border-radius: 12px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .product-card .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+        .product-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+        .product-card-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 2.4em;
+        }
+        .product-store {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 15px;
+        }
+        .product-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+        }
+        .product-cta {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--color-secondary);
+            color: var(--color-text-primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: auto; 
+            transition: background-color 0.3s ease;
+        }
+        .product-cta:hover {
+            background-color: #00a08c;
+        }
+
+        /* Card de Anúncio (In-Feed) */
+        .ad-card {
+            background-color: var(--color-surface);
+            border: 2px dashed var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            min-height: 400px;
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+        .ad-card h4 {
+            font-size: 1.2rem;
+            color: var(--color-text-primary);
+            margin-bottom: 10px;
+        }
+        .ad-card p {
+            font-size: 0.9rem;
+            color: var(--color-warning);
+        }
+        .ad-card .ad-placeholder-box {
+            width: 300px;
+            height: 250px;
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-weight: 900;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
 
         /* Footer */
         .footer { background-color: var(--color-surface); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333; }
         .footer p { color: var(--color-text-secondary); font-size: 0.9rem; }
         .footer p:first-child { font-weight: 700; color: var(--color-text-primary); margin-bottom: 5px; }
 
+        /* Banner de Cookies */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-surface);
+            border-top: 2px solid var(--color-primary);
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+        #cookie-consent-banner.show {
+            transform: translateY(0);
+        }
+        #cookie-consent-banner p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin: 0 0 15px 0;
+        }
+        #cookie-consent-banner p a {
+            color: var(--color-primary);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        #accept-cookies {
+            background-color: var(--color-primary);
+            color: var(--color-text-primary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        #accept-cookies:hover {
+            background-color: #e03070;
+        }
+
         /* Media Queries */
         @media (min-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
-            .coupons-grid { grid-template-columns: 1fr 1fr; }
-            .stores-grid { grid-template-columns: repeat(3, 1fr); } /* 3 colunas em tablet */
+            .coupons-grid, .products-grid { grid-template-columns: 1fr 1fr; }
+            .stores-grid { grid-template-columns: repeat(3, 1fr); }
+
+            #cookie-consent-banner {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+            }
+            #cookie-consent-banner p {
+                margin: 0 20px 0 0;
+                flex-grow: 1; 
+            }
+            #accept-cookies {
+                width: auto;
+                flex-shrink: 0;
+            }
         }
         @media (min-width: 1024px) {
-            .coupons-grid { grid-template-columns: 1fr 1fr 1fr; }
-            .stores-grid { grid-template-columns: repeat(6, 1fr); } /* MUDANÇA: 6 colunas em desktop */
+            .coupons-grid, .products-grid { grid-template-columns: 1fr 1fr 1fr; }
+            .stores-grid { grid-template-columns: repeat(6, 1fr); }
         }
     </style>
 </head>
@@ -268,15 +554,17 @@
 
     <header class="header">
         <div class="container">
-            <a href="#" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
+            <a href="index.html" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        
+
+<section class="hero">
             <div class="container">
                 <h1>Sua Economia Começa <span style="color: var(--color-primary);">AGORA!</span> <i class="fa-solid fa-bolt-lightning"></i></h1>
-                <p class="hero-subtitle">Ofertas imperdíveis que VÃO acabar. Não perca tempo.</p>
+                <p class="hero-subtitle">Cupons, Ofertas e Campanhas reais, verificados e atualizados.</p>
                 <div class="countdown">
                     <h3 class="countdown-title">⚡ Ofertas Relâmpago terminam em:</h3>
                     <div class="countdown-timer" id="timer">
@@ -288,226 +576,130 @@
             </div>
         </section>
 
-        <section class="social-proof">
+        
+
+<section class="social-proof">
             <div class="container">
-                <div class="proof-item"><i class="fa-solid fa-users"></i><p><strong>+15.480</strong> pessoas usaram hoje</p></div>
-                <div class="proof-item"><i class="fa-solid fa-star"></i><p><strong>4.9/5</strong> (48.2k avaliações)</p></div>
-                <div class="proof-item"><i class="fa-solid fa-shield-halved"></i><p>Verificados há <strong>20 min</strong></p></div>
+                <div class="proof-item">
+                    <i class="fa-solid fa-users"></i>
+                    <p><strong>+15.480</strong> pessoas usaram hoje</p>
+                </div>
+                <div class="proof-item">
+                    <i class="fa-solid fa-tags"></i>
+                    <p><strong><span id="dynamic-coupon-count">...</span></strong> cupons ativos agora</p>
+                </div>
+                <div class="proof-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Cupons <strong>100% Verificados</strong></p>
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO "LOJAS EM DESTAQUE" ATUALIZADA -->
-        <section class="featured-stores-section">
+        
+
+<div class="container">
+            <div class="ad-space" id="ad-slot-top">
+                <div>
+                    <h4>Espaço Publicitário (Leaderboard)</h4>
+                    <p>(Cole seu código de anúncio 728x90 ou 970x90 aqui)</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+<section class="featured-stores-section">
             <div class="container">
                 <h2><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Lojas em Destaque</h2>
                 <div class="stores-grid">
                     <a href="#lomadee-link-magalu-destaque" target="_blank" class="store-item" title="Cupons Magazine Luiza">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Magalu&font=inter" alt="Logo Magazine Luiza"></figure>
+                        <figure><img src="https://logo.clearbit.com/magazineluiza.com.br" alt="Logo Magazine Luiza" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/E60014?text=Magalu&font=inter';"></figure>
                         <p>Magazine Luiza</p>
                     </a>
                     <a href="#lomadee-link-amazon-destaque" target="_blank" class="store-item" title="Cupons Amazon">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter" alt="Logo Amazon"></figure>
+                        <figure><img src="https://logo.clearbit.com/amazon.com.br" alt="Logo Amazon" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter';"></figure>
                         <p>Amazon</p>
                     </a>
                     <a href="#lomadee-link-americanas-destaque" target="_blank" class="store-item" title="Cupons Americanas">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Americanas&font=inter" alt="Logo Americanas"></figure>
+                        <figure><img src="https://logo.clearbit.com/americanas.com.br" alt="Logo Americanas" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/B20000?text=Americ.&font=inter';"></figure>
                         <p>Americanas</p>
                     </a>
                     <a href="#lomadee-link-netshoes-destaque" target="_blank" class="store-item" title="Cupons Netshoes">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Netshoes&font=inter" alt="Logo Netshoes"></figure>
+                        <figure><img src="https://logo.clearbit.com/netshoes.com.br" alt="Logo Netshoes" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00A3E0?text=Netshoes&font=inter';"></figure>
                         <p>Netshoes</p>
                     </a>
-                    <!-- NOVO ITEM -->
                     <a href="#lomadee-link-casasbahia-destaque" target="_blank" class="store-item" title="Cupons Casas Bahia">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=Casas+Bahia&font=inter" alt="Logo Casas Bahia"></figure>
+                        <figure><img src="https://logo.clearbit.com/casasbahia.com.br" alt="Logo Casas Bahia" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00439C?text=Casas+Bahia&font=inter';"></figure>
                         <p>Casas Bahia</p>
                     </a>
-                    <!-- NOVO ITEM -->
                     <a href="#lomadee-link-ifood-destaque" target="_blank" class="store-item" title="Cupons iFood">
-                        <figure><img src="https://placehold.co/80x80/FFFFFF/000000?text=iFood&font=inter" alt="Logo iFood"></figure>
+                        <figure><img src="https://logo.clearbit.com/ifood.com.br" alt="Logo iFood" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/EA1D2C?text=iFood&font=inter';"></figure>
                         <p>iFood</p>
                     </a>
                 </div>
+                
+                <div class="view-all-link-container">
+                    <a href="stores.html" class="view-all-cta">
+                        Ver Todas as Lojas Parceiras <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
             </div>
         </section>
 
-        <section class="offers-section">
+        
+<section class="campaigns-section">
             <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-fire" style="color: var(--color-primary);"></i> Top Cupons (EXPIRAM HOJE)</h2>
-
-                <!-- Barra de Filtros -->
-                <div class="filter-bar">
-                    <div class="filter-group">
-                        <label for="filter-store">Por Loja:</label>
-                        <select id="filter-store">
-                            <option value="all">Todas as Lojas</option>
-                            <option value="magalu">Magazine Luiza</option>
-                            <option value="amazon">Amazon</option>
-                            <option value="americanas">Americanas</option>
-                            <option value="casasbahia">Casas Bahia</option>
-                            <option value="netshoes">Netshoes</option>
-                            <option value="ponto">Ponto</option>
-                            <option value="boticario">O Boticário</option>
-                            <option value="sephora">Sephora</option>
-                            <option value="centauro">Centauro</option>
-                            <option value="ifood">iFood</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter-type">Por Tipo de Desconto:</label>
-                        <select id="filter-type">
-                            <option value="all">Todos os Tipos</option>
-                            <option value="percent">Porcentagem (%)</option>
-                            <option value="cash">Dinheiro (R$)</option>
-                            <option value="shipping">Frete Grátis</option>
-                            <option value="offer">Oferta (Leve/Pague)</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter-category">Por Categoria:</label>
-                        <select id="filter-category">
-                            <option value="all">Todas as Categorias</option>
-                            <option value="eletronicos">Eletrônicos</option>
-                            <option value="livros">Livros</option>
-                            <option value="geral">Geral</option>
-                            <option value="moveis">Móveis</option>
-                            <option value="moda">Moda e Esporte</option>
-                            <option value="beleza">Beleza</option>
-                            <option value="comida">Comida</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Grade de Cupons -->
-                <div class="coupons-grid">
-
-                    <article class="coupon-card hover-lift pulse-animation" data-store="magalu" data-type="percent" data-category="eletronicos">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Magalu&font=inter" alt="Logo Magazine Luiza"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">-70% OFF</div>
-                                <h3 class="card-title">TODA a seção de Eletrônicos</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira hoje!</p>
-                            </div>
-                        </div>
-                        <div class="badge badge-novelty">Relâmpago!</div>
-                        <a href="#lomadee-link-1" target="_blank" class="coupon-cta" data-code="MAGALU70">Revelar Cupom</a>
-                    </article>
-
-                    <article class="coupon-card hover-lift" data-store="amazon" data-type="percent" data-category="livros">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter" alt="Logo Amazon"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">-50% + Frete</div>
-                                <h3 class="card-title">Livros e eBooks + Frete Grátis</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Últimas 48 horas</p>
-                            </div>
-                        </div>
-                        <div class="badge badge-scarcity">Só 15</div>
-                        <a href="#lomadee-link-2" target="_blank" class="coupon-cta" data-code="AMZ50OFF">Revelar Cupom</a>
-                    </article>
+                <h2 class="section-title"><i class="fa-solid fa-bullhorn" style="color: var(--color-warning);"></i> Campanhas Ativas</h2>
+                <div class="loading-spinner" id="campaigns-loading"></div>
+                <div class="api-error" id="campaigns-error"></div>
+                <div class="campaigns-grid" id="campaigns-grid">
                     
-                    <article class="coupon-card hover-lift" data-store="americanas" data-type="cash" data-category="geral">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Americanas&font=inter" alt="Logo Americanas"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">R$100 OFF</div>
-                                <h3 class="card-title">Em compras acima de R$1000</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira em 3 dias</p>
-                            </div>
-                        </div>
-                        <a href="#lomadee-link-3" target="_blank" class="coupon-cta" data-code="PEGA100">Revelar Cupom</a>
-                    </article>
-
-                    <article class="coupon-card hover-lift" data-store="casasbahia" data-type="percent" data-category="moveis">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Casas+Bahia&font=inter" alt="Logo Casas Bahia"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">-20% OFF</div>
-                                <h3 class="card-title">Móveis e Eletrodomésticos</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Só este FDS!</p>
-                            </div>
-                        </div>
-                        <a href="#lomadee-link-4" target="_blank" class="coupon-cta" data-code="BAHIA20">Revelar Cupom</a>
-                    </article>
-                    
-                    <article class="coupon-card hover-lift" data-store="netshoes" data-type="percent" data-category="moda">
-                        <div class="card-header">
-                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Netshoes&font=inter" alt="Logo Netshoes"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">15% OFF</div>
-                                <h3 class="card-title">Tênis de todas as marcas</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Expira amanhã!</p>
-                            </div>
-                        </div>
-                        <div class="badge badge-scarcity">QUASE LÁ</div>
-                        <a href="#lomadee-link-5" target="_blank" class="coupon-cta" data-code="TENIS15">Revelar Cupom</a>
-                    </article>
-
-                    <article class="coupon-card hover-lift" data-store="ponto" data-type="cash" data-category="eletronicos">
-                         <div class="card-header">
-                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Ponto&font=inter" alt="Logo Ponto"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">R$50 OFF</div>
-                                <h3 class="card-title">Smartphones selecionados</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Último dia!</p>
-                            </div>
-                        </div>
-                        <div class="badge badge-novelty">NOVO!</div>
-                        <a href="#lomadee-link-6" target="_blank" class="coupon-cta" data-code="PONTO50">Revelar Cupom</a>
-                    </article>
-                    
-                    <article class="coupon-card hover-lift" data-store="boticario" data-type="offer" data-category="beleza">
-                        <div class="card-header">
-                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=O+Boticário&font=inter" alt="Logo O Boticário"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">3 por 2</div>
-                                <h3 class="card-title">Leve 3 pague 2 em perfumes</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Até sexta-feira</p>
-                            </div>
-                        </div>
-                        <a href="#lomadee-link-7" target="_blank" class="coupon-cta" data-code="BOTI3P2">Revelar Cupom</a>
-                    </article>
-
-                    <article class="coupon-card hover-lift" data-store="sephora" data-type="shipping" data-category="beleza">
-                         <div class="card-header">
-                             <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Sephora&font=inter" alt="Logo Sephora"></figure>
-                            <div class="card-info">
-                                <div class="card-discount">FRETE GRÁTIS</div>
-                                <h3 class="card-title">Em todo o site acima de R$199</h3>
-                                <p class="card-validity"><i class="fa-solid fa-clock"></i> Tempo limitado!</p>
-                            </div>
-                        </div>
-                        <a href="#lomadee-link-8" target="_blank" class="coupon-cta" data-code="NOCODE">Ir para a Oferta</a>
-                    </article>
-                    
-                    <article class="coupon-card hover-lift" data-store="centauro" data-type="percent" data-category="moda">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=Centauro&font=inter" alt="Logo Centauro"></figure>
-                           <div class="card-info">
-                               <div class="card-discount">25% OFF</div>
-                               <h3 class="card-title">Roupas e artigos esportivos</h3>
-                               <p class="card-validity"><i class="fa-solid fa-clock"></i> Só hoje!</p>
-                           </div>
-                       </div>
-                       <div class="badge badge-scarcity">ÚLTIMOS</div>
-                       <a href="#lomadee-link-9" target="_blank" class="coupon-cta" data-code="SPORT25">Revelar Cupom</a>
-                   </article>
-
-                    <article class="coupon-card hover-lift" data-store="ifood" data-type="cash" data-category="comida">
-                        <div class="card-header">
-                            <figure class="card-logo"><img src="https://placehold.co/80x80/FFFFFF/000000?text=iFood&font=inter" alt="Logo iFood"></figure>
-                           <div class="card-info">
-                               <div class="card-discount">R$10 OFF</div>
-                               <h3 class="card-title">Primeiro pedido no restaurante</h3>
-                               <p class="card-validity"><i class="fa-solid fa-clock"></i> Válido 1 por usuário</p>
-                           </div>
-                       </div>
-                       <a href="#lomadee-link-10" target="_blank" class="coupon-cta" data-code="IFOOD10">Revelar Cupom</a>
-                   </article>
                 </div>
             </div>
         </section>
+
+        
+
+<section class="offers-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-fire" style="color: var(--color-primary);"></i> Top Cupons Verificados</h2>
+
+                <div class="loading-spinner" id="coupons-loading"></div>
+                <div class="api-error" id="coupons-error"></div>
+
+                
+
+<div class="coupons-grid" id="coupons-grid">
+                    
+
+</div>
+            </div>
+        </section>
+
+        
+<section class="products-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-bag-shopping" style="color: var(--color-secondary);"></i> Ofertas de Produtos</h2>
+                <div class="loading-spinner" id="products-loading"></div>
+                <div class="api-error" id="products-error"></div>
+                <div class="products-grid" id="products-grid">
+                    
+                </div>
+            </div>
+        </section>
+
+        
+
+<div class="container">
+            <div class="ad-space" id="ad-slot-bottom">
+                 <div>
+                    <h4>Espaço Publicitário (Leaderboard)</h4>
+                    <p>(Cole seu código de anúncio 728x90 ou 970x90 aqui)</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -517,30 +709,393 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
+    
+<div id="cookie-consent-banner">
+    <p>Utilizamos cookies para otimizar sua experiência de navegação. Ao continuar, você concorda com nosso uso de cookies.</p>
+    <button id="accept-cookies">Aceitar e Fechar</button>
+</div>
+
+    
+<!-- 
+  === NOVO PIXEL GLOBAL LOMADEE (Inicialização) ===
+-->
+<script>
+  window.addEventListener("load", function () {
+    if (window.LomadeeGlobalPixel) {
+      window.lomadeePixel = new LomadeeGlobalPixel();
+      console.log("Lomadee Global Pixel initialized successfully");
+    } else {
+      console.error("Error: Lomadee Global Pixel failed to load");
+    }
+  });
+</script>
+
+<script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            /**
-             * FUNCIONALIDADE 1: Ano Automático no Footer
-             */
+            // --- ETAPA 1: CONFIGURAÇÃO DA NOVA API ---
+            
+            // API_KEY: Usado para AUTENTICAR a chamada da API (Header)
+            const API_KEY = "Bi077WkkupHu_CYPN2teoDZg-0wwJV--"; 
+            
+            // API Base URL (Nova API Beta)
+            const API_BASE_URL = "https://api-beta.lomadee.com.br/affiliate";
+            
+            // Headers Padrão para a nova API
+            const HEADERS = {
+                'x-api-key': API_KEY
+            };
+            
+            // --- FIM DA CONFIGURAÇÃO ---
+
+
+            // --- Elementos do DOM ---
+            const couponsGrid = document.getElementById('coupons-grid');
+            const couponsLoading = document.getElementById('coupons-loading');
+            const couponsError = document.getElementById('coupons-error');
+            
+            const campaignsGrid = document.getElementById('campaigns-grid');
+            const campaignsLoading = document.getElementById('campaigns-loading');
+            const campaignsError = document.getElementById('campaigns-error');
+            
+            const productsGrid = document.getElementById('products-grid');
+            const productsLoading = document.getElementById('products-loading');
+            const productsError = document.getElementById('products-error');
+            
+            const countEl = document.getElementById('dynamic-coupon-count');
             const yearEl = document.getElementById('current-year');
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptButton = document.getElementById('accept-cookies');
+
+
+            /**
+             * Função Principal: Carrega todos os dados da API
+             */
+            async function loadAllData() {
+                
+                // Validação da API Key
+                if (API_KEY.startsWith('[')) {
+                    console.error("ERRO: Insira sua 'x-api-key' para a API funcionar.");
+                    showApiError('coupons', true); // Mostra erro de config
+                    showApiError('campaigns', true);
+                    showApiError('products', true);
+                    return;
+                }
+                
+                // Validação do Pixel
+                if (typeof LomadeeGlobalPixel === 'function') {
+                    console.log('Pixel Lomadee (base.js) detectado e pronto para rastreamento automático.');
+                }
+                
+                // Carrega tudo (exceto Lojas)
+                loadCampaigns();
+                loadCoupons();
+                loadProducts();
             }
 
             /**
-             * FUNCIONALIDADE 2: Contador Regressivo (Gatilho de Urgência)
+             * Carrega Cupons (Nova API: /affiliate/coupons)
+             */
+            async function loadCoupons() {
+                if (couponsLoading) couponsLoading.style.display = 'block';
+                if (couponsError) couponsError.style.display = 'none';
+
+                const apiUrl = `${API_BASE_URL}/coupons?limit=20&page=1`;
+
+                try {
+                    const response = await fetch(apiUrl, { headers: HEADERS });
+                    if (!response.ok) throw new Error(`Status: ${response.status} - Verifique x-api-key.`);
+                    
+                    const data = await response.json();
+                    if (data.data && data.data.length > 0) {
+                        generateCouponCards(data.data);
+                        if (countEl && data.meta && data.meta.total) {
+                            countEl.textContent = data.meta.total;
+                        }
+                    } else {
+                        showApiError('coupons', false, "Nenhum cupom encontrado hoje.");
+                    }
+                } catch (error) {
+                    console.error("Falha ao buscar cupons:", error);
+                    showApiError('coupons', false);
+                } finally {
+                    if (couponsLoading) couponsLoading.style.display = 'none';
+                }
+            }
+
+            /**
+             * Carrega Campanhas (Nova API: /affiliate/campaigns)
+             */
+            async function loadCampaigns() {
+                if (campaignsLoading) campaignsLoading.style.display = 'block';
+                if (campaignsError) campaignsError.style.display = 'none';
+
+                const apiUrl = `${API_BASE_URL}/campaigns?limit=10`;
+
+                try {
+                    const response = await fetch(apiUrl, { headers: HEADERS });
+                    if (!response.ok) throw new Error(`Status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    if (data.data && data.data.length > 0) {
+                        generateCampaignCards(data.data);
+                    } else {
+                        showApiError('campaigns', false, "Nenhuma campanha ativa no momento.");
+                    }
+                } catch (error) {
+                    console.error("Falha ao buscar campanhas:", error);
+                    showApiError('campaigns', false);
+                } finally {
+                    if (campaignsLoading) campaignsLoading.style.display = 'none';
+                }
+            }
+
+             /**
+             * Carrega Produtos (Nova API: /affiliate/products)
+             */
+            async function loadProducts() {
+                if (productsLoading) productsLoading.style.display = 'block';
+                if (productsError) productsError.style.display = 'none';
+
+                const apiUrl = `${API_BASE_URL}/products?search=oferta&limit=9`;
+
+                try {
+                    const response = await fetch(apiUrl, { headers: HEADERS });
+                    if (!response.ok) throw new Error(`Status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    if (data.data && data.data.length > 0) {
+                        generateProductCards(data.data);
+                    } else {
+                        showApiError('products', false, "Nenhum produto em oferta encontrado.");
+                    }
+                } catch (error) {
+                    console.error("Falha ao buscar produtos:", error);
+                    showApiError('products', false);
+                } finally {
+                    if (productsLoading) productsLoading.style.display = 'none';
+                }
+            }
+
+
+            /**
+             * Gera os cards de CUPOM
+             */
+            function generateCouponCards(coupons) {
+                if (!couponsGrid) return;
+                couponsGrid.innerHTML = ''; 
+
+                coupons.forEach((coupon, index) => {
+                    const store = coupon.store;
+                    let fallbackDomain = 'store.com'; 
+                    try {
+                        if (store.link) { 
+                            fallbackDomain = new URL(store.link).hostname.replace('www.','');
+                        } else {
+                            fallbackDomain = `${store.name.split(' ')[0].toLowerCase()}.com`;
+                        }
+                    } catch (e) {
+                        fallbackDomain = `${store.name.split(' ')[0].toLowerCase()}.com`;
+                    }
+
+                    const logoApi = store.thumbnail;
+                    const logoCdn = `https://logo.clearbit.com/${fallbackDomain}`;
+                    const logoPlaceholder = `https://placehold.co/80x80/FFFFFF/000000?text=${store.name.split(' ')[0]}&font=inter`;
+                    let finalLogoSrc = logoApi || logoCdn; 
+
+                    const affiliateLink = coupon.link; 
+
+                    const cardHTML = `
+                        <article class="coupon-card hover-lift">
+                            <div class="card-header">
+                                <figure class="card-logo">
+                                    <img src="${finalLogoSrc}" alt="Logo ${store.name}" 
+                                         onerror="this.onerror=null; this.src='${logoPlaceholder}';">
+                                </figure>
+                                <div class="card-info">
+                                    <div class="card-discount">${coupon.discount > 0 ? `${Math.floor(coupon.discount)}% OFF` : 'VER OFERTA'}</div>
+                                    <h3 class="card-title">${coupon.description || coupon.name}</h3>
+                                    <p class="card-validity">
+                                        <i class="fa-solid fa-clock"></i> Expira em: ${new Date(coupon.endDate).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="${affiliateLink}" target="_blank" class="coupon-cta" 
+                               data-code="${coupon.code || 'NOCODE'}">
+                                ${coupon.code ? 'Revelar Cupom' : 'Ir para Oferta'}
+                            </a>
+                        </article>
+                    `;
+                    couponsGrid.innerHTML += cardHTML;
+
+                    if ((index + 1) % 4 === 0) {
+                        couponsGrid.innerHTML += getAdCardHTML('coupon');
+                    }
+                });
+            }
+
+            /**
+             * Gera os cards de CAMPANHA
+             */
+            function generateCampaignCards(campaigns) {
+                if (!campaignsGrid) return;
+                campaignsGrid.innerHTML = '';
+                campaigns.forEach(campaign => {
+                    const affiliateLink = campaign.link;
+                    
+                    const cardHTML = `
+                        <a href="${affiliateLink}" target="_blank" class="campaign-card" title="${campaign.name}">
+                            <img src="${campaign.thumbnail}" alt="${campaign.name}" onerror="this.onerror=null;this.src='https://placehold.co/280x150/FF3B80/FFFFFF?text=Campanha&font=inter';">
+                            <div class="campaign-card-content">
+                                <h4>${campaign.name}</h4>
+                                <p>Clique e aproveite!</p>
+                            </div>
+                        </a>
+                    `;
+                    campaignsGrid.innerHTML += cardHTML;
+                });
+            }
+
+             /**
+             * Gera os cards de PRODUTO
+             */
+            function generateProductCards(products) {
+                if (!productsGrid) return;
+                productsGrid.innerHTML = '';
+                products.forEach((product, index) => {
+                    const priceFormatted = product.price.value ? product.price.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'Ver Preço';
+                    const thumbnail = product.thumbnail.url;
+                    const affiliateLink = product.link;
+                    
+                    const cardHTML = `
+                        <article class="product-card hover-lift">
+                            <img src="${thumbnail}" alt="${product.name}" class="product-image" onerror="this.onerror=null;this.src='https://placehold.co/300x300/1E1E1E/FFFFFF?text=Produto&font=inter';">
+                            <div class="product-card-content">
+                                <h4>${product.name}</h4>
+                                <p class="product-store">Vendido por: ${product.store.name}</p>
+                                <p class="product-price">${priceFormatted}</p>
+                                <a href="${affiliateLink}" target="_blank" class="product-cta">
+                                    Ver Oferta <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    `;
+                    productsGrid.innerHTML += cardHTML;
+
+                    if ((index + 1) % 4 === 0) {
+                        productsGrid.innerHTML += getAdCardHTML('product');
+                    }
+                });
+            }
+
+            /**
+             * Retorna HTML do card de anúncio
+             */
+            function getAdCardHTML(type) {
+                return `
+                    <article class="ad-card" id="ad-infeed-${type}">
+                        <h4>Espaço Publicitário</h4>
+                        <div class="ad-placeholder-box">300 x 250</div>
+                        <p>(Google AdSense ou Afiliado Direto)</p>
+                    </article>
+                `;
+            }
+
+            /**
+             * Exibe a mensagem de erro e carrega cupons estáticos de fallback
+             */
+            function showApiError(section = 'coupons', isConfigError = false, customMessage = "") {
+                let errorElement;
+                if (section === 'coupons') errorElement = couponsError;
+                if (section === 'campaigns') errorElement = campaignsError;
+                if (section === 'products') errorElement = productsError;
+                
+                if (!errorElement) return;
+                errorElement.style.display = 'block';
+                
+                if (isConfigError) {
+                    errorElement.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Site não configurado!</h3>
+                                              <p>Por favor, insira sua <b>x-api-key</b> da Lomadee no arquivo JS para o site funcionar.</p>`;
+                } else if (customMessage) {
+                     errorElement.innerHTML = `<h3><i class="fa-solid fa-face-sad-tear"></i> ${customMessage}</h3>`;
+                } else {
+                    errorElement.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Ofertas indisponíveis.</h3>
+                                              <p>A conexão com a central de ofertas falhou (Verifique sua <b>x-api-key</b>). Tente novamente em minutos.</p>`;
+                }
+
+                if (section === 'coupons' && !isConfigError) {
+                    const fallbackCoupons = [
+                        { store: { id: 1, name: 'Magazine Luiza', link: 'https://magazineluiza.com.br', thumbnail: 'https://logo.clearbit.com/magazineluiza.com.br' }, discount: 10, name: '10% OFF em Celulares Selecionados', endDate: new Date(Date.now() + 86400000 * 2).toISOString(), code: 'MAGALU10', link: '#fallback-link-1' },
+                        { store: { id: 2, name: 'Amazon', link: 'https://amazon.com.br', thumbnail: 'https://logo.clearbit.com/amazon.com.br' }, discount: 50, name: 'R$ 50 OFF em Livros (acima de R$150)', endDate: new Date(Date.now() + 86400000 * 3).toISOString(), code: 'AMZ50', link: '#fallback-link-2' }
+                    ];
+                    generateCouponCards(fallbackCoupons); 
+                }
+            }
+
+
+            /**
+             * FUNCIONALIDADE (Clique em Cupom): Copiar + Redirecionar
+             */
+            function setupCouponClickListeners() {
+                if (!couponsGrid) return; 
+
+                couponsGrid.addEventListener('click', (e) => {
+                    const ctaButton = e.target.closest('.coupon-cta');
+                    if (!ctaButton) return;
+                    
+                    // Lógica do Pixel 'visitstore' REMOVIDA
+                    
+                    if (ctaButton.classList.contains('copied')) return; 
+                    
+                    const couponCode = ctaButton.dataset.code;
+                    const originalText = ctaButton.textContent;
+
+                    if (couponCode === "NOCODE") {
+                        ctaButton.textContent = '✅ OFERTA ATIVADA';
+                        ctaButton.classList.add('copied');
+                        return; 
+                    }
+                    
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = couponCode;
+                    tempTextarea.style.position = 'absolute';
+                    tempTextarea.style.left = '-9999px';
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        ctaButton.textContent = '✅ COPIADO!';
+                        ctaButton.classList.add('copied');
+                        setTimeout(() => {
+                            ctaButton.textContent = `CÓDIGO: ${couponCode}`;
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Falha ao copiar o cupom: ', err);
+                        ctaButton.textContent = 'Erro ao Copiar';
+                         setTimeout(() => { ctaButton.textContent = originalText; }, 2000);
+                    }
+                    document.body.removeChild(tempTextarea);
+                });
+            }
+
+            /**
+             * FUNCIONALIDADE (Clique em Produto): (Lógica do Pixel removida)
+             */
+             function setupProductClickListeners() {
+                // Nenhuma lógica de JS necessária aqui, o <a> cuida do clique
+                // e o Pixel (base.js) cuida do rastreamento automático.
+             }
+
+            /**
+             * FUNCIONALIDADE (Contador Regressivo)
              */
             function startCountdown() {
                 const hoursEl = document.getElementById('hours');
                 const minutesEl = document.getElementById('minutes');
                 const secondsEl = document.getElementById('seconds');
 
-                if (!hoursEl || !minutesEl || !secondsEl) {
-                    console.error("Elementos do contador não encontrados.");
-                    return;
-                }
+                if (!hoursEl || !minutesEl || !secondsEl) return;
 
                 let endTime = localStorage.getItem('countdownEndTime');
                 
@@ -559,101 +1114,61 @@
                         return;
                     }
 
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                    const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                    const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
 
-                    hoursEl.textContent = String(hours).padStart(2, '0');
-                    minutesEl.textContent = String(minutes).padStart(2, '0');
-                    secondsEl.textContent = String(seconds).padStart(2, '0');
+                    hoursEl.textContent = hours;
+                    minutesEl.textContent = minutes;
+                    secondsEl.textContent = seconds;
                 }
                 
                 updateTimer();
                 setInterval(updateTimer, 1000);
             }
 
+            /**
+             * FUNCIONALIDADE (Ano Automático no Footer)
+             */
+            function updateFooterYear() {
+                if (yearEl) {
+                    yearEl.textContent = new Date().getFullYear();
+                }
+            }
+
+            /**
+             * FUNCIONALIDADE (Banner de Cookies)
+             */
+            function checkCookieConsent() {
+                if (!cookieBanner || !acceptButton) return;
+
+                if (localStorage.getItem('cookiesAccepted') === 'true') {
+                    cookieBanner.style.display = 'none';
+                } else {
+                    setTimeout(() => {
+                        cookieBanner.classList.add('show');
+                    }, 500); 
+                }
+
+                acceptButton.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    cookieBanner.classList.remove('show');
+                    
+                    setTimeout(() => {
+                        cookieBanner.style.display = 'none';
+                    }, 500);
+                });
+            }
+
+
+            // --- INICIALIZAÇÃO DO SITE ---
+            updateFooterYear();
             startCountdown();
+            setupCouponClickListeners();
+            setupProductClickListeners();
+            loadAllData(); // Carrega API
+            checkCookieConsent(); // Verifica o status dos cookies
 
-            /**
-             * FUNCIONALIDADE 3: Copiar Cupom (Integrado com Lomadee)
-             */
-            const couponsGrid = document.querySelector('.coupons-grid');
-            
-            if(couponsGrid) {
-                couponsGrid.addEventListener('click', (e) => {
-                    const ctaButton = e.target.closest('.coupon-cta');
-                    
-                    if (!ctaButton) return;
-
-                    if (ctaButton.classList.contains('copied')) {
-                        e.preventDefault(); 
-                        return;
-                    }
-                    
-                    const couponCode = ctaButton.dataset.code;
-                    const originalText = ctaButton.textContent;
-
-                    if (couponCode === "NOCODE") {
-                        ctaButton.textContent = '✅ OFERTA ATIVADA';
-                        ctaButton.classList.add('copied');
-                        return;
-                    }
-
-                    const tempTextarea = document.createElement('textarea');
-                    tempTextarea.value = couponCode;
-                    tempTextarea.style.position = 'absolute';
-                    tempTextarea.style.left = '-9999px';
-                    
-                    document.body.appendChild(tempTextarea);
-                    tempTextarea.select();
-                    
-                    try {
-                        document.execCommand('copy');
-                        ctaButton.textContent = '✅ COPIADO!';
-                        ctaButton.classList.add('copied');
-                    } catch (err) {
-                        console.error('Falha ao copiar o cupom: ', err);
-                        ctaButton.textContent = 'Erro ao Copiar';
-                         setTimeout(() => { ctaButton.textContent = originalText; }, 2000);
-                    }
-                    
-                    document.body.removeChild(tempTextarea);
-                });
-            }
-
-            /**
-             * FUNCIONALIDADE 4: Lógica de Filtros
-             */
-            const filterStore = document.getElementById('filter-store');
-            const filterType = document.getElementById('filter-type');
-            const filterCategory = document.getElementById('filter-category');
-            const allCouponCards = document.querySelectorAll('.coupons-grid .coupon-card');
-
-            function applyFilters() {
-                const storeValue = filterStore.value;
-                const typeValue = filterType.value;
-                const categoryValue = filterCategory.value;
-
-                allCouponCards.forEach(card => {
-                    const cardStore = card.dataset.store;
-                    const cardType = card.dataset.type;
-                    const cardCategory = card.dataset.category;
-
-                    const showStore = storeValue === 'all' || storeValue === cardStore;
-                    const showType = typeValue === 'all' || typeValue === cardType;
-                    const showCategory = categoryValue === 'all' || categoryValue === cardCategory;
-
-                    if (showStore && showType && showCategory) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            if (filterStore) filterStore.addEventListener('change', applyFilters);
-            if (filterType) filterType.addEventListener('change', applyFilters);
-            if (filterCategory) filterCategory.addEventListener('change', applyFilters);
         });
     </script>
 
