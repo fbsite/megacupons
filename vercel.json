@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         { "src": "public/*", "use": "@vercel/static" },
-        { "src": "api/*", "use": "@vercel/node" }
+        { "src": "api/**", "use": "@vercel/node" }
     ],
     "rewrites": [
         { "source": "/api/cupons", "destination": "/api/cupons.js" },
@@ -10,6 +10,7 @@
         { "source": "/api/campanhas", "destination": "/api/campanhas.js" },
         { "source": "/api/lojas", "destination": "/api/lojas.js" },
         { "source": "/stores", "destination": "/public/stores.html" },
-        { "source": "/", "destination": "/public/index.html" }
+        { "source": "/", "destination": "/public/index.html" },
+        { "source": "/(.*)", "destination": "/public/$1" }
     ]
 }
