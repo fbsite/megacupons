@@ -15,7 +15,7 @@ export default async function handler(request, response) {
         response.setHeader('Access-Control-Allow-Origin', '*');
         response.status(200).json(data);
     } catch (error) {
-        console.error("Erro no proxy /api/produtos:", error);
+        console.error("Erro no proxy /api/produtos:", error.message);
         response.status(500).json({ message: 'Erro ao buscar produtos' });
     }
 }
