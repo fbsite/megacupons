@@ -3,7 +3,6 @@ export default async function handler(request, response) {
     const API_KEY = process.env.LOMADEE_API_KEY;
     const API_BASE_URL = "https://api-beta.lomadee.com.br/affiliate";
     
-    // A API de Cupons (diferente das outras) não parece precisar do sourceId para gerar links
     const apiUrl = `${API_BASE_URL}/coupons?limit=20&page=1`;
 
     try {
@@ -16,7 +15,7 @@ export default async function handler(request, response) {
         response.setHeader('Access-Control-Allow-Origin', '*');
         response.status(200).json(data);
     } catch (error) {
-        console.error("Erro no proxy /api/cupons:", error);
+        console.error("Erro no proxy /api/cupons:", error.message);
         response.status(500).json({ message: 'Erro ao buscar cupons' });
     }
 }
