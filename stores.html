@@ -90,7 +90,7 @@
             border-radius: 50%;
             margin: 40px auto;
             animation: spin 1s linear infinite;
-            display: none;
+            display: block;
         }
         
         /* Mensagem de Erro API */
@@ -265,9 +265,6 @@
 </div>
 
     
-<!-- 
-  === NOVO PIXEL GLOBAL LOMADEE (Inicialização) ===
--->
 <script>
   window.addEventListener("load", function () {
     if (window.LomadeeGlobalPixel) {
@@ -284,13 +281,11 @@
 
             // --- ETAPA 1: CONFIGURAÇÃO DA NOVA API ---
             
+            // API_KEY: (Já inserida) Usada para AUTENTICAR a chamada da API
             const API_KEY = "Bi077WkkupHu_CYPN2teoDZg-0wwJV--"; 
             
-            const API_BASE_URL = "https://api-beta.lomadee.com.br/affiliate";
-            
-            const HEADERS = {
-                'x-api-key': API_KEY
-            };
+            // API Base URL (Onde o seu proxy da Vercel está)
+            const API_BASE_URL = "/api";
             
             // --- FIM DA CONFIGURAÇÃO ---
 
@@ -310,12 +305,7 @@
              */
             async function initializePage() {
                 
-                // Validação das chaves
-                if (API_KEY.startsWith('[')) {
-                    console.warn("ALERTA: Insira sua [x-api-key] da Lomadee no script para o site funcionar.");
-                    showApiError('stores', true); // Mostra erro de config
-                    return; 
-                }
+                // Validação das chaves (A Vercel injeta a chave no proxy, não aqui)
                 
                 // Inicialização do Pixel (automática pelo script no head)
                 if (typeof LomadeeGlobalPixel === 'function') {
@@ -333,10 +323,10 @@
                 if (storesLoading) storesLoading.style.display = 'block';
                 if (storesError) storesError.style.display = 'none';
 
-                const apiUrl = `${API_BASE_URL}/stores?limit=100`;
+                const apiUrl = `${API_BASE_URL}/lojas`;
 
                 try {
-                    const response = await fetch(apiUrl, { headers: HEADERS });
+                    const response = await fetch(apiUrl); // Não precisa de Headers
                     if (!response.ok) throw new Error(`Status: ${response.status}`);
                     
                     const data = await response.json();
@@ -347,7 +337,7 @@
                     }
                 } catch (error) {
                     console.error("Falha ao buscar lojas:", error);
-                    showApiError('stores', false);
+                    showApiError('stores', false, "Erro ao carregar lojas. Tente novamente.");
                 } finally {
                     if (storesLoading) storesLoading.style.display = 'none';
                 }
@@ -386,13 +376,14 @@
                 errorElement.style.display = 'block';
                 
                 if (isConfigError) {
+                    // Este erro só aparecerá se a Vercel não for configurada
                     errorElement.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Site não configurado!</h3>
-                                              <p>Por favor, insira sua <b>x-api-key</b> da Lomadee no arquivo JS para o site funcionar.</p>`;
+                                              <p>O proxy da API não foi encontrado. Verifique a configuração da Vercel.</p>`;
                 } else if (customMessage) {
                      errorElement.innerHTML = `<h3><i class="fa-solid fa-face-sad-tear"></i> ${customMessage}</h3>`;
                 } else {
                     errorElement.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Lojas indisponíveis.</h3>
-                                              <p>A conexão com a central de ofertas falhou (Verifique sua <b>x-api-key</b>). Tente novamente em minutos.</p>`;
+                                              <p>A conexão com a central de ofertas falhou. Tente novamente em minutos.</p>`;
                 }
             }
 
