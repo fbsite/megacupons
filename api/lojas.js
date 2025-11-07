@@ -10,12 +10,11 @@ export default async function handler(request, response) {
 
     const headers = { 'Authorization': `Bearer ${accessToken}` };
 
-    // URLs da AWIN para buscar ofertas
-    const vouchersUrl = `https://api.awin.com/publishers/${publisherId}/vouchers?relationship=joined&language=pt`;
-    const promotionsUrl = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined&language=pt`;
+    // CORREÇÃO: Removido o "&language=pt" das URLs para evitar o erro 404 da AWIN
+    const vouchersUrl = `https://api.awin.com/publishers/${publisherId}/vouchers?relationship=joined`;
+    const promotionsUrl = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined`;
 
     try {
-        // 1. Faz as duas chamadas à API em paralelo
         const [vouchersRes, promotionsRes] = await Promise.all([
             fetch(vouchersUrl, { headers }),
             fetch(promotionsUrl, { headers })
@@ -29,44 +28,33 @@ export default async function handler(request, response) {
         const vouchers = await vouchersRes.json();
         const { promotions } = await promotionsRes.json();
 
-        // 2. Processa e unifica os dados
         const allOffers = [
             ...(Array.isArray(vouchers) ? vouchers : []),
             ...(Array.isArray(promotions) ? promotions : [])
         ];
 
-        // 3. Cria um mapa para deduplicar as lojas (anunciantes)
         const advertisersMap = new Map();
 
         allOffers.forEach(offer => {
             const id = offer.advertiserId;
-            if (!id || !offer.advertiserName) return; // Ignora se não tiver ID ou nome
+            if (!id || !offer.advertiserName) return; 
 
-            // A API de promoções não fornece logo, então priorizamos o logo dos vouchers
             if (!advertisersMap.has(id)) {
                 advertisersMap.set(id, {
                     id: id,
                     name: offer.advertiserName,
-                    // O link da loja será o link da primeira oferta encontrada
                     link: offer.url, 
-                    // O logo pode não vir em 'promotions', por isso verificamos
                     logoUrl: offer.advertiserLogoUrl 
                 });
             } else if (!advertisersMap.get(id).logoUrl && offer.advertiserLogoUrl) {
-                // Se a loja já existe (veio de uma promoção sem logo), 
-                // e esta oferta (um voucher) tem o logo, atualizamos.
                 advertisersMap.get(id).logoUrl = offer.advertiserLogoUrl;
             }
         });
 
-        // 4. Converte o mapa de volta para um array
         const uniqueAdvertisers = Array.from(advertisersMap.values());
-        
-        // 5. Ordena por nome
         uniqueAdvertisers.sort((a, b) => a.name.localeCompare(b.name));
 
-        // 6. Define o cache e envia a resposta
-        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); // 1 hora de cache
+        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate'); 
         return response.status(200).json(uniqueAdvertisers);
 
     } catch (error) {
