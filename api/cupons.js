@@ -23,13 +23,13 @@ export default async function handler(request, response) {
         // 5. Faz a chamada à API da AWIN
         const apiRes = await fetch(AWIN_API_URL, { headers });
         if (!apiRes.ok) {
+            const errorBody = await apiRes.text();
+            console.error(`A API da AWIN respondeu com o status: ${apiRes.status}. Body: ${errorBody}`);
             throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
         }
         const data = await apiRes.json();
         
         // 6. Define o cache da Vercel (1 hora) para esta resposta
-        // s-maxage=3600 -> Cache de 1 hora na Vercel (CDN)
-        // stale-while-revalidate -> Se o cache expirar, serve o cache antigo enquanto busca um novo
         response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
 
         // 7. Envia os dados de volta para o frontend (index.html)
