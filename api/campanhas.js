@@ -1,27 +1,34 @@
-// Vercel Serverless Function
+// api/campanhas.js
+
 export default async function handler(request, response) {
-    // 1. Pega a sua chave secreta (definida no Passo 5)
-    const API_KEY = process.env.LOMADEE_API_KEY;
-    const API_BASE_URL = "https://api-beta.lomadee.com.br/affiliate";
-    
-    // API NÃO precisa de sourceId na URL
-    const apiUrl = `${API_BASE_URL}/campaigns?limit=10`;
+    const accessToken = process.env.AWIN_ACCESS_TOKEN;
+    const publisherId = process.env.AWIN_PUBLISHER_ID;
+
+    if (!accessToken || !publisherId) {
+        return response.status(500).json({ error: 'Variáveis de Ambiente não configuradas no servidor.' });
+    }
+
+    // Endpoint de Promoções (Campanhas/Banners)
+    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined&language=pt`;
+
+    const headers = {
+        'Authorization': `Bearer ${accessToken}`,
+    };
 
     try {
-        const apiResponse = await fetch(apiUrl, {
-            headers: { 'x-api-key': API_KEY }
-        });
-
-        if (!apiResponse.ok) {
-            throw new Error(`Erro da API Lomadee: ${apiResponse.status}`);
+        const apiRes = await fetch(AWIN_API_URL, { headers });
+        if (!apiRes.ok) {
+            throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
         }
-        const data = await apiResponse.json();
+        const data = await apiRes.json();
         
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.status(200).json(data);
-        
+        // Cache de 1 hora
+        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
+        return response.status(200).json(data);
+
     } catch (error) {
         console.error("Erro no proxy /api/campanhas:", error.message);
-        response.status(500).json({ message: 'Erro ao buscar campanhas' });
+        return response.status(502).json({ error: 'Falha ao buscar dados da API de campanhas.' });
     }
 }
