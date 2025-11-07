@@ -1,34 +1,81 @@
 // api/cupons.js
-// Versão final com language=pt e relationship=joined
+// ATUALIZADO: Funde AWIN e Lomadee
+
+// Função para mapear dados da AWIN
+function mapAwinCoupon(voucher) {
+    return {
+        id: `awin_${voucher.voucherId}`,
+        code: voucher.code,
+        description: voucher.description,
+        link: voucher.url,
+        store: {
+            name: voucher.advertiserName,
+            logoUrl: voucher.advertiserLogoUrl
+        },
+        endDate: voucher.endDate,
+        platform: 'AWIN'
+    };
+}
+
+// Função para mapear dados da Lomadee
+function mapLomadeeCoupon(coupon) {
+    return {
+        id: `lomadee_${coupon.id}`,
+        code: coupon.code,
+        description: coupon.description,
+        link: coupon.link,
+        store: {
+            name: coupon.store.name,
+            logoUrl: coupon.store.thumbnail
+        },
+        endDate: coupon.endDate,
+        platform: 'Lomadee'
+    };
+}
 
 export default async function handler(request, response) {
-    const accessToken = process.env.AWIN_ACCESS_TOKEN;
-    const publisherId = process.env.AWIN_PUBLISHER_ID;
+    const { AWIN_ACCESS_TOKEN, AWIN_PUBLISHER_ID, LOMADEE_API_KEY } = process.env;
 
-    if (!accessToken || !publisherId) {
+    if (!AWIN_ACCESS_TOKEN || !AWIN_PUBLISHER_ID || !LOMADEE_API_KEY) {
         return response.status(500).json({ error: 'Variáveis de Ambiente não configuradas no servidor.' });
     }
 
-    // Parâmetros corretos: type=voucher, relationship=joined, language=pt
-    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/vouchers?type=voucher&relationship=joined&language=pt`;
+    // --- Definições das APIs ---
+    const AWIN_API_URL = `https://api.awin.com/publishers/${AWIN_PUBLISHER_ID}/vouchers?type=voucher&relationship=joined&language=pt`;
+    const LOMADEE_API_URL = `https://api.lomadee.com/affiliate/coupons`;
 
-    const headers = { 'Authorization': `Bearer ${accessToken}` };
+    const awinHeaders = { 'Authorization': `Bearer ${AWIN_ACCESS_TOKEN}` };
+    const lomadeeHeaders = { 'x-api-key': LOMADEE_API_KEY };
 
-    try {
-        const apiRes = await fetch(AWIN_API_URL, { headers });
-        if (!apiRes.ok) {
-            const errorBody = await apiRes.text();
-            // Este é o erro 404 que você está vendo e que a AWIN precisa corrigir:
-            console.error(`A API da AWIN respondeu com o status: ${apiRes.status}. Body: ${errorBody}`);
-            throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
+    // --- Chamadas em Paralelo ---
+    const [awinResult, lomadeeResult] = await Promise.allSettled([
+        fetch(AWIN_API_URL, { headers: awinHeaders }),
+        fetch(LOMADEE_API_URL, { headers: lomadeeHeaders })
+    ]);
+
+    let allCoupons = [];
+
+    // --- Processar AWIN ---
+    if (awinResult.status === 'fulfilled' && awinResult.value.ok) {
+        const awinData = await awinResult.value.json();
+        if (Array.isArray(awinData)) {
+            allCoupons.push(...awinData.map(mapAwinCoupon));
         }
-        const data = await apiRes.json();
-        
-        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-        return response.status(200).json(data);
-
-    } catch (error) {
-        console.error("Erro no proxy /api/cupons:", error.message);
-        return response.status(502).json({ error: 'Falha ao buscar dados da API de cupons.' });
+    } else {
+        console.error("Erro ao buscar cupons AWIN:", awinResult.reason || `Status ${awinResult.value.status}`);
+        // Continua mesmo se a AWIN falhar (ex: 404)
     }
+
+    // --- Processar Lomadee ---
+    if (lomadeeResult.status === 'fulfilled' && lomadeeResult.value.ok) {
+        const lomadeeData = await lomadeeResult.value.json();
+        if (lomadeeData.data && Array.isArray(lomadeeData.data)) {
+            allCoupons.push(...lomadeeData.data.map(mapLomadeeCoupon));
+        }
+    } else {
+        console.error("Erro ao buscar cupons Lomadee:", lomadeeResult.reason || `Status ${lomadeeResult.value.status}`);
+    }
+    
+    response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+    return response.status(200).json(allCoupons); // Envia a lista fundida
 }
