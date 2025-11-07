@@ -1,33 +1,67 @@
 // api/campanhas.js
-// Versão final com language=pt e relationship=joined
+// ATUALIZADO: Versão à prova de falhas.
+
+// Funções de mapeamento (sem alteração)
+function mapAwinCampaign(promo) {
+    return { id: `awin_${promo.promotionId}`, name: promo.title, link: promo.url, thumbnail: promo.advertiserLogoUrl || `https://placehold.co/280x150/1E1E1E/FFFFFF?text=${promo.advertiserName}&font=inter` };
+}
+function mapLomadeeCampaign(campaign) {
+    return { id: `lomadee_${campaign.id}`, name: campaign.name, link: campaign.link, thumbnail: campaign.thumbnail };
+}
 
 export default async function handler(request, response) {
-    const accessToken = process.env.AWIN_ACCESS_TOKEN;
-    const publisherId = process.env.AWIN_PUBLISHER_ID;
+    const { AWIN_ACCESS_TOKEN, AWIN_PUBLISHER_ID, LOMADEE_API_KEY } = process.env;
 
-    if (!accessToken || !publisherId) {
-        return response.status(500).json({ error: 'Variáveis de Ambiente não configuradas no servidor.' });
+    let allCampaigns = [];
+    let promises = [];
+
+    // --- Prepara a chamada Lomadee ---
+    if (LOMADEE_API_KEY) {
+        const lomadeeUrl = `https://api.lomadee.com/affiliate/campaigns`;
+        const lomadeeHeaders = { 'x-api-key': LOMADEE_API_KEY };
+        promises.push(fetch(lomadeeUrl, { headers: lomadeeHeaders }).then(res => ({ source: 'lomadee', res })));
+    } else {
+        console.warn('LOMADEE_API_KEY não encontrada. A saltar a API Lomadee.');
     }
 
-    // Parâmetros corretos: relationship=joined, language=pt
-    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined&language=pt`;
+    // --- Prepara a chamada AWIN ---
+    if (AWIN_ACCESS_TOKEN && AWIN_PUBLISHER_ID) {
+        const awinUrl = `https://api.awin.com/publishers/${AWIN_PUBLISHER_ID}/promotions?relationship=joined&language=pt`;
+        const awinHeaders = { 'Authorization': `Bearer ${AWIN_ACCESS_TOKEN}` };
+        promises.push(fetch(awinUrl, { headers: awinHeaders }).then(res => ({ source: 'awin', res })));
+    } else {
+        console.warn('Chaves AWIN não encontradas. A saltar a API AWIN.');
+    }
 
-    const headers = { 'Authorization': `Bearer ${accessToken}` };
+    // --- Executa ---
+    const results = await Promise.allSettled(promises);
 
-    try {
-        const apiRes = await fetch(AWIN_API_URL, { headers });
-        if (!apiRes.ok) {
-            const errorBody = await apiRes.text();
-            console.error(`A API da AWIN respondeu com o status: ${apiRes.status}. Body: ${errorBody}`);
-            throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
+    // --- Processa ---
+    for (const result of results) {
+        if (result.status === 'rejected') {
+            console.error(`Falha ao buscar API: ${result.reason}`);
+            continue;
         }
-        const data = await apiRes.json();
-        
-        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-        return response.status(200).json(data);
 
-    } catch (error) {
-        console.error("Erro no proxy /api/campanhas:", error.message);
-        return response.status(502).json({ error: 'Falha ao buscar dados da API de campanhas.' });
+        const { source, res } = result.value;
+
+        if (!res.ok) {
+            console.error(`API ${source} respondeu com erro: ${res.status}`);
+            continue;
+        }
+
+        try {
+            const data = await res.json();
+            if (source === 'lomadee' && data.data && Array.isArray(data.data)) {
+                allCampaigns.push(...data.data.map(mapLomadeeCampaign));
+            } else if (source === 'awin' && data.promotions && Array.isArray(data.promotions)) {
+                allCampaigns.push(...data.promotions.map(mapAwinCampaign));
+            }
+        } catch (e) {
+            console.error(`Falha ao processar JSON da API ${source}: ${e.message}`);
+        }
     }
+    
+    response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+    return response.status(200).json(allCampaigns);
 }
