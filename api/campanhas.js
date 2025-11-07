@@ -1,4 +1,5 @@
 // api/campanhas.js
+// Versão final com language=pt e relationship=joined
 
 export default async function handler(request, response) {
     const accessToken = process.env.AWIN_ACCESS_TOKEN;
@@ -8,12 +9,10 @@ export default async function handler(request, response) {
         return response.status(500).json({ error: 'Variáveis de Ambiente não configuradas no servidor.' });
     }
 
-    // CORREÇÃO: Removido o "&language=pt" da URL para evitar o erro 404 da AWIN
-    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined`;
+    // Parâmetros corretos: relationship=joined, language=pt
+    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined&language=pt`;
 
-    const headers = {
-        'Authorization': `Bearer ${accessToken}`,
-    };
+    const headers = { 'Authorization': `Bearer ${accessToken}` };
 
     try {
         const apiRes = await fetch(AWIN_API_URL, { headers });
