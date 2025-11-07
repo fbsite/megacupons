@@ -1,5 +1,6 @@
 // api/lojas.js
-// ATUALIZADO: Funde Lojas da AWIN e Lomadee
+// ATUALIZADO: Corrigido o erro 502 da Lomadee.
+// Agora, em vez de chamar /stores, chamamos /coupons e extraímos as lojas de lá.
 
 export default async function handler(request, response) {
     const { AWIN_ACCESS_TOKEN, AWIN_PUBLISHER_ID, LOMADEE_API_KEY } = process.env;
@@ -15,14 +16,14 @@ export default async function handler(request, response) {
     // AWIN: Busca anunciantes com ofertas ativas
     const awinVouchersUrl = `https://api.awin.com/publishers/${AWIN_PUBLISHER_ID}/vouchers?relationship=joined&language=pt`;
     const awinPromosUrl = `https://api.awin.com/publishers/${AWIN_PUBLISHER_ID}/promotions?relationship=joined&language=pt`;
-    // Lomadee: Busca todas as lojas (a API /stores é a mais simples para isto)
-    const lomadeeStoresUrl = `https://api.lomadee.com/affiliate/stores`;
+    // Lomadee: Busca /coupons (o endpoint /stores estava a dar erro 502)
+    const lomadeeCouponsUrl = `https://api.lomadee.com/affiliate/coupons`;
 
     // --- Chamadas em Paralelo ---
-    const [awinVouchersRes, awinPromosRes, lomadeeStoresRes] = await Promise.allSettled([
+    const [awinVouchersRes, awinPromosRes, lomadeeCouponsRes] = await Promise.allSettled([
         fetch(awinVouchersUrl, { headers: awinHeaders }),
         fetch(awinPromosUrl, { headers: awinHeaders }),
-        fetch(lomadeeStoresUrl, { headers: lomadeeHeaders })
+        fetch(lomadeeCouponsUrl, { headers: lomadeeHeaders }) // Corrigido
     ]);
 
     const advertisersMap = new Map();
@@ -38,14 +39,13 @@ export default async function handler(request, response) {
                         advertisersMap.set(id, {
                             id: id,
                             name: offer.advertiserName,
-                            link: offer.url, // Usa o link do cupom como link de fallback
+                            link: offer.url, 
                             logoUrl: offer.advertiserLogoUrl
                         });
                     }
                 });
             }
         } else if (awinVouchersRes.status === 'rejected' || (awinVouchersRes.value && awinVouchersRes.value.status !== 404)) {
-            // Loga o erro, mas não para a execução (ignora o 404 da permissão)
             console.error("Erro ao buscar vouchers AWIN para /lojas:", awinVouchersRes.reason || awinVouchersRes.value.status);
         }
 
@@ -74,28 +74,33 @@ export default async function handler(request, response) {
     }
 
 
-    // --- Processar Lomadee ---
+    // --- Processar Lomadee (usando /coupons) ---
     try {
-        if (lomadeeStoresRes.status === 'fulfilled' && lomadeeStoresRes.value.ok) {
-            const lomadeeData = await lomadeeStoresRes.value.json();
+        if (lomadeeCouponsRes.status === 'fulfilled' && lomadeeCouponsRes.value.ok) {
+            const lomadeeData = await lomadeeCouponsRes.value.json();
             if (lomadeeData.data && Array.isArray(lomadeeData.data)) {
-                lomadeeData.data.forEach(store => {
+                lomadeeData.data.forEach(coupon => {
+                    // Usamos o coupon.store para obter os dados da loja
+                    const store = coupon.store;
+                    if (!store) return; 
+
                     const id = `lomadee_${store.id}`;
                     if (!advertisersMap.has(id)) { // Só adiciona se não tivermos dados da AWIN
                         advertisersMap.set(id, {
                             id: id,
                             name: store.name,
-                            link: store.link, 
+                            link: store.link, // O link da loja 
                             logoUrl: store.thumbnail
                         });
                     }
                 });
             }
         } else {
-             console.error("Erro ao buscar lojas Lomadee:", lomadeeStoresRes.reason || `Status ${lomadeeStoresRes.value.status}`);
+             // Se falhar, loga o erro (não mais o 502, esperamos)
+             console.error("Erro ao buscar cupons Lomadee (para /lojas):", lomadeeCouponsRes.reason || `Status ${lomadeeCouponsRes.value.status}`);
         }
     } catch (e) {
-         console.error("Erro ao processar dados da Lomadee em /lojas:", e.message);
+         console.error("Erro ao processar dados de cupons Lomadee em /lojas:", e.message);
     }
 
 
