@@ -8,8 +8,8 @@ export default async function handler(request, response) {
         return response.status(500).json({ error: 'Variáveis de Ambiente não configuradas no servidor.' });
     }
 
-    // Endpoint de Promoções (Campanhas/Banners)
-    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined&language=pt`;
+    // CORREÇÃO: Removido o "&language=pt" da URL para evitar o erro 404 da AWIN
+    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/promotions?relationship=joined`;
 
     const headers = {
         'Authorization': `Bearer ${accessToken}`,
@@ -24,9 +24,7 @@ export default async function handler(request, response) {
         }
         const data = await apiRes.json();
         
-        // Cache de 1 hora
         response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-
         return response.status(200).json(data);
 
     } catch (error) {
