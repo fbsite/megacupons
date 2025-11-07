@@ -18,6 +18,8 @@ export default async function handler(request, response) {
     try {
         const apiRes = await fetch(AWIN_API_URL, { headers });
         if (!apiRes.ok) {
+            const errorBody = await apiRes.text();
+            console.error(`A API da AWIN respondeu com o status: ${apiRes.status}. Body: ${errorBody}`);
             throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
         }
         const data = await apiRes.json();
