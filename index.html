@@ -28,7 +28,7 @@
     }
     </script>
     
-    <!-- Todo o CSS (O mesmo de antes) -->
+    <!-- Todo o CSS (O mesmo de antes, com adição do .navbar) -->
     <style>
         :root {
             --color-primary: #FF3B80;
@@ -58,9 +58,13 @@
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); }
         .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
-        .header .container { display: flex; justify-content: center; align-items: center; gap: 10px; }
+        /* CSS do Header atualizado para incluir a navegação */
+        .header .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         .logo { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); text-decoration: none; }
         .logo i { margin-right: 5px; }
+        .navbar { display: flex; gap: 20px; }
+        .navbar a { color: var(--color-text-secondary); text-decoration: none; font-weight: 700; font-size: 1rem; }
+        .navbar a:hover, .navbar a.active { color: var(--color-text-primary); }
         .hero { text-align: center; padding: 40px 0; background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%); }
         .hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; color: var(--color-text-primary); }
         .hero h1 i { color: var(--color-warning); }
@@ -143,6 +147,7 @@
         #cookie-consent-banner p a { color: var(--color-primary); font-weight: 700; text-decoration: underline; }
         #accept-cookies { background-color: var(--color-primary); color: var(--color-text-primary); border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; width: 100%; transition: background-color 0.3s ease; }
         #accept-cookies:hover { background-color: #e03070; }
+        
         @media (min-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
             .coupons-grid, .products-grid { grid-template-columns: 1fr 1fr; }
@@ -162,6 +167,10 @@
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
+            <nav class="navbar">
+                <a href="index.html" class="active">Home</a>
+                <a href="stores.html">Lojas</a>
+            </nav>
         </div>
     </header>
 
@@ -210,7 +219,7 @@
         <section class="featured-stores-section">
             <div class="container">
                 <h2><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Lojas em Destaque</h2>
-                <!-- Esta seção de lojas ainda é estática. -->
+                <!-- Esta seção de lojas ainda é estática (links rápidos) -->
                 <div class="stores-grid">
                     <a href="#link-loja-1" target="_blank" class="store-item" title="Cupons Magazine Luiza">
                         <figure><img src="https://logo.clearbit.com/magazineluiza.com.br" alt="Logo Magazine Luiza" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/E60014?text=Magalu&font=inter';"></figure>
@@ -315,11 +324,7 @@
     document.addEventListener('DOMContentLoaded', () => {
 
         // --- ETAPA 1: CONFIGURAÇÃO (VERCEL) ---
-        
-        // As chaves de API foram movidas para as funções serverless na pasta /api/
-        // O frontend agora chama a sua própria API (proxy).
         const API_BASE_URL = "/api";
-        
         // --- FIM DA CONFIGURAÇÃO ---
 
 
@@ -359,11 +364,9 @@
             if (couponsLoading) couponsLoading.style.display = 'block';
             if (couponsError) couponsError.style.display = 'none';
 
-            // Chama o proxy local, que por sua vez chama a AWIN
             const apiUrl = `${API_BASE_URL}/cupons`;
 
             try {
-                // Não são necessários headers de autorização aqui
                 const response = await fetch(apiUrl); 
                 if (!response.ok) throw new Error(`Status: ${response.status}`);
                 
@@ -392,7 +395,6 @@
             if (campaignsLoading) campaignsLoading.style.display = 'block';
             if (campaignsError) campaignsError.style.display = 'none';
 
-            // Chama o proxy local
             const apiUrl = `${API_BASE_URL}/campanhas`;
 
             try {
@@ -420,7 +422,6 @@
             if (productsLoading) productsLoading.style.display = 'block';
             if (productsError) productsError.style.display = 'none';
 
-            // Chama o proxy local
             const apiUrl = `${API_BASE_URL}/produtos`;
 
             try {
