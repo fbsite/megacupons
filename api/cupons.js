@@ -1,21 +1,42 @@
-// Vercel Serverless Function
+// api/cupons.js
+
+// Usamos export default para funções serverless da Vercel
 export default async function handler(request, response) {
-    const API_KEY = process.env.LOMADEE_API_KEY;
-    const API_BASE_URL = "https://api-beta.lomadee.com.br/affiliate";
-    
-    const apiUrl = `${API_BASE_URL}/coupons?limit=20&page=1`;
+    // 1. Puxa as chaves secretas das Variáveis de Ambiente da Vercel
+    const accessToken = process.env.AWIN_ACCESS_TOKEN;
+    const publisherId = process.env.AWIN_PUBLISHER_ID;
+
+    // 2. Validação de segurança
+    if (!accessToken || !publisherId) {
+        return response.status(500).json({ error: 'Variáveis de Ambiente (AWIN_ACCESS_TOKEN ou AWIN_PUBLISHER_ID) não configuradas no servidor.' });
+    }
+
+    // 3. Define o endpoint real da AWIN que queremos buscar
+    const AWIN_API_URL = `https://api.awin.com/publishers/${publisherId}/vouchers?type=voucher&relationship=joined&language=pt`;
+
+    // 4. Define os headers para a chamada à AWIN
+    const headers = {
+        'Authorization': `Bearer ${accessToken}`,
+    };
 
     try {
-        const apiResponse = await fetch(apiUrl, {
-            headers: { 'x-api-key': API_KEY }
-        });
-        if (!apiResponse.ok) throw new Error(`Erro da API Lomadee: ${apiResponse.status}`);
-        const data = await apiResponse.json();
+        // 5. Faz a chamada à API da AWIN
+        const apiRes = await fetch(AWIN_API_URL, { headers });
+        if (!apiRes.ok) {
+            throw new Error(`A API da AWIN respondeu com o status: ${apiRes.status}`);
+        }
+        const data = await apiRes.json();
         
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.status(200).json(data);
+        // 6. Define o cache da Vercel (1 hora) para esta resposta
+        // s-maxage=3600 -> Cache de 1 hora na Vercel (CDN)
+        // stale-while-revalidate -> Se o cache expirar, serve o cache antigo enquanto busca um novo
+        response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
+        // 7. Envia os dados de volta para o frontend (index.html)
+        return response.status(200).json(data);
+
     } catch (error) {
         console.error("Erro no proxy /api/cupons:", error.message);
-        response.status(500).json({ message: 'Erro ao buscar cupons' });
+        return response.status(502).json({ error: 'Falha ao buscar dados da API de cupons.' });
     }
 }
