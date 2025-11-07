@@ -6,7 +6,7 @@
     <title>🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons</title>
     <meta name="description" content="Economize AGORA! Pegue cupons, ofertas de produtos e campanhas 100% grátis para Magazine Luiza, Amazon e mais. Ofertas reais, atualizadas agora.">
     
-    <!-- Metatags e Links (Omesmo de antes) -->
+    <!-- Metatags e Links -->
     <meta name="keywords" content="cupons de desconto, ofertas, lojas, produtos, campanhas, adsense, promoção, economizar, magazine luiza, amazon, americanas, frete grátis, mega cupons">
     <meta property="og:title" content="🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons">
     <meta property="og:description" content="Economize AGORA! Ofertas reais que expiram em breve.">
@@ -28,7 +28,7 @@
     }
     </script>
     
-    <!-- Todo o CSS (O mesmo de antes, com adição do .navbar) -->
+    <!-- CSS -->
     <style>
         :root {
             --color-primary: #FF3B80;
@@ -58,7 +58,6 @@
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); }
         .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
-        /* CSS do Header atualizado para incluir a navegação */
         .header .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         .logo { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); text-decoration: none; }
         .logo i { margin-right: 5px; }
@@ -569,12 +568,11 @@
          * Exibe a mensagem de erro da API
          */
         function showApiError(section = 'coupons', isConfigError = false, customMessage = "") {
-            // A verificação 'isConfigError' foi removida, pois agora é tratada no backend (proxy)
             
             let errorElement;
             if (section === 'coupons') errorElement = couponsError;
             if (section === 'campaigns') errorElement = campaignsError;
-            if (section === 'products') errorElement = productsError;
+            if (section ===a === 'products') errorElement = productsError;
             
             if (!errorElement) return;
             errorElement.style.display = 'block';
