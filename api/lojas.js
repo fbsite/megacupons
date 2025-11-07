@@ -31,8 +31,8 @@ export default async function handler(request, response) {
 
         // 2. Processa e unifica os dados
         const allOffers = [
-            ...(vouchers || []),
-            ...(promotions || [])
+            ...(Array.isArray(vouchers) ? vouchers : []),
+            ...(Array.isArray(promotions) ? promotions : [])
         ];
 
         // 3. Cria um mapa para deduplicar as lojas (anunciantes)
@@ -40,7 +40,7 @@ export default async function handler(request, response) {
 
         allOffers.forEach(offer => {
             const id = offer.advertiserId;
-            if (!id) return; // Ignora se não tiver ID
+            if (!id || !offer.advertiserName) return; // Ignora se não tiver ID ou nome
 
             // A API de promoções não fornece logo, então priorizamos o logo dos vouchers
             if (!advertisersMap.has(id)) {
