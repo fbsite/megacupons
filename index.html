@@ -167,8 +167,8 @@
         <div class="container">
             <a href="index.html" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
             <nav class="navbar">
-                <a href="index.html" class="active">Home</a>
-                <a href="stores.html">Lojas</a>
+                <a href="#" class="active">Home</a>
+                <a href="#">Lojas</a>
             </nav>
         </div>
     </header>
@@ -218,36 +218,35 @@
         <section class="featured-stores-section">
             <div class="container">
                 <h2><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Lojas em Destaque</h2>
-                <!-- Esta seção de lojas ainda é estática (links rápidos) -->
                 <div class="stores-grid">
-                    <a href="#link-loja-1" target="_blank" class="store-item" title="Cupons Magazine Luiza">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/magazineluiza.com.br" alt="Logo Magazine Luiza" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/E60014?text=Magalu&font=inter';"></figure>
                         <p>Magazine Luiza</p>
                     </a>
-                    <a href="#link-loja-2" target="_blank" class="store-item" title="Cupons Amazon">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/amazon.com.br" alt="Logo Amazon" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter';"></figure>
                         <p>Amazon</p>
                     </a>
-                    <a href="#link-loja-3" target="_blank" class="store-item" title="Cupons Americanas">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/americanas.com.br" alt="Logo Americanas" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/B20000?text=Americ.&font=inter';"></figure>
                         <p>Americanas</p>
                     </a>
-                    <a href="#link-loja-4" target="_blank" class="store-item" title="Cupons Netshoes">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/netshoes.com.br" alt="Logo Netshoes" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00A3E0?text=Netshoes&font=inter';"></figure>
                         <p>Netshoes</p>
                     </a>
-                    <a href="#link-loja-5" target="_blank" class="store-item" title="Cupons Casas Bahia">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/casasbahia.com.br" alt="Logo Casas Bahia" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00439C?text=Casas+Bahia&font=inter';"></figure>
                         <p>Casas Bahia</p>
                     </a>
-                    <a href="#link-loja-6" target="_blank" class="store-item" title="Cupons iFood">
+                    <a href="#" class="store-item">
                         <figure><img src="https://logo.clearbit.com/ifood.com.br" alt="Logo iFood" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/EA1D2C?text=iFood&font=inter';"></figure>
                         <p>iFood</p>
                     </a>
                 </div>
                 
                 <div class="view-all-link-container">
-                    <a href="stores.html" class="view-all-cta">
+                    <a href="#" class="view-all-cta">
                         Ver Todas as Lojas Parceiras <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -262,7 +261,7 @@
                 <div class="loading-spinner" id="campaigns-loading"></div>
                 <div class="api-error" id="campaigns-error"></div>
                 <div class="campaigns-grid" id="campaigns-grid">
-                    <!-- Cards de Campanha via JS (Vercel API) -->
+                    <!-- Cards de Campanha via JS -->
                 </div>
             </div>
         </section>
@@ -275,7 +274,7 @@
                 <div class="loading-spinner" id="coupons-loading"></div>
                 <div class="api-error" id="coupons-error"></div>
                 <div class="coupons-grid" id="coupons-grid">
-                    <!-- Cards de Cupom via JS (Vercel API) -->
+                    <!-- Cards de Cupom via JS -->
                 </div>
             </div>
         </section>
@@ -287,7 +286,7 @@
                 <div class="loading-spinner" id="products-loading"></div>
                 <div class="api-error" id="products-error"></div>
                 <div class="products-grid" id="products-grid">
-                    <!-- Cards de Ofertas/Deals via JS (Vercel API) -->
+                    <!-- Cards de Ofertas/Deals via JS -->
                 </div>
             </div>
         </section>
@@ -322,9 +321,94 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // --- ETAPA 1: CONFIGURAÇÃO (VERCEL) ---
-        const API_BASE_URL = "/api";
-        // --- FIM DA CONFIGURAÇÃO ---
+        // --- MOCK DATA FOR PREVIEW ---
+        const MOCK_COUPONS = [
+            {
+                advertiserName: "Magazine Luiza",
+                advertiserLogoUrl: "https://logo.clearbit.com/magazineluiza.com.br",
+                title: "10% OFF",
+                description: "10% de desconto em Eletrodomésticos selecionados",
+                endDate: new Date(Date.now() + 86400000 * 5).toISOString(),
+                url: "#",
+                code: "MAGALU10",
+                exclusive: true
+            },
+            {
+                advertiserName: "Amazon",
+                advertiserLogoUrl: "https://logo.clearbit.com/amazon.com.br",
+                title: "FRETE GRÁTIS",
+                description: "Frete Grátis para membros Prime em todo site",
+                endDate: new Date(Date.now() + 86400000 * 2).toISOString(),
+                url: "#",
+                code: null, // Deal link, no code
+                exclusive: false
+            },
+            {
+                advertiserName: "Netshoes",
+                advertiserLogoUrl: "https://logo.clearbit.com/netshoes.com.br",
+                title: "R$ 50 OFF",
+                description: "Ganhe R$50 acima de R$200 em compras",
+                endDate: new Date(Date.now() + 86400000 * 10).toISOString(),
+                url: "#",
+                code: "NETSHOES50",
+                exclusive: false
+            },
+            {
+                advertiserName: "KaBuM!",
+                advertiserLogoUrl: "https://logo.clearbit.com/kabum.com.br",
+                title: "5% OFF",
+                description: "5% de desconto no PIX em Hardware",
+                endDate: new Date(Date.now() + 86400000 * 1).toISOString(),
+                url: "#",
+                code: "KABUM5",
+                exclusive: true
+            }
+        ];
+
+        const MOCK_CAMPAIGNS = [
+            {
+                title: "Black Friday Antecipada",
+                description: "As melhores ofertas do ano chegaram mais cedo!",
+                image: "https://placehold.co/280x150/000000/FFFFFF?text=Black+Friday&font=inter",
+                url: "#"
+            },
+            {
+                title: "Semana do Consumidor",
+                description: "Descontos de até 60% em todo o site.",
+                image: "https://placehold.co/280x150/FF3B80/FFFFFF?text=Consumidor&font=inter",
+                url: "#"
+            },
+            {
+                title: "Ofertas de Natal",
+                description: "Presentes para toda a família.",
+                image: "https://placehold.co/280x150/00BFA6/FFFFFF?text=Natal&font=inter",
+                url: "#"
+            }
+        ];
+
+        const MOCK_PRODUCTS = [
+            {
+                title: "Smartphone Samsung Galaxy S23 128GB",
+                advertiserName: "Magazine Luiza",
+                advertiserLogoUrl: "https://logo.clearbit.com/magazineluiza.com.br",
+                description: "Smartphone topo de linha com câmera incrível e processador rápido.",
+                url: "#"
+            },
+            {
+                title: "Notebook Dell Inspiron i5 8GB",
+                advertiserName: "Amazon",
+                advertiserLogoUrl: "https://logo.clearbit.com/amazon.com.br",
+                description: "Ideal para trabalho e estudos, com SSD de 256GB.",
+                url: "#"
+            },
+            {
+                title: "Tênis Nike Revolution 6 Next Nature",
+                advertiserName: "Netshoes",
+                advertiserLogoUrl: "https://logo.clearbit.com/netshoes.com.br",
+                description: "Conforto e estilo para suas corridas diárias.",
+                url: "#"
+            }
+        ];
 
 
         // --- Elementos do DOM ---
@@ -347,104 +431,55 @@
 
 
         /**
-         * Função Principal: Carrega todos os dados da API (via proxy da Vercel)
+         * Função Principal: Carrega todos os dados (Simulados)
          */
         async function loadAllData() {
-            // Carrega tudo
             loadCampaigns();
             loadCoupons();
-            loadProducts(); // Carrega "Deals" (ofertas sem código)
+            loadProducts(); 
         }
 
         /**
-         * Carrega Cupons (via /api/cupons)
+         * Simula carregamento de Cupons
          */
-        async function loadCoupons() {
+        function loadCoupons() {
             if (couponsLoading) couponsLoading.style.display = 'block';
-            if (couponsError) couponsError.style.display = 'none';
-
-            const apiUrl = `${API_BASE_URL}/cupons`;
-
-            try {
-                const response = await fetch(apiUrl); 
-                if (!response.ok) throw new Error(`Status: ${response.status}`);
-                
-                const data = await response.json(); 
-                
-                if (data && data.length > 0) {
-                    generateCouponCards(data); 
-                    if (countEl) {
-                        countEl.textContent = data.length; 
-                    }
-                } else {
-                    showApiError('coupons', false, "Nenhum cupom encontrado hoje.");
-                }
-            } catch (error) {
-                console.error("Falha ao buscar cupons:", error);
-                showApiError('coupons', false, "Erro ao carregar cupons. Tente novamente.");
-            } finally {
+            
+            // Simulate API delay
+            setTimeout(() => {
+                generateCouponCards(MOCK_COUPONS);
+                if (countEl) countEl.textContent = MOCK_COUPONS.length + 120; // +120 fake ones
                 if (couponsLoading) couponsLoading.style.display = 'none';
-            }
+            }, 800);
         }
 
         /**
-         * Carrega Campanhas (via /api/campanhas)
+         * Simula carregamento de Campanhas
          */
-        async function loadCampaigns() {
+        function loadCampaigns() {
             if (campaignsLoading) campaignsLoading.style.display = 'block';
-            if (campaignsError) campaignsError.style.display = 'none';
-
-            const apiUrl = `${API_BASE_URL}/campanhas`;
-
-            try {
-                const response = await fetch(apiUrl); 
-                if (!response.ok) throw new Error(`Status: ${response.status}`);
-                
-                const data = await response.json();
-                if (data.promotions && data.promotions.length > 0) {
-                    generateCampaignCards(data.promotions);
-                } else {
-                    showApiError('campaigns', false, "Nenhuma campanha ativa no momento.");
-                }
-            } catch (error) {
-                console.error("Falha ao buscar campanhas:", error);
-                showApiError('campaigns', false, "Erro ao carregar campanhas.");
-            } finally {
+            
+            setTimeout(() => {
+                generateCampaignCards(MOCK_CAMPAIGNS);
                 if (campaignsLoading) campaignsLoading.style.display = 'none';
-            }
+            }, 600);
         }
 
          /**
-         * Carrega Ofertas/Deals (via /api/produtos)
+         * Simula carregamento de Produtos
          */
-        async function loadProducts() {
+        function loadProducts() {
             if (productsLoading) productsLoading.style.display = 'block';
-            if (productsError) productsError.style.display = 'none';
-
-            const apiUrl = `${API_BASE_URL}/produtos`;
-
-            try {
-                const response = await fetch(apiUrl); 
-                if (!response.ok) throw new Error(`Status: ${response.status}`);
-                
-                const data = await response.json();
-                
-                if (data && data.length > 0) {
-                    generateProductCards(data); // Reutiliza a estrutura de produto para exibir deals
-                } else {
-                    showApiError('products', false, "Nenhum produto em oferta encontrado.");
-                }
-            } catch (error) {
-                console.error("Falha ao buscar produtos/deals:", error);
-                showApiError('products', false, "Erro ao carregar ofertas de produtos.");
-            } finally {
+            
+            setTimeout(() => {
+                generateProductCards(MOCK_PRODUCTS);
                 if (productsLoading) productsLoading.style.display = 'none';
-            }
+            }, 1000);
         }
 
 
         /**
-         * Gera os cards de CUPOM (Dados da AWIN)
+         * Gera os cards de CUPOM
          */
         function generateCouponCards(vouchers) {
             if (!couponsGrid) return;
@@ -487,7 +522,7 @@
         }
 
         /**
-         * Gera os cards de CAMPANHA (Dados da AWIN)
+         * Gera os cards de CAMPANHA
          */
         function generateCampaignCards(campaigns) {
             if (!campaignsGrid) return;
@@ -509,7 +544,7 @@
         }
 
          /**
-         * Gera os cards de PRODUTO/DEAL (Dados da AWIN)
+         * Gera os cards de PRODUTO/DEAL
          */
         function generateProductCards(deals) {
             if (!productsGrid) return;
@@ -562,27 +597,6 @@
                     <p>(Google AdSense ou Afiliado Direto)</p>
                 </article>
             `;
-        }
-
-        /**
-         * Exibe a mensagem de erro da API
-         */
-        function showApiError(section = 'coupons', isConfigError = false, customMessage = "") {
-            
-            let errorElement;
-            if (section === 'coupons') errorElement = couponsError;
-            if (section === 'campaigns') errorElement = campaignsError;
-            if (section ===a === 'products') errorElement = productsError;
-            
-            if (!errorElement) return;
-            errorElement.style.display = 'block';
-            
-            if (customMessage) {
-                 errorElement.innerHTML = `<h3><i class="fa-solid fa-face-sad-tear"></i> ${customMessage}</h3>`;
-            } else {
-                errorElement.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Ofertas indisponíveis.</h3>
-                                          <p>A conexão com a central de ofertas falhou. Isso pode ser um erro na Vercel ou na API da AWIN.</p>`;
-            }
         }
 
 
@@ -709,8 +723,8 @@
         updateFooterYear();
         startCountdown();
         setupCouponClickListeners();
-        loadAllData(); // Carrega a API (via Proxy Vercel)
-        checkCookieConsent(); // Verifica o status dos cookies
+        loadAllData(); 
+        checkCookieConsent(); 
 
     });
 </script>
