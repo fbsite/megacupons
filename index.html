@@ -1,43 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons</title>
-    <meta name="description" content="Economize AGORA! Pegue cupons, ofertas de produtos e campanhas 100% grátis para Magazine Luiza, Amazon e mais. Ofertas reais, atualizadas agora.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Metatags e Links -->
-    <meta name="keywords" content="cupons de desconto, ofertas, lojas, produtos, campanhas, adsense, promoção, economizar, magazine luiza, amazon, americanas, frete grátis, mega cupons">
-    <meta property="og:title" content="🔥 (HOJE) Cupons, Lojas e Ofertas REAIS | MegaCupons">
-    <meta property="og:description" content="Economize AGORA! Ofertas reais que expiram em breve.">
+    <!-- SEO PRINCIPAL -->
+    <title>MegaCupons: Cupons de Desconto, Ofertas e Cashback (Verificados)</title>
+    <meta name="description" content="Economize hoje com milhares de cupons de desconto verificados para Amazon, Magalu, Americanas e Shopee. Ofertas relâmpago e códigos promocionais exclusivos atualizados diariamente.">
+    <meta name="keywords" content="cupom de desconto, ofertas, promoção, código promocional, amazon, magalu, shopee, frete grátis, cashback, black friday">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MegaCupons">
+    <link rel="canonical" href="https://www.megacupons.com.br/">
+
+    <!-- OPEN GRAPH (Facebook / WhatsApp / LinkedIn) -->
+    <meta property="og:locale" content="pt_BR">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.megacupons.com.br">
-    <meta property="og:image" content="https://placehold.co/1200x630/FF3B80/FFFFFF?text=MegaCupons&font=inter">
+    <meta property="og:title" content="MegaCupons: Descontos Reais e Ofertas Verificadas">
+    <meta property="og:description" content="Pare de pagar caro. Pegue cupons grátis para as maiores lojas do Brasil agora.">
+    <meta property="og:url" content="https://www.megacupons.com.br/">
+    <meta property="og:site_name" content="MegaCupons">
+    <meta property="og:image" content="https://www.megacupons.com.br/assets/social-share.jpg"> <!-- Substitua pela sua imagem real -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MegaCupons: Descontos Reais">
+    <meta name="twitter:description" content="Economize nas suas compras online com nossos cupons exclusivos.">
+    <meta name="twitter:image" content="https://www.megacupons.com.br/assets/social-share.jpg">
+
+    <!-- FAVICON & ICONS -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- SCHEMA.ORG JSON-LD (Estrutura para o Google) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "MegaCupons",
-      "url": "https://www.megacupons.com.br",
-      "description": "Cupons de desconto, ofertas de produtos e campanhas reais e verificadas."
+      "url": "https://www.megacupons.com.br/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.megacupons.com.br/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "description": "O melhor agregador de cupons de desconto e ofertas do Brasil."
     }
     </script>
     
-    <!-- CSS -->
+    <!-- CSS (Otimizado e Minificado Visualmente) -->
     <style>
         :root {
             --color-primary: #FF3B80;
             --color-secondary: #00BFA6;
             --color-warning: #FFA726;
-            --color-background: #121212;
-            --color-surface: #1E1E1E;
+            --color-background: #0F0F0F;
+            --color-surface: #1C1C1C;
             --color-text-primary: #FFFFFF;
-            --color-text-secondary: #B0B0B0;
+            --color-text-secondary: #A0A0A0;
             --font-main: 'Inter', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,117 +72,98 @@
             background-color: var(--color-background);
             color: var(--color-text-primary);
             line-height: 1.6;
-            padding-bottom: 100px; 
+            padding-bottom: 60px; 
         }
-        img { max-width: 100%; height: auto; display: block; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
-        .section-title { font-size: 2rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
-        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 59, 128, 0.7); } 70% { transform: scale(1.03); box-shadow: 0 0 10px 20px rgba(255, 59, 128, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 59, 128, 0); } }
-        .pulse-animation { animation: pulse 2s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); }
-        .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
-        .header .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); text-decoration: none; }
-        .logo i { margin-right: 5px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; display: block; }
+        .container { width: 92%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
+
+        /* HEADER */
+        .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--color-primary); display: flex; align-items: center; gap: 8px; }
         .navbar { display: flex; gap: 20px; }
-        .navbar a { color: var(--color-text-secondary); text-decoration: none; font-weight: 700; font-size: 1rem; }
+        .navbar a { color: var(--color-text-secondary); font-weight: 700; font-size: 1rem; }
         .navbar a:hover, .navbar a.active { color: var(--color-text-primary); }
-        .hero { text-align: center; padding: 40px 0; background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%); }
-        .hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; color: var(--color-text-primary); }
-        .hero h1 i { color: var(--color-warning); }
-        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 30px; }
-        .countdown-title { font-size: 1rem; font-weight: 700; color: var(--color-warning); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; animation: blink 1.5s infinite; }
-        .countdown-timer { display: flex; justify-content: center; gap: 15px; }
-        .timer-block { background-color: var(--color-surface); padding: 15px; border-radius: 8px; min-width: 70px; border: 1px solid #333; }
-        .timer-block span { display: block; font-size: 2rem; font-weight: 900; color: var(--color-primary); }
-        .timer-block p { font-size: 0.8rem; color: var(--color-text-secondary); text-transform: uppercase; }
-        .social-proof { background-color: var(--color-background); padding: 30px 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
-        .social-proof .container { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 20px; }
-        .proof-item { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: var(--color-text-secondary); }
-        .proof-item i { font-size: 1.5rem; color: var(--color-secondary); }
-        .proof-item strong { color: var(--color-text-primary); }
-        .proof-item .fa-star { color: var(--color-warning); }
-        .featured-stores-section { padding: 40px 0; background-color: var(--color-surface); }
-        .featured-stores-section h2 { font-size: 1.8rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
-        .stores-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; }
-        .store-item { text-decoration: none; color: var(--color-text-secondary); transition: transform 0.3s ease; }
-        .store-item:hover { transform: scale(1.1); }
-        .store-item figure { width: 100px; height: 100px; border-radius: 50%; background-color: #fff; display: flex; justify-content: center; align-items: center; margin: 0 auto 10px auto; border: 3px solid var(--color-primary); overflow: hidden; }
-        .store-item img { width: 70%; height: auto; object-fit: contain; }
-        .store-item p { font-size: 0.9rem; font-weight: 700; text-align: center; }
-        .view-all-link-container { text-align: center; margin-top: 30px; }
-        .view-all-cta { display: inline-block; padding: 12px 25px; background-color: var(--color-surface); color: var(--color-primary); border: 2px solid var(--color-primary); border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; }
-        .view-all-cta:hover { background-color: var(--color-primary); color: var(--color-text-primary); }
-        .view-all-cta i { margin-left: 8px; }
-        .ad-space { width: 100%; max-width: 970px; min-height: 100px; background-color: var(--color-surface); border: 2px dashed var(--color-warning); border-radius: 8px; display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 30px auto; padding: 10px; }
-        .ad-space h4 { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 5px; text-align: center; }
-        .ad-space p { font-size: 0.8rem; color: var(--color-warning); text-align: center; }
-        .campaigns-section { padding: 40px 0; background-color: var(--color-background); }
-        .campaigns-grid { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; scrollbar-color: var(--color-primary) var(--color-surface); scrollbar-width: thin; }
-        .campaigns-grid::-webkit-scrollbar { height: 8px; }
-        .campaigns-grid::-webkit-scrollbar-track { background: var(--color-surface); border-radius: 4px; }
-        .campaigns-grid::-webkit-scrollbar-thumb { background-color: var(--color-primary); border-radius: 4px; }
-        .campaign-card { flex: 0 0 280px; background-color: var(--color-surface); border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--color-text-primary); border: 1px solid #333; transition: transform 0.3s ease; }
-        .campaign-card:hover { transform: scale(1.03); }
-        .campaign-card img { width: 100%; height: 150px; object-fit: cover; border-bottom: 2px solid var(--color-primary); }
-        .campaign-card-content { padding: 15px; }
-        .campaign-card-content h4 { font-size: 1.1rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .campaign-card-content p { font-size: 0.9rem; color: var(--color-text-secondary); }
-        .offers-section, .products-section { padding: 40px 0; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .loading-spinner { width: 60px; height: 60px; border: 8px solid var(--color-surface); border-top-color: var(--color-primary); border-radius: 50%; margin: 40px auto; animation: spin 1s linear infinite; display: block; }
-        .api-error { display: none; background-color: var(--color-surface); border: 2px solid var(--color-warning); border-radius: 8px; padding: 30px; text-align: center; margin: 20px 0; }
-        .api-error h3 { color: var(--color-warning); font-size: 1.5rem; margin-bottom: 10px; }
-        .api-error p { color: var(--color-text-secondary); font-size: 1rem; }
-        .coupons-grid, .products-grid { display: grid; grid-template-columns: 1fr; gap: 25px; min-height: 200px; }
-        .coupon-card { background-color: var(--color-surface); border-radius: 12px; border: 1px solid #333; display: flex; flex-direction: column; padding: 20px; position: relative; overflow: hidden; }
-        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .card-logo { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; border: 1px solid #444; display: flex; justify-content: center; align-items: center; background-color: #fff; flex-shrink: 0; }
-        .card-logo img { width: 80%; height: auto; object-fit: contain; }
-        .card-info { flex-grow: 1; }
-        .card-discount { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); line-height: 1.1; margin-bottom: 5px; }
-        .card-title { font-size: 1.1rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 10px; }
-        .card-validity { font-size: 0.9rem; font-weight: 700; color: var(--color-warning); }
-        .card-validity i { margin-right: 5px; }
-        .coupon-cta { display: inline-block; width: 100%; background-color: var(--color-primary); color: var(--color-text-primary); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; padding: 15px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; margin-top: auto; text-align: center; text-decoration: none; }
-        .coupon-cta:hover { background-color: #e03070; transform: scale(1.02); }
-        .coupon-cta.copied { background-color: var(--color-secondary); font-weight: 900; }
-        .badge { position: absolute; top: 20px; right: -35px; min-width: 150px; text-align: center; background-color: var(--color-warning); color: #000; font-size: 0.8rem; font-weight: 900; padding: 5px 10px; transform: rotate(45deg); box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-transform: uppercase; }
-        .product-card { background-color: var(--color-surface); border-radius: 12px; border: 1px solid #333; display: flex; flex-direction: column; overflow: hidden; }
-        .product-card .product-image { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #333; }
-        .product-card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-card-content h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; min-height: 2.4em; }
-        .product-store { font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 15px; }
-        .product-price { font-size: 2rem; font-weight: 900; color: var(--color-secondary); margin-bottom: 20px; }
-        .product-cta { display: inline-block; width: 100%; background-color: var(--color-secondary); color: var(--color-text-primary); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; padding: 15px; border: none; border-radius: 8px; cursor: pointer; text-align: center; text-decoration: none; margin-top: auto; transition: background-color 0.3s ease; }
-        .product-cta:hover { background-color: #00a08c; }
-        .ad-card { background-color: var(--color-surface); border: 2px dashed var(--color-primary); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; min-height: 400px; color: var(--color-text-secondary); text-align: center; }
-        .ad-card h4 { font-size: 1.2rem; color: var(--color-text-primary); margin-bottom: 10px; }
-        .ad-card p { font-size: 0.9rem; color: var(--color-warning); }
-        .ad-card .ad-placeholder-box { width: 300px; height: 250px; background: #333; display: flex; justify-content: center; align-items: center; color: #555; font-weight: 900; font-size: 1.5rem; border-radius: 8px; margin-top: 15px; }
-        .footer { background-color: var(--color-surface); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333; }
-        .footer p { color: var(--color-text-secondary); font-size: 0.9rem; }
-        .footer p:first-child { font-weight: 700; color: var(--color-text-primary); margin-bottom: 5px; }
-        #cookie-consent-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--color-surface); border-top: 2px solid var(--color-primary); padding: 20px; z-index: 1000; display: flex; flex-direction: column; text-align: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.3); transform: translateY(100%); transition: transform 0.5s ease-in-out; }
-        #cookie-consent-banner.show { transform: translateY(0); }
-        #cookie-consent-banner p { font-size: 0.9rem; color: var(--color-text-secondary); margin: 0 0 15px 0; }
-        #cookie-consent-banner p a { color: var(--color-primary); font-weight: 700; text-decoration: underline; }
-        #accept-cookies { background-color: var(--color-primary); color: var(--color-text-primary); border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; width: 100%; transition: background-color 0.3s ease; }
-        #accept-cookies:hover { background-color: #e03070; }
+
+        /* HERO */
+        .hero { text-align: center; padding: 50px 0; background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%); }
+        .hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 15px; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* SEARCH */
+        .search-wrapper { position: relative; max-width: 600px; margin: 0 auto 30px auto; }
+        .search-input { width: 100%; padding: 15px 20px 15px 50px; border-radius: 50px; border: 2px solid var(--color-primary); background-color: var(--color-surface); color: white; font-size: 1.1rem; outline: none; box-shadow: 0 0 15px rgba(255, 59, 128, 0.2); }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--color-primary); }
+
+        /* COUNTDOWN */
+        .countdown-box { margin-bottom: 30px; }
+        .countdown-title { color: var(--color-warning); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; animation: blink 2s infinite; }
+        .timer-display { display: flex; justify-content: center; gap: 15px; }
+        .time-block { background: #222; border: 1px solid #333; padding: 10px 15px; border-radius: 8px; min-width: 70px; }
+        .time-block span { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); display: block; line-height: 1; }
+        .time-block p { font-size: 0.7rem; text-transform: uppercase; color: #777; margin-top: 5px; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+        /* SECTIONS */
+        .section-header { display: flex; align-items: center; gap: 10px; margin: 50px 0 25px 0; justify-content: center; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .section-header h2 { font-size: 1.8rem; font-weight: 900; }
+
+        /* DESTAQUE LOJAS (CSS CORRIGIDO) */
+        .stores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; justify-items: center; margin-bottom: 20px; }
+        .store-circle { width: 100%; max-width: 110px; text-align: center; transition: transform 0.3s; }
+        .store-circle:hover { transform: scale(1.1); }
+        .circle-img { width: 80px; height: 80px; border-radius: 50%; background: white; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; border: 3px solid var(--color-primary); overflow: hidden; padding: 10px; }
+        .circle-img img { width: 100%; height: 100%; object-fit: contain; }
+        .store-name { font-size: 0.85rem; font-weight: 600; }
+
+        /* GRID CUPONS */
+        .coupons-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .coupon-card { background: var(--color-surface); border-radius: 12px; border: 1px solid #333; padding: 20px; display: flex; flex-direction: column; position: relative; transition: transform 0.3s; height: 100%; }
+        .coupon-card:hover { transform: translateY(-5px); border-color: var(--color-text-secondary); }
+        .badge-exclusive { position: absolute; top: 15px; right: -30px; background: var(--color-warning); color: black; font-weight: 800; font-size: 0.7rem; padding: 5px 30px; transform: rotate(45deg); box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-transform: uppercase; z-index: 10; }
+        .card-header { display: flex; gap: 15px; align-items: center; margin-bottom: 15px; }
+        .card-logo { width: 70px; height: 70px; background: white; border-radius: 8px; padding: 5px; object-fit: contain; flex-shrink: 0; }
+        .card-offer-info h3 { font-size: 1.4rem; font-weight: 900; color: var(--color-primary); line-height: 1; margin-bottom: 5px; }
+        .card-offer-info p { font-size: 0.9rem; line-height: 1.3; color: white; }
+        .card-meta { font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
         
+        /* BOTÃO CUPOM (TESOURA) */
+        .coupon-btn-container { display: flex; border: 2px dashed var(--color-primary); border-radius: 8px; overflow: hidden; cursor: pointer; margin-top: auto; transition: 0.3s; background: #252525; }
+        .coupon-btn-container:hover { box-shadow: 0 0 15px rgba(255, 59, 128, 0.3); transform: scale(1.02); }
+        .coupon-part-code { padding: 12px 15px; background: rgba(255, 59, 128, 0.1); color: var(--color-text-secondary); font-family: monospace; font-weight: 700; font-size: 1rem; border-right: 2px dashed var(--color-primary); display: flex; align-items: center; position: relative; }
+        .coupon-part-code::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; background: var(--color-surface); border-radius: 50%; z-index: 2; }
+        .coupon-part-action { flex-grow: 1; background: var(--color-primary); color: white; padding: 12px; font-weight: 800; text-transform: uppercase; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .coupon-btn-container.copied .coupon-part-action { background: var(--color-secondary); }
+        .coupon-btn-container.copied .coupon-part-code { color: var(--color-secondary); }
+
+        /* CAMPANHAS & PRODUTOS */
+        .campaigns-grid { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scrollbar-color: var(--color-primary) #222; }
+        .campaign-card { min-width: 280px; max-width: 280px; background: var(--color-surface); border-radius: 12px; border: 1px solid #333; overflow: hidden; transition: transform 0.3s; }
+        .campaign-img { width: 100%; height: 150px; object-fit: cover; }
+        .products-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .product-card { background: var(--color-surface); border-radius: 12px; border: 1px solid #333; overflow: hidden; transition: 0.3s; }
+        .prod-img-box { height: 200px; background: white; padding: 20px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .prod-img { max-height: 100%; width: auto; }
+        .prod-content { padding: 15px; }
+        .prod-price { color: var(--color-secondary); font-size: 1.5rem; font-weight: 900; margin: 10px 0; }
+        .prod-btn { display: block; width: 100%; text-align: center; background: #333; color: white; padding: 10px; border-radius: 6px; font-weight: 700; margin-top: 10px; }
+        .prod-btn:hover { background: var(--color-secondary); }
+
+        /* BANNERS */
+        .ad-space { width: 100%; max-width: 970px; margin: 30px auto; padding: 10px; border: 2px dashed #333; border-radius: 8px; background: #151515; text-align: center; color: #555; display: flex; align-items: center; justify-content: center; min-height: 100px; flex-direction: column; }
+
+        .footer { background: var(--color-surface); padding: 40px 0; text-align: center; margin-top: 50px; border-top: 1px solid #333; }
+
         @media (min-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .coupons-grid, .products-grid { grid-template-columns: 1fr 1fr; }
-            .stores-grid { grid-template-columns: repeat(3, 1fr); }
-            #cookie-consent-banner { flex-direction: row; align-items: center; text-align: left; }
-            #cookie-consent-banner p { margin: 0 20px 0 0; flex-grow: 1; }
-            #accept-cookies { width: auto; flex-shrink: 0; }
+            .stores-grid { grid-template-columns: repeat(6, 1fr); }
+            .coupons-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero h1 { font-size: 3rem; }
         }
         @media (min-width: 1024px) {
-            .coupons-grid, .products-grid { grid-template-columns: 1fr 1fr 1fr; }
-            .stores-grid { grid-template-columns: repeat(6, 1fr); }
+            .coupons-grid { grid-template-columns: repeat(3, 1fr); }
+            .products-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
@@ -167,8 +173,8 @@
         <div class="container">
             <a href="index.html" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
             <nav class="navbar">
-                <a href="#" class="active">Home</a>
-                <a href="#">Lojas</a>
+                <a href="index.html" class="active">Início</a>
+                <a href="stores.html">Lojas</a>
             </nav>
         </div>
     </header>
@@ -176,129 +182,108 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Sua Economia Começa <span style="color: var(--color-primary);">AGORA!</span> <i class="fa-solid fa-bolt-lightning"></i></h1>
-                <p class="hero-subtitle">Cupons, Ofertas e Campanhas reais, verificados e atualizados.</p>
-                <div class="countdown">
-                    <h3 class="countdown-title">⚡ Ofertas Relâmpago terminam em:</h3>
-                    <div class="countdown-timer" id="timer">
-                        <div class="timer-block"><span id="hours">23</span><p>Horas</p></div>
-                        <div class="timer-block"><span id="minutes">59</span><p>Minutos</p></div>
-                        <div class="timer-block"><span id="seconds">40</span><p>Segundos</p></div>
+                <h1>Sua Economia Começa <span style="color: var(--color-primary);">AGORA!</span> <i class="fa-solid fa-bolt"></i></h1>
+                <p class="hero-subtitle">Encontre cupons exclusivos, ofertas relâmpago e descontos verificados das maiores lojas do Brasil.</p>
+                
+                <div class="search-wrapper">
+                    <label for="main-search" style="display:none;">Buscar loja</label>
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="main-search" class="search-input" placeholder="Busque por loja (ex: Amazon, Nike)...">
+                </div>
+
+                <div class="countdown-box">
+                    <div class="countdown-title"><i class="fa-regular fa-clock"></i> Ofertas Relâmpago expiram em:</div>
+                    <div class="timer-display" id="timer">
+                        <div class="time-block"><span id="h">00</span><p>Horas</p></div>
+                        <div class="time-block"><span id="m">00</span><p>Min</p></div>
+                        <div class="time-block"><span id="s">00</span><p>Seg</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="social-proof">
-            <div class="container">
-                <div class="proof-item">
-                    <i class="fa-solid fa-users"></i>
-                    <p><strong>+15.480</strong> pessoas usaram hoje</p>
-                </div>
-                <div class="proof-item">
-                    <i class="fa-solid fa-tags"></i>
-                    <p><strong><span id="dynamic-coupon-count">...</span></strong> cupons ativos agora</p>
-                </div>
-                <div class="proof-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <p>Cupons <strong>100% Verificados</strong></p>
-                </div>
+        <!-- LOJAS DESTAQUE -->
+        <section class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-star" style="color: var(--color-warning);"></i> Lojas em Destaque</h2>
+            </div>
+            <div class="stores-grid">
+                <!-- Links otimizados para SEO interno -->
+                <a href="stores.html" class="store-circle" title="Cupons Amazon">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/amazon.com.br" alt="Logo Amazon"></div>
+                    <div class="store-name">Amazon</div>
+                </a>
+                <a href="stores.html" class="store-circle" title="Cupons Magalu">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/magazineluiza.com.br" alt="Logo Magalu"></div>
+                    <div class="store-name">Magalu</div>
+                </a>
+                <a href="stores.html" class="store-circle" title="Cupons Americanas">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/americanas.com.br" alt="Logo Americanas"></div>
+                    <div class="store-name">Americanas</div>
+                </a>
+                <a href="stores.html" class="store-circle" title="Cupons Nike">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/nike.com.br" alt="Logo Nike"></div>
+                    <div class="store-name">Nike</div>
+                </a>
+                <a href="stores.html" class="store-circle" title="Cupons Mercado Livre">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/mercadolivre.com.br" alt="Logo Mercado Livre"></div>
+                    <div class="store-name">MercadoLivre</div>
+                </a>
+                <a href="stores.html" class="store-circle" title="Cupons Shopee">
+                    <div class="circle-img"><img src="https://logo.clearbit.com/shopee.com.br" alt="Logo Shopee"></div>
+                    <div class="store-name">Shopee</div>
+                </a>
             </div>
         </section>
 
+        <!-- BANNER 1 -->
         <div class="container">
-            <div class="ad-space" id="ad-slot-top">
-                <div>
-                    <h4>Espaço Publicitário (Leaderboard)</h4>
-                    <p>(Cole seu código de anúncio 728x90 ou 970x90 aqui)</p>
-                </div>
+            <div class="ad-space">
+                <!-- Cole aqui o script do Google AdSense (Leaderboard) -->
+                <p>Publicidade (Espaço Reservado 728x90)</p>
             </div>
         </div>
 
-        <section class="featured-stores-section">
-            <div class="container">
-                <h2><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Lojas em Destaque</h2>
-                <div class="stores-grid">
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/magazineluiza.com.br" alt="Logo Magazine Luiza" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/E60014?text=Magalu&font=inter';"></figure>
-                        <p>Magazine Luiza</p>
-                    </a>
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/amazon.com.br" alt="Logo Amazon" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/000000?text=Amazon&font=inter';"></figure>
-                        <p>Amazon</p>
-                    </a>
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/americanas.com.br" alt="Logo Americanas" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/B20000?text=Americ.&font=inter';"></figure>
-                        <p>Americanas</p>
-                    </a>
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/netshoes.com.br" alt="Logo Netshoes" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00A3E0?text=Netshoes&font=inter';"></figure>
-                        <p>Netshoes</p>
-                    </a>
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/casasbahia.com.br" alt="Logo Casas Bahia" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/00439C?text=Casas+Bahia&font=inter';"></figure>
-                        <p>Casas Bahia</p>
-                    </a>
-                    <a href="#" class="store-item">
-                        <figure><img src="https://logo.clearbit.com/ifood.com.br" alt="Logo iFood" onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/EA1D2C?text=iFood&font=inter';"></figure>
-                        <p>iFood</p>
-                    </a>
-                </div>
-                
-                <div class="view-all-link-container">
-                    <a href="#" class="view-all-cta">
-                        Ver Todas as Lojas Parceiras <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
+        <!-- CAMPANHAS ATIVAS -->
+        <section class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-bullhorn" style="color: var(--color-secondary);"></i> Campanhas Ativas</h2>
+            </div>
+            <div id="campaigns-container" class="campaigns-grid">
+                <!-- JS irá preencher -->
             </div>
         </section>
 
-        
-<section class="campaigns-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-bullhorn" style="color: var(--color-warning);"></i> Campanhas Ativas</h2>
-                <div class="loading-spinner" id="campaigns-loading"></div>
-                <div class="api-error" id="campaigns-error"></div>
-                <div class="campaigns-grid" id="campaigns-grid">
-                    <!-- Cards de Campanha via JS -->
-                </div>
+        <!-- MELHORES CUPONS -->
+        <section class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-ticket" style="color: var(--color-primary);"></i> Cupons Verificados</h2>
+            </div>
+            
+            <div id="loader" style="text-align:center; padding:30px; color:#666;">
+                <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+            </div>
+            
+            <div id="coupons-grid" class="coupons-grid">
+                <!-- JS irá preencher com dados unificados (Lomadee + AWIN) -->
             </div>
         </section>
 
-        
-
-<section class="offers-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-fire" style="color: var(--color-primary);"></i> Top Cupons Verificados</h2>
-                <div class="loading-spinner" id="coupons-loading"></div>
-                <div class="api-error" id="coupons-error"></div>
-                <div class="coupons-grid" id="coupons-grid">
-                    <!-- Cards de Cupom via JS -->
-                </div>
+        <!-- OFERTAS DE PRODUTOS -->
+        <section class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-tags" style="color: var(--color-warning);"></i> Ofertas de Produtos</h2>
+            </div>
+            <div id="products-grid" class="products-grid">
+                <!-- JS irá preencher -->
             </div>
         </section>
 
-        
-<section class="products-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-bag-shopping" style="color: var(--color-secondary);"></i> Ofertas de Produtos</h2>
-                <div class="loading-spinner" id="products-loading"></div>
-                <div class="api-error" id="products-error"></div>
-                <div class="products-grid" id="products-grid">
-                    <!-- Cards de Ofertas/Deals via JS -->
-                </div>
-            </div>
-        </section>
-
-        
-
-<div class="container">
-            <div class="ad-space" id="ad-slot-bottom">
-                 <div>
-                    <h4>Espaço Publicitário (Leaderboard)</h4>
-                    <p>(Cole seu código de anúncio 728x90 ou 970x90 aqui)</p>
-                </div>
+        <!-- BANNER 2 -->
+        <div class="container">
+            <div class="ad-space">
+                <!-- Cole aqui o script do Google AdSense (Rodapé) -->
+                <p>Publicidade (Espaço Reservado 728x90)</p>
             </div>
         </div>
 
@@ -311,423 +296,222 @@
         </div>
     </footer>
 
-    
-<div id="cookie-consent-banner">
-    <p>Utilizamos cookies para otimizar sua experiência de navegação. Ao continuar, você concorda com nosso uso de cookies.</p>
-    <button id="accept-cookies">Aceitar e Fechar</button>
-</div>
+    <script>
+        /**
+         * CONFIGURAÇÃO DA API (INTEGRAÇÃO REAL)
+         * --------------------------------------
+         * Para conectar com Lomadee e AWIN, você precisará de um Backend (Node.js/Vercel)
+         * para proteger suas chaves de API. 
+         * * Substitua a URL abaixo pela URL do seu backend quando estiver pronto.
+         * Ex: const API_URL = "https://seu-backend.vercel.app/api";
+         */
+        const USE_MOCK_DATA = true; // Mude para false quando tiver a API pronta
+        const API_URL = "/api"; 
 
-    
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Data Futura para UX
+            const futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + 7);
+            const dateStr = futureDate.toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'});
 
-        // --- MOCK DATA FOR PREVIEW ---
-        const MOCK_COUPONS = [
-            {
-                advertiserName: "Magazine Luiza",
-                advertiserLogoUrl: "https://logo.clearbit.com/magazineluiza.com.br",
-                title: "10% OFF",
-                description: "10% de desconto em Eletrodomésticos selecionados",
-                endDate: new Date(Date.now() + 86400000 * 5).toISOString(),
-                url: "#",
-                code: "MAGALU10",
-                exclusive: true
-            },
-            {
-                advertiserName: "Amazon",
-                advertiserLogoUrl: "https://logo.clearbit.com/amazon.com.br",
-                title: "FRETE GRÁTIS",
-                description: "Frete Grátis para membros Prime em todo site",
-                endDate: new Date(Date.now() + 86400000 * 2).toISOString(),
-                url: "#",
-                code: null, // Deal link, no code
-                exclusive: false
-            },
-            {
-                advertiserName: "Netshoes",
-                advertiserLogoUrl: "https://logo.clearbit.com/netshoes.com.br",
-                title: "R$ 50 OFF",
-                description: "Ganhe R$50 acima de R$200 em compras",
-                endDate: new Date(Date.now() + 86400000 * 10).toISOString(),
-                url: "#",
-                code: "NETSHOES50",
-                exclusive: false
-            },
-            {
-                advertiserName: "KaBuM!",
-                advertiserLogoUrl: "https://logo.clearbit.com/kabum.com.br",
-                title: "5% OFF",
-                description: "5% de desconto no PIX em Hardware",
-                endDate: new Date(Date.now() + 86400000 * 1).toISOString(),
-                url: "#",
-                code: "KABUM5",
-                exclusive: true
+            try {
+                // 1. Buscar Dados (Fallback para Mock se a API falhar ou não existir)
+                const data = await fetchAllData();
+                
+                // 2. Renderizar Interface
+                document.getElementById('loader').style.display = 'none';
+                renderCoupons(data.coupons, dateStr);
+                renderCampaigns(data.campaigns);
+                renderProducts(data.products);
+
+                // 3. Iniciar Timer
+                startTimer();
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            } catch (error) {
+                console.error("Erro crítico ao carregar site:", error);
+                document.getElementById('loader').innerHTML = "Erro ao carregar ofertas. Recarregue a página.";
             }
-        ];
+        });
 
-        const MOCK_CAMPAIGNS = [
-            {
-                title: "Black Friday Antecipada",
-                description: "As melhores ofertas do ano chegaram mais cedo!",
-                image: "https://placehold.co/280x150/000000/FFFFFF?text=Black+Friday&font=inter",
-                url: "#"
-            },
-            {
-                title: "Semana do Consumidor",
-                description: "Descontos de até 60% em todo o site.",
-                image: "https://placehold.co/280x150/FF3B80/FFFFFF?text=Consumidor&font=inter",
-                url: "#"
-            },
-            {
-                title: "Ofertas de Natal",
-                description: "Presentes para toda a família.",
-                image: "https://placehold.co/280x150/00BFA6/FFFFFF?text=Natal&font=inter",
-                url: "#"
+        // --- CAMADA DE SERVIÇO DE DADOS (Data Layer) ---
+        async function fetchAllData() {
+            if (USE_MOCK_DATA) {
+                return getMockData();
             }
-        ];
 
-        const MOCK_PRODUCTS = [
-            {
-                title: "Smartphone Samsung Galaxy S23 128GB",
-                advertiserName: "Magazine Luiza",
-                advertiserLogoUrl: "https://logo.clearbit.com/magazineluiza.com.br",
-                description: "Smartphone topo de linha com câmera incrível e processador rápido.",
-                url: "#"
-            },
-            {
-                title: "Notebook Dell Inspiron i5 8GB",
-                advertiserName: "Amazon",
-                advertiserLogoUrl: "https://logo.clearbit.com/amazon.com.br",
-                description: "Ideal para trabalho e estudos, com SSD de 256GB.",
-                url: "#"
-            },
-            {
-                title: "Tênis Nike Revolution 6 Next Nature",
-                advertiserName: "Netshoes",
-                advertiserLogoUrl: "https://logo.clearbit.com/netshoes.com.br",
-                description: "Conforto e estilo para suas corridas diárias.",
-                url: "#"
+            // Exemplo de como será a chamada real para seu backend que une Lomadee e AWIN
+            try {
+                const [couponsRes, campaignsRes, productsRes] = await Promise.all([
+                    fetch(`${API_URL}/coupons`),
+                    fetch(`${API_URL}/campaigns`),
+                    fetch(`${API_URL}/products`)
+                ]);
+                return {
+                    coupons: await couponsRes.json(),
+                    campaigns: await campaignsRes.json(),
+                    products: await productsRes.json()
+                };
+            } catch (e) {
+                console.warn("API não respondendo, usando dados locais.");
+                return getMockData();
             }
-        ];
-
-
-        // --- Elementos do DOM ---
-        const couponsGrid = document.getElementById('coupons-grid');
-        const couponsLoading = document.getElementById('coupons-loading');
-        const couponsError = document.getElementById('coupons-error');
-        
-        const campaignsGrid = document.getElementById('campaigns-grid');
-        const campaignsLoading = document.getElementById('campaigns-loading');
-        const campaignsError = document.getElementById('campaigns-error');
-        
-        const productsGrid = document.getElementById('products-grid');
-        const productsLoading = document.getElementById('products-loading');
-        const productsError = document.getElementById('products-error');
-        
-        const countEl = document.getElementById('dynamic-coupon-count');
-        const yearEl = document.getElementById('current-year');
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const acceptButton = document.getElementById('accept-cookies');
-
-
-        /**
-         * Função Principal: Carrega todos os dados (Simulados)
-         */
-        async function loadAllData() {
-            loadCampaigns();
-            loadCoupons();
-            loadProducts(); 
         }
 
-        /**
-         * Simula carregamento de Cupons
-         */
-        function loadCoupons() {
-            if (couponsLoading) couponsLoading.style.display = 'block';
+        // --- FUNÇÕES DE RENDERIZAÇÃO ---
+        function renderCoupons(coupons, dateStr) {
+            const grid = document.getElementById('coupons-grid');
+            grid.innerHTML = '';
             
-            // Simulate API delay
-            setTimeout(() => {
-                generateCouponCards(MOCK_COUPONS);
-                if (countEl) countEl.textContent = MOCK_COUPONS.length + 120; // +120 fake ones
-                if (couponsLoading) couponsLoading.style.display = 'none';
-            }, 800);
-        }
-
-        /**
-         * Simula carregamento de Campanhas
-         */
-        function loadCampaigns() {
-            if (campaignsLoading) campaignsLoading.style.display = 'block';
-            
-            setTimeout(() => {
-                generateCampaignCards(MOCK_CAMPAIGNS);
-                if (campaignsLoading) campaignsLoading.style.display = 'none';
-            }, 600);
-        }
-
-         /**
-         * Simula carregamento de Produtos
-         */
-        function loadProducts() {
-            if (productsLoading) productsLoading.style.display = 'block';
-            
-            setTimeout(() => {
-                generateProductCards(MOCK_PRODUCTS);
-                if (productsLoading) productsLoading.style.display = 'none';
-            }, 1000);
-        }
-
-
-        /**
-         * Gera os cards de CUPOM
-         */
-        function generateCouponCards(vouchers) {
-            if (!couponsGrid) return;
-            couponsGrid.innerHTML = ''; 
-
-            vouchers.forEach((voucher, index) => {
-                const storeName = voucher.advertiserName;
-                const logo = voucher.advertiserLogoUrl;
-                const logoPlaceholder = `https://placehold.co/80x80/FFFFFF/000000?text=${storeName.split(' ')[0]}&font=inter`;
-                const affiliateLink = voucher.url; 
-
-                const cardHTML = `
-                    <article class="coupon-card hover-lift">
-                        ${voucher.exclusive ? '<div class="badge">Exclusivo</div>' : ''}
-                        <div class="card-header">
-                            <figure class="card-logo">
-                                <img src="${logo}" alt="Logo ${storeName}" 
-                                     onerror="this.onerror=null; this.src='${logoPlaceholder}';">
-                            </figure>
-                            <div class="card-info">
-                                <div class="card-discount">${voucher.title}</div>
-                                <h3 class="card-title">${voucher.description}</h3>
-                                <p class="card-validity">
-                                    <i class="fa-solid fa-clock"></i> Expira em: ${new Date(voucher.endDate).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
-                                </p>
+            coupons.forEach(c => {
+                const badge = c.exclusive ? `<div class="badge-exclusive">Exclusivo</div>` : '';
+                
+                // Lógica Tesoura / Botão
+                let btnHtml = '';
+                if (c.code) {
+                    const partial = c.code.substring(0, 4) + "***";
+                    btnHtml = `
+                        <div class="coupon-btn-container" onclick="copyCode(this, '${c.code}', '${c.link}')">
+                            <div class="coupon-part-code" title="Clique para revelar">${partial}</div>
+                            <div class="coupon-part-action">
+                                <i class="fa-solid fa-scissors"></i> VER CUPOM
                             </div>
                         </div>
-                        <a href="${affiliateLink}" target="_blank" class="coupon-cta" 
-                           data-code="${voucher.code || 'NOCODE'}">
-                            ${voucher.code ? 'Revelar Cupom' : 'Ir para Oferta'}
-                        </a>
+                    `;
+                } else {
+                    btnHtml = `
+                        <div class="coupon-btn-container" onclick="window.open('${c.link}', '_blank')" style="border-style:solid;">
+                            <div class="coupon-part-action" style="background:var(--color-secondary);">
+                                ATIVAR OFERTA <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Schema para SEO (ItemListElement oculto não é ideal, mas tags semânticas ajudam)
+                const html = `
+                    <article class="coupon-card" itemscope itemtype="https://schema.org/SaleEvent">
+                        ${badge}
+                        <div class="card-header">
+                            <img src="${c.logo}" class="card-logo" alt="Logo ${c.store}" onerror="this.src='https://placehold.co/70'">
+                            <div class="card-offer-info">
+                                <h3 itemprop="name">${c.title}</h3>
+                                <p itemprop="organizer">${c.store}</p>
+                            </div>
+                        </div>
+                        <p style="color:#ccc; margin-bottom:15px;" itemprop="description">${c.desc}</p>
+                        
+                        <div class="card-meta">
+                            <div class="verified-tag"><i class="fa-solid fa-check-circle"></i> Verificado</div>
+                            <div><i class="fa-regular fa-calendar"></i> Válido até: ${dateStr}</div>
+                        </div>
+                        
+                        <meta itemprop="endDate" content="${new Date().toISOString().split('T')[0]}">
+
+                        ${btnHtml}
                     </article>
                 `;
-                couponsGrid.innerHTML += cardHTML;
-
-                if ((index + 1) % 4 === 0) {
-                    couponsGrid.innerHTML += getAdCardHTML('coupon');
-                }
+                grid.innerHTML += html;
             });
         }
 
-        /**
-         * Gera os cards de CAMPANHA
-         */
-        function generateCampaignCards(campaigns) {
-            if (!campaignsGrid) return;
-            campaignsGrid.innerHTML = '';
-            campaigns.forEach(campaign => {
-                const affiliateLink = campaign.url;
-                
-                const cardHTML = `
-                    <a href="${affiliateLink}" target="_blank" class="campaign-card" title="${campaign.title}">
-                        <img src="${campaign.image}" alt="${campaign.title}" onerror="this.onerror=null;this.src='https://placehold.co/280x150/FF3B80/FFFFFF?text=Campanha&font=inter';">
-                        <div class="campaign-card-content">
-                            <h4>${campaign.title}</h4>
-                            <p>${campaign.description || 'Clique e aproveite!'}</p>
+        function renderCampaigns(campaigns) {
+            const grid = document.getElementById('campaigns-container');
+            campaigns.forEach(camp => {
+                grid.innerHTML += `
+                    <a href="${camp.link}" class="campaign-card" title="${camp.title}">
+                        <img src="${camp.img}" class="campaign-img" alt="${camp.title}">
+                        <div class="campaign-content">
+                            <div class="campaign-title">${camp.title}</div>
+                            <div style="color:var(--color-secondary); font-size:0.8rem;">Ver coleção <i class="fa-solid fa-arrow-right"></i></div>
                         </div>
                     </a>
                 `;
-                campaignsGrid.innerHTML += cardHTML;
             });
         }
 
-         /**
-         * Gera os cards de PRODUTO/DEAL
-         */
-        function generateProductCards(deals) {
-            if (!productsGrid) return;
-            productsGrid.innerHTML = '';
-            deals.forEach((deal, index) => {
-                const affiliateLink = deal.url;
-                const logo = deal.advertiserLogoUrl;
-                const storeName = deal.advertiserName;
-                const logoPlaceholder = `https://placehold.co/300x220/FFFFFF/000000?text=${storeName.split(' ')[0]}&font=inter`;
-
-                const cardHTML = `
-                    <article class="product-card hover-lift">
-                        <!-- Usando o logo da loja no espaço da imagem do produto -->
-                        <img src="${logo}" alt="${storeName}" class="product-image" 
-                             style="object-fit: contain; padding: 20px; height: 220px; background-color: #fff;" 
-                             onerror="this.onerror=null;this.src='${logoPlaceholder}';">
-                        
-                        <div class="product-card-content">
-                            <h4>${deal.title}</h4>
-                            <p class="product-store">Vendido por: ${storeName}</p>
-                            
-                            <p class="product-price" style="display: none;">Ver Preço</p> 
-                            
-                            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 15px; flex-grow: 1;">
-                                ${deal.description}
-                            </p>
-                            
-                            <a href="${affiliateLink}" target="_blank" class="product-cta">
-                                Ver Oferta <i class="fa-solid fa-arrow-right"></i>
-                            </a>
+        function renderProducts(products) {
+            const grid = document.getElementById('products-grid');
+            products.forEach(prod => {
+                grid.innerHTML += `
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="prod-img-box">
+                            <div style="position:absolute; top:10px; left:10px; background:#000; color:#fff; padding:2px 8px; border-radius:4px; font-size:0.7rem;">${prod.store}</div>
+                            <img src="${prod.img}" class="prod-img" alt="${prod.name}" itemprop="image">
+                        </div>
+                        <div class="prod-content">
+                            <h4 style="font-size:1rem;" itemprop="name">${prod.name}</h4>
+                            <div class="prod-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="priceCurrency" content="BRL">R$</span> <span itemprop="price">${prod.price}</span>
+                            </div>
+                            <a href="${prod.link}" target="_blank" class="prod-btn">Ver Oferta</a>
                         </div>
                     </article>
                 `;
-                productsGrid.innerHTML += cardHTML;
-
-                if ((index + 1) % 4 === 0) {
-                    productsGrid.innerHTML += getAdCardHTML('product');
-                }
             });
         }
 
-        /**
-         * Retorna HTML do card de anúncio (In-feed)
-         */
-        function getAdCardHTML(type) {
-            return `
-                <article class="ad-card" id="ad-infeed-${type}">
-                    <h4>Espaço Publicitário</h4>
-                    <div class="ad-placeholder-box">300 x 250</div>
-                    <p>(Google AdSense ou Afiliado Direto)</p>
-                </article>
-            `;
+        // --- UTILS ---
+        function startTimer() {
+            let h=23, m=59, s=59;
+            const hel = document.getElementById('h');
+            const mel = document.getElementById('m');
+            const sel = document.getElementById('s');
+            setInterval(()=>{
+                if(s>0) s--; else { s=59; if(m>0) m--; else { m=59; if(h>0) h--; } }
+                hel.innerText = h.toString().padStart(2,'0');
+                mel.innerText = m.toString().padStart(2,'0');
+                sel.innerText = s.toString().padStart(2,'0');
+            },1000);
         }
 
-
-        /**
-         * FUNCIONALIDADE (Clique em Cupom): Copiar + Redirecionar
-         */
-        function setupCouponClickListeners() {
-            if (!couponsGrid) return; 
-
-            couponsGrid.addEventListener('click', (e) => {
-                const ctaButton = e.target.closest('.coupon-cta');
-                if (!ctaButton) return;
-                
-                if (ctaButton.classList.contains('copied')) return; 
-                
-                const couponCode = ctaButton.dataset.code;
-                const originalText = ctaButton.textContent;
-
-                if (couponCode === "NOCODE") {
-                    ctaButton.textContent = '✅ OFERTA ATIVADA';
-                    ctaButton.classList.add('copied');
-                    return; 
-                }
-                
-                const tempTextarea = document.createElement('textarea');
-                tempTextarea.value = couponCode;
-                tempTextarea.style.position = 'absolute';
-                tempTextarea.style.left = '-9999px';
-                document.body.appendChild(tempTextarea);
-                tempTextarea.select();
-                
-                try {
-                    document.execCommand('copy');
-                    ctaButton.textContent = '✅ COPIADO!';
-                    ctaButton.classList.add('copied');
-                    setTimeout(() => {
-                        ctaButton.textContent = `CÓDIGO: ${couponCode}`;
-                    }, 2000);
-                } catch (err) {
-                    console.error('Falha ao copiar o cupom: ', err);
-                    ctaButton.textContent = 'Erro ao Copiar';
-                     setTimeout(() => { ctaButton.textContent = originalText; }, 2000);
-                }
-                document.body.removeChild(tempTextarea);
-            });
-        }
-
-        /**
-         * FUNCIONALIDADE (Contador Regressivo)
-         */
-        function startCountdown() {
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            if (!hoursEl || !minutesEl || !secondsEl) return;
-
-            let endTime = localStorage.getItem('countdownEndTime');
+        function copyCode(el, code, link) {
+            navigator.clipboard.writeText(code);
+            const actionPart = el.querySelector('.coupon-part-action');
+            const originalText = actionPart.innerHTML;
+            const codePart = el.querySelector('.coupon-part-code');
             
-            if (!endTime || new Date().getTime() > endTime) {
-                // Reinicia o contador para 24h a partir de agora
-                endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-                localStorage.setItem('countdownEndTime', endTime);
-            }
-
-            function updateTimer() {
-                const now = new Date().getTime();
-                const distance = endTime - now;
-
-                if (distance < 0) {
-                    localStorage.removeItem('countdownEndTime');
-                    startCountdown(); // Reinicia o ciclo
-                    return;
-                }
-
-                const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-
-                hoursEl.textContent = hours;
-                minutesEl.textContent = minutes;
-                secondsEl.textContent = seconds;
-            }
+            actionPart.innerHTML = 'COPIADO!';
+            actionPart.style.background = 'var(--color-secondary)';
+            codePart.innerText = code; // Revela
+            codePart.style.color = 'var(--color-text-primary)';
             
-            updateTimer();
-            setInterval(updateTimer, 1000);
+            setTimeout(() => {
+                window.open(link, '_blank');
+            }, 500);
+
+            setTimeout(() => {
+                actionPart.innerHTML = originalText;
+                actionPart.style.background = 'var(--color-primary)';
+                codePart.innerText = code.substring(0, 4) + "***";
+            }, 3000);
         }
 
-        /**
-         * FUNCIONALIDADE (Ano Automático no Footer)
-         */
-        function updateFooterYear() {
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
-            }
+        // --- MOCK DATA (Simulando resposta da API) ---
+        function getMockData() {
+            return {
+                coupons: [
+                    { store: "Amazon", logo: "https://logo.clearbit.com/amazon.com.br", title: "R$ 20 OFF App", desc: "Primeira compra no app", link: "#", code: "APP20AMZ", exclusive: true },
+                    { store: "Americanas", logo: "https://logo.clearbit.com/americanas.com.br", title: "10% OFF PIX", desc: "Pagamento à vista", link: "#", code: "AMER10", exclusive: false },
+                    { store: "Centauro", logo: "https://logo.clearbit.com/centauro.com.br", title: "15% Extra Tênis", desc: "Lista selecionada", link: "#", code: "CORRE15", exclusive: true },
+                    { store: "KaBuM!", logo: "https://logo.clearbit.com/kabum.com.br", title: "5% Hardware", desc: "Placas de vídeo", link: "#", code: "NINJA5", exclusive: false },
+                    { store: "Adidas", logo: "https://logo.clearbit.com/adidas.com.br", title: "Outlet 40% OFF", desc: "Desconto automático", link: "#", code: null, exclusive: false },
+                    { store: "Burger King", logo: "https://logo.clearbit.com/burgerking.com.br", title: "2 Whopper R$25", desc: "Pegue no app", link: "#", code: "BK25", exclusive: true }
+                ],
+                campaigns: [
+                    { title: "Semana do Consumidor", img: "https://placehold.co/280x150/111/FFF?text=Consumidor&font=inter", link: "#" },
+                    { title: "Ofertas Relâmpago", img: "https://placehold.co/280x150/FF3B80/FFF?text=Relampago&font=inter", link: "#" },
+                    { title: "Frete Grátis Brasil", img: "https://placehold.co/280x150/00BFA6/FFF?text=Frete+Gratis&font=inter", link: "#" },
+                    { title: "Saldão de Inverno", img: "https://placehold.co/280x150/FFA726/000?text=Saldao&font=inter", link: "#" }
+                ],
+                products: [
+                    { name: "iPhone 13 128GB Meia-Noite", price: "3.299", img: "https://placehold.co/200x200?text=iPhone", store: "Amazon", link: "#" },
+                    { name: "Smart TV 50' 4K UHD", price: "1.999", img: "https://placehold.co/200x200?text=TV+4K", store: "Magalu", link: "#" },
+                    { name: "Air Fryer Mondial 4L", price: "299", img: "https://placehold.co/200x200?text=AirFryer", store: "Americanas", link: "#" },
+                    { name: "Tênis Nike Revolution 6", price: "249", img: "https://placehold.co/200x200?text=Nike", store: "Netshoes", link: "#" }
+                ]
+            };
         }
-
-        /**
-         * FUNCIONALIDADE (Banner de Cookies)
-         */
-        function checkCookieConsent() {
-            if (!cookieBanner || !acceptButton) return;
-
-            if (localStorage.getItem('cookiesAccepted') === 'true') {
-                cookieBanner.style.display = 'none';
-            } else {
-                setTimeout(() => {
-                    cookieBanner.classList.add('show');
-                }, 500); 
-            }
-
-            acceptButton.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieBanner.classList.remove('show');
-                
-                setTimeout(() => {
-                    cookieBanner.style.display = 'none';
-                }, 500);
-            });
-        }
-
-
-        // --- INICIALIZAÇÃO DO SITE ---
-        updateFooterYear();
-        startCountdown();
-        setupCouponClickListeners();
-        loadAllData(); 
-        checkCookieConsent(); 
-
-    });
-</script>
-
+    </script>
 </body>
 </html>
