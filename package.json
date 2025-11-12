@@ -1,9 +1,12 @@
 {
-  "name": "megacupons-awin-proxy",
+  "name": "megacupons-backend",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
+  "description": "API Proxy para MegaCupons",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   }
 }
