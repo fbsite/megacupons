@@ -3,238 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todas as Lojas | MegaCupons</title>
-    <meta name="description" content="Encontre cupons e ofertas de todas as nossas lojas parceiras. Magazine Luiza, Amazon, Americanas e muito mais.">
     
-    <!-- Metatags e Links -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <!-- SEO ESPECÍFICO DA PÁGINA DE LOJAS -->
+    <title>Todas as Lojas Parceiras | MegaCupons</title>
+    <meta name="description" content="Lista completa de lojas parceiras com cupons ativos. Encontre descontos para Amazon, Nike, Adidas, Shopee e mais de 500 lojas.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.megacupons.com.br/stores.html">
+    
+    <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
     <style>
+        /* REUTILIZANDO VARIÁVEIS GLOBAIS PARA CONSISTÊNCIA */
         :root {
             --color-primary: #FF3B80;
-            --color-secondary: #00BFA6;
-            --color-warning: #FFA726;
-            --color-background: #121212;
-            --color-surface: #1E1E1E;
+            --color-background: #0F0F0F;
+            --color-surface: #1C1C1C;
             --color-text-primary: #FFFFFF;
-            --color-text-secondary: #B0B0B0;
+            --color-text-secondary: #A0A0A0;
             --font-main: 'Inter', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
             background-color: var(--color-background);
             color: var(--color-text-primary);
-            line-height: 1.6;
-            padding-bottom: 100px; 
+            padding-bottom: 50px;
         }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
-        .section-title { font-size: 2rem; font-weight: 900; text-align: center; margin-bottom: 30px; }
-        
-        /* Header & Nav */
-        .header { background-color: var(--color-surface); border-bottom: 2px solid var(--color-primary); padding: 15px 0; }
-        .header .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); text-decoration: none; }
-        .logo i { margin-right: 5px; }
-        .navbar { display: flex; gap: 20px; }
-        .navbar a { color: var(--color-text-secondary); text-decoration: none; font-weight: 700; font-size: 1rem; }
-        .navbar a:hover, .navbar a.active { color: var(--color-text-primary); }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 92%; max-width: 1100px; margin: 0 auto; padding: 20px 0; }
 
-        /* Loading & Error */
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .loading-spinner { width: 60px; height: 60px; border: 8px solid var(--color-surface); border-top-color: var(--color-primary); border-radius: 50%; margin: 40px auto; animation: spin 1s linear infinite; display: block; }
-        .api-error { display: none; background-color: var(--color-surface); border: 2px solid var(--color-warning); border-radius: 8px; padding: 30px; text-align: center; margin: 20px 0; }
-        .api-error h3 { color: var(--color-warning); font-size: 1.5rem; margin-bottom: 10px; }
-        .api-error p { color: var(--color-text-secondary); font-size: 1rem; }
+        /* HEADER */
+        .header { background: var(--color-surface); padding: 15px 0; border-bottom: 2px solid var(--color-primary); margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; padding: 0; margin: 0 auto; }
+        .logo { font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 5px; color: var(--color-primary); }
+        .nav-link { color: var(--color-text-secondary); font-weight: 700; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
+        .nav-link:hover { color: white; }
 
-        /* Grid de Lojas */
-        .stores-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-items: center; }
-        .store-item { 
-            text-decoration: none; 
-            color: var(--color-text-secondary); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-            display: block; 
-            background-color: var(--color-surface); 
-            border-radius: 12px; 
-            border: 1px solid #333; 
-            overflow: hidden; 
-            width: 100%;
-        }
-        .store-item:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-            border-color: var(--color-primary);
-        }
-        .store-item figure { 
-            width: 100%; 
-            height: 140px; 
-            background-color: #fff; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            border-bottom: 1px solid #333; 
-            padding: 20px;
-        }
-        .store-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-        }
-        .store-item p { font-size: 1.1rem; font-weight: 700; text-align: center; padding: 15px; color: var(--color-text-primary); }
+        /* HERO DA PÁGINA INTERNA */
+        .stores-header-area { text-align: center; margin-bottom: 40px; }
+        .stores-header-area h1 { font-size: 2rem; margin-bottom: 10px; font-weight: 900; }
         
-        /* Footer */
-        .footer { background-color: var(--color-surface); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333; }
-        .footer p { color: var(--color-text-secondary); font-size: 0.9rem; }
-        .footer p:first-child { font-weight: 700; color: var(--color-text-primary); margin-bottom: 5px; }
+        /* SEARCH BOX */
+        .search-box { position: relative; max-width: 500px; margin: 20px auto 0 auto; }
+        .search-input { width: 100%; padding: 15px 20px 15px 50px; background: var(--color-surface); border: 2px solid #333; border-radius: 8px; color: white; font-size: 1rem; outline: none; transition: 0.3s; }
+        .search-input:focus { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(255, 59, 128, 0.3); }
+        .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--color-primary); }
+
+        /* GRID DE LOJAS */
+        .store-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         
-        @media (min-width: 768px) {
-            .stores-grid { grid-template-columns: repeat(4, 1fr); }
+        .store-item { background: var(--color-surface); border: 1px solid #333; border-radius: 10px; display: flex; align-items: center; padding: 15px; gap: 15px; transition: transform 0.2s; }
+        .store-item:hover { transform: translateY(-5px); border-color: var(--color-primary); }
+        
+        .store-img { width: 60px; height: 60px; object-fit: contain; background: white; border-radius: 8px; padding: 5px; flex-shrink: 0; }
+        .store-info { display: flex; flex-direction: column; overflow: hidden; } 
+        .store-name { font-weight: 700; font-size: 1rem; color: white; }
+        
+        /* TEXTO VER OFERTAS (FIXADO EM UMA LINHA) */
+        .store-cta { 
+            font-size: 0.7rem;          
+            color: var(--color-primary); 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            margin-top: 2px;
+            white-space: nowrap;        
+            overflow: hidden;           
+            text-overflow: ellipsis;    
         }
-        @media (min-width: 1024px) {
-            .stores-grid { grid-template-columns: repeat(5, 1fr); }
-        }
+
+        /* CABEÇALHO ALFABÉTICO (Sem "A-Z" explícito, mas agrupado) */
+        .letter-heading { grid-column: 1 / -1; font-size: 1.5rem; font-weight: 900; color: var(--color-primary); margin: 30px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+
+        @media (min-width: 768px) { .store-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1024px) { .store-grid { grid-template-columns: repeat(4, 1fr); } }
     </style>
 </head>
 <body>
 
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo" title="MegaCupons - Página Inicial"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
-            <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="stores.html" class="active">Lojas</a>
-            </nav>
+            <a href="index.html" class="logo"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Voltar para Início</a>
         </div>
     </header>
 
-    <main>
-        <section class="stores-section" style="padding: 40px 0;">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-store" style="color: var(--color-secondary);"></i> Todas as Lojas Parceiras</h2>
-                <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 30px;">
-                    Lojas com cupons ou ofertas ativas no momento. Clique para ver os descontos.
-                </p>
-
-                <div class="loading-spinner" id="stores-loading"></div>
-                <div class="api-error" id="stores-error"></div>
-                <div class="stores-grid" id="stores-grid">
-                    <!-- Lojas carregadas via JS -->
-                </div>
+    <main class="container">
+        <div class="stores-header-area">
+            <h1>Todas as Lojas Parceiras</h1>
+            <p style="color: #888;">Encontre marcas exclusivas e descontos verificados.</p>
+            
+            <div class="search-box">
+                <label for="store-search" style="display:none;">Filtrar lojas</label>
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="store-search" class="search-input" placeholder="Filtrar loja pelo nome...">
             </div>
-        </section>
+        </div>
+
+        <div id="loader" style="text-align:center; padding: 50px; color: #666;">
+            <i class="fa-solid fa-circle-notch fa-spin"></i> Carregando parceiros...
+        </div>
+
+        <div id="stores-container" class="store-grid">
+            <!-- Lista gerada via JS -->
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>MegaCupons &copy; <span id="current-year"></span> - Todos os direitos reservados.</p>
-            <p>Economia real, 100% grátis e verificada para você.</p>
-        </div>
-    </footer>
+    <script>
+        /**
+         * CONFIGURAÇÃO DA API (INTEGRAÇÃO REAL)
+         */
+        const USE_MOCK_DATA = true; 
+        const API_URL = "/api/stores"; 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-    const storesGrid = document.getElementById('stores-grid');
-    const storesLoading = document.getElementById('stores-loading');
-    const storesError = document.getElementById('stores-error');
-    const yearEl = document.getElementById('current-year');
-
-    // Atualiza o ano no footer
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-
-    // --- DADOS SIMULADOS (MOCK DATA) PARA PREVIEW ---
-    const MOCK_STORES = [
-        { name: "Magazine Luiza", logoUrl: "https://logo.clearbit.com/magazineluiza.com.br", link: "#" },
-        { name: "Amazon", logoUrl: "https://logo.clearbit.com/amazon.com.br", link: "#" },
-        { name: "Americanas", logoUrl: "https://logo.clearbit.com/americanas.com.br", link: "#" },
-        { name: "Netshoes", logoUrl: "https://logo.clearbit.com/netshoes.com.br", link: "#" },
-        { name: "Casas Bahia", logoUrl: "https://logo.clearbit.com/casasbahia.com.br", link: "#" },
-        { name: "iFood", logoUrl: "https://logo.clearbit.com/ifood.com.br", link: "#" },
-        { name: "KaBuM!", logoUrl: "https://logo.clearbit.com/kabum.com.br", link: "#" },
-        { name: "Shopee", logoUrl: "https://logo.clearbit.com/shopee.com.br", link: "#" },
-        { name: "Mercado Livre", logoUrl: "https://logo.clearbit.com/mercadolivre.com.br", link: "#" },
-        { name: "Nike", logoUrl: "https://logo.clearbit.com/nike.com.br", link: "#" },
-        { name: "Adidas", logoUrl: "https://logo.clearbit.com/adidas.com.br", link: "#" },
-        { name: "Burger King", logoUrl: "https://logo.clearbit.com/burgerking.com.br", link: "#" },
-        { name: "Samsung", logoUrl: "https://logo.clearbit.com/samsung.com/br", link: "#" },
-        { name: "Fast Shop", logoUrl: "https://logo.clearbit.com/fastshop.com.br", link: "#" },
-        { name: "Renner", logoUrl: "https://logo.clearbit.com/lojasrenner.com.br", link: "#" }
-    ];
-
-    /**
-     * Carrega a lista de lojas (Simulação)
-     */
-    function loadStores() {
-        if (storesLoading) storesLoading.style.display = 'block';
-        if (storesError) storesError.style.display = 'none';
-
-        // Simulando um delay de rede de 800ms
-        setTimeout(() => {
+        document.addEventListener('DOMContentLoaded', async () => {
             try {
-                if (MOCK_STORES && MOCK_STORES.length > 0) {
-                    generateStoreCards(MOCK_STORES);
-                } else {
-                    showApiError(false, "Nenhuma loja encontrada.");
-                }
+                const stores = await fetchStores();
+                
+                // Ordenação A-Z
+                const sortedStores = [...stores].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                
+                renderStores(sortedStores);
+                document.getElementById('loader').style.display = 'none';
+                
+                // Ativar Busca
+                setupSearch(sortedStores);
+
             } catch (error) {
-                showApiError(false, "Erro ao carregar lojas.");
-            } finally {
-                if (storesLoading) storesLoading.style.display = 'none';
+                console.error(error);
+                document.getElementById('loader').innerHTML = "Erro ao carregar lojas.";
             }
-        }, 800);
-    }
-
-    /**
-     * Gera os cards de Loja
-     */
-    function generateStoreCards(stores) {
-        if (!storesGrid) return;
-        storesGrid.innerHTML = ''; 
-
-        stores.forEach(store => {
-            const logoPlaceholder = `https://placehold.co/100x70/FFFFFF/000000?text=${store.name.split(' ')[0]}&font=inter`;
-            const affiliateLink = store.link; 
-
-            const cardHTML = `
-                <a href="${affiliateLink}" target="_blank" class="store-item" title="Ver ofertas de ${store.name}">
-                    <figure>
-                        <img src="${store.logoUrl}" alt="Logo ${store.name}" 
-                             onerror="this.onerror=null; this.src='${logoPlaceholder}';">
-                    </figure>
-                    <p>${store.name}</p>
-                </a>
-            `;
-            storesGrid.innerHTML += cardHTML;
         });
-    }
 
-    /**
-     * Exibe mensagem de erro
-     */
-    function showApiError(isConfigError = false, customMessage = "") {
-        if (!storesError) return;
-        storesError.style.display = 'block';
-        
-        if (customMessage) {
-             storesError.innerHTML = `<h3><i class="fa-solid fa-face-sad-tear"></i> ${customMessage}</h3>`;
-        } else {
-            storesError.innerHTML = `<h3><i class="fa-solid fa-triangle-exclamation"></i> Erro inesperado.</h3>`;
+        async function fetchStores() {
+            if (USE_MOCK_DATA) {
+                return getMockStores();
+            }
+            // Integração real:
+            // const res = await fetch(API_URL);
+            // return await res.json();
         }
-    }
 
-    // --- INICIALIZAÇÃO DA PÁGINA ---
-    loadStores();
+        function renderStores(list) {
+            const container = document.getElementById('stores-container');
+            container.innerHTML = '';
 
-});
-</script>
+            if(list.length === 0) {
+                container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#666;">Nenhuma loja encontrada.</p>';
+                return;
+            }
 
+            let currentLetter = '';
+
+            list.forEach(store => {
+                const firstChar = store.name.charAt(0).toUpperCase();
+                if (firstChar !== currentLetter) {
+                    currentLetter = firstChar;
+                    container.innerHTML += `<div class="letter-heading">${currentLetter}</div>`;
+                }
+
+                const html = `
+                    <a href="${store.url}" target="_blank" class="store-item" title="Ver ofertas da ${store.name}">
+                        <img src="${store.logo}" class="store-img" alt="Logo ${store.name}" onerror="this.src='https://placehold.co/50'">
+                        <div class="store-info">
+                            <div class="store-name">${store.name}</div>
+                            <div class="store-cta">VER OFERTAS <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function setupSearch(allStores) {
+            const searchInput = document.getElementById('store-search');
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const filtered = allStores.filter(s => s.name.toLowerCase().includes(term));
+                renderStores(filtered);
+            });
+        }
+
+        function getMockStores() {
+            return [
+                { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com.br", url: "#" },
+                { name: "Nike", logo: "https://logo.clearbit.com/nike.com.br", url: "#" },
+                { name: "Americanas", logo: "https://logo.clearbit.com/americanas.com.br", url: "#" },
+                { name: "KaBuM!", logo: "https://logo.clearbit.com/kabum.com.br", url: "#" },
+                { name: "Dafiti", logo: "https://logo.clearbit.com/dafiti.com.br", url: "#" },
+                { name: "Adidas", logo: "https://logo.clearbit.com/adidas.com.br", url: "#" },
+                { name: "Centauro", logo: "https://logo.clearbit.com/centauro.com.br", url: "#" },
+                { name: "Casas Bahia", logo: "https://logo.clearbit.com/casasbahia.com.br", url: "#" },
+                { name: "AliExpress", logo: "https://logo.clearbit.com/aliexpress.com", url: "#" },
+                { name: "Ponto Frio", logo: "https://logo.clearbit.com/pontofrio.com.br", url: "#" },
+                { name: "Renner", logo: "https://logo.clearbit.com/lojasrenner.com.br", url: "#" },
+                { name: "Zattini", logo: "https://logo.clearbit.com/zattini.com.br", url: "#" }
+            ];
+        }
+    </script>
 </body>
 </html>
