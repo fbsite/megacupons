@@ -1,67 +1,28 @@
-// api/campanhas.js
-// ATUALIZADO: Versão à prova de falhas.
+export default function handler(req, res) {
+    // Configuração padrão para evitar erro de CORS
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
 
-// Funções de mapeamento (sem alteração)
-function mapAwinCampaign(promo) {
-    return { id: `awin_${promo.promotionId}`, name: promo.title, link: promo.url, thumbnail: promo.advertiserLogoUrl || `https://placehold.co/280x150/1E1E1E/FFFFFF?text=${promo.advertiserName}&font=inter` };
-}
-function mapLomadeeCampaign(campaign) {
-    return { id: `lomadee_${campaign.id}`, name: campaign.name, link: campaign.link, thumbnail: campaign.thumbnail };
-}
-
-export default async function handler(request, response) {
-    const { AWIN_ACCESS_TOKEN, AWIN_PUBLISHER_ID, LOMADEE_API_KEY } = process.env;
-
-    let allCampaigns = [];
-    let promises = [];
-
-    // --- Prepara a chamada Lomadee ---
-    if (LOMADEE_API_KEY) {
-        const lomadeeUrl = `https://api.lomadee.com/affiliate/campaigns`;
-        const lomadeeHeaders = { 'x-api-key': LOMADEE_API_KEY };
-        promises.push(fetch(lomadeeUrl, { headers: lomadeeHeaders }).then(res => ({ source: 'lomadee', res })));
-    } else {
-        console.warn('LOMADEE_API_KEY não encontrada. A saltar a API Lomadee.');
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
     }
 
-    // --- Prepara a chamada AWIN ---
-    if (AWIN_ACCESS_TOKEN && AWIN_PUBLISHER_ID) {
-        const awinUrl = `https://api.awin.com/publishers/${AWIN_PUBLISHER_ID}/promotions?relationship=joined&language=pt`;
-        const awinHeaders = { 'Authorization': `Bearer ${AWIN_ACCESS_TOKEN}` };
-        promises.push(fetch(awinUrl, { headers: awinHeaders }).then(res => ({ source: 'awin', res })));
-    } else {
-        console.warn('Chaves AWIN não encontradas. A saltar a API AWIN.');
-    }
-
-    // --- Executa ---
-    const results = await Promise.allSettled(promises);
-
-    // --- Processa ---
-    for (const result of results) {
-        if (result.status === 'rejected') {
-            console.error(`Falha ao buscar API: ${result.reason}`);
-            continue;
+    // Retorna um array vazio (ou dados de teste) para o site não quebrar
+    // Futuramente você conecta isso na API da Awin/Lomadee igual fez no coupons.js
+    res.status(200).json([
+        {
+            title: "Semana do Cliente",
+            img: "https://placehold.co/280x150/FF3B80/FFF?text=Ofertas&font=inter",
+            link: "#",
+            description: "Descontos progressivos em todo site"
+        },
+        {
+            title: "Frete Grátis",
+            img: "https://placehold.co/280x150/00BFA6/FFF?text=Frete+Free&font=inter",
+            link: "#",
+            description: "Para compras acima de R$ 99"
         }
-
-        const { source, res } = result.value;
-
-        if (!res.ok) {
-            console.error(`API ${source} respondeu com erro: ${res.status}`);
-            continue;
-        }
-
-        try {
-            const data = await res.json();
-            if (source === 'lomadee' && data.data && Array.isArray(data.data)) {
-                allCampaigns.push(...data.data.map(mapLomadeeCampaign));
-            } else if (source === 'awin' && data.promotions && Array.isArray(data.promotions)) {
-                allCampaigns.push(...data.promotions.map(mapAwinCampaign));
-            }
-        } catch (e) {
-            console.error(`Falha ao processar JSON da API ${source}: ${e.message}`);
-        }
-    }
-    
-    response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-    return response.status(200).json(allCampaigns);
+    ]);
 }
