@@ -1,101 +1,92 @@
 const axios = require('axios');
 
-// ------------------------------------------------------------------
-// ÁREA VIP: SEUS LINKS MANUAIS
-// ------------------------------------------------------------------
+// SEUS LINKS MANUAIS
 const OFERTAS_MANUAIS = [
     {
         store: "Amazon",
         logo: "https://logo.clearbit.com/amazon.com.br",
-        title: "Ofertas do Dia Amazon",
-        desc: "Descontos exclusivos em eletrônicos.",
-        link: "#", // COLE SEU LINK AQUI
+        title: "Ofertas do Dia",
+        desc: "Descontos exclusivos.",
+        link: "#",
         code: null,
         exclusive: true
     }
 ];
 
 module.exports = async (req, res) => {
-    // Apenas o Token principal agora
-    const lomadeeToken = process.env.LOMADEE_TOKEN; 
+    const lomadeeToken = process.env.LOMADEE_TOKEN;
     const awinToken = process.env.AWIN_TOKEN;
     const awinPublisherId = process.env.AWIN_PUBLISHER_ID;
+    const lomadeeSourceId = process.env.LOMADEE_SOURCE_ID; // Trazendo de volta caso precise
 
+    let debugLog = [];
     let apiCoupons = [];
 
-    try {
-        // 1. LOMADEE V3 (Simplificado: Apenas Token na URL)
-        if (lomadeeToken) {
-            try {
-                // Documentação nova: GET /v3/{AppToken}/offer/_search
-                const lomaUrl = `https://api.lomadee.com/v3/${lomadeeToken}/offer/_search?size=10&sort=rating`;
-                
-                const respL = await axios.get(lomaUrl);
-                
-                if (respL.data && respL.data.offers) {
-                    const lomaItems = respL.data.offers.map(item => ({
-                        store: item.store.name,
-                        logo: item.store.thumbnail,
-                        title: item.name,
-                        desc: `Oferta verificada na ${item.store.name}`,
-                        link: item.link,
-                        code: null,
-                        exclusive: false
-                    }));
-                    apiCoupons = [...apiCoupons, ...lomaItems];
-                }
-            } catch (errL) {
-                console.log("Lomadee Error:", errL.response ? errL.response.data : errL.message);
+    // 1. TESTE LOMADEE
+    if (lomadeeToken) {
+        try {
+            // Tentativa padrão V3
+            const url = `https://api.lomadee.com/v3/${lomadeeToken}/offer/_search?size=5`;
+            const resp = await axios.get(url);
+            
+            if (resp.data && resp.data.offers) {
+                const items = resp.data.offers.map(item => ({
+                    store: item.store.name, logo: item.store.thumbnail, title: item.name,
+                    desc: "Oferta Lomadee", link: item.link, code: null, exclusive: false
+                }));
+                apiCoupons = [...apiCoupons, ...items];
+            } else {
+                debugLog.push({ erro: "Lomadee: Resposta vazia (sem ofertas)" });
             }
+        } catch (e) {
+            // Captura o erro detalhado
+            const status = e.response ? e.response.status : "Sem Status";
+            const msg = e.response ? JSON.stringify(e.response.data) : e.message;
+            debugLog.push({ erro: `Lomadee Falhou (${status})`, detalhe: msg });
         }
-
-        // 2. AWIN (Continua igual, verifique se o ID é numérico)
-        if (awinToken && awinPublisherId) {
-            try {
-                const respA = await axios.get(`https://api.awin.com/publishers/${awinPublisherId}/promotions`, {
-                    headers: { Authorization: `Bearer ${awinToken}` }
-                });
-                
-                if (respA.data && Array.isArray(respA.data)) {
-                    const awinItems = respA.data.slice(0, 8).map(item => ({
-                        store: item.advertiser.name,
-                        logo: `https://logo.clearbit.com/${getDomain(item.advertiser.url)}`,
-                        title: item.title,
-                        desc: item.description || "Oferta Awin",
-                        link: item.url,
-                        code: item.voucher_code || null,
-                        exclusive: false
-                    }));
-                    apiCoupons = [...apiCoupons, ...awinItems];
-                }
-            } catch (errA) {
-                console.log("Awin Error:", errA.response ? errA.response.status : errA.message);
-            }
-        }
-
-        // 3. MISTURA E RETORNO
-        let finalCoupons = [...OFERTAS_MANUAIS, ...apiCoupons];
-
-        // Se falhar tudo, mostra backup para não quebrar o layout
-        if (finalCoupons.length === 0 || (finalCoupons.length === 1 && finalCoupons[0].link === "#")) {
-             return res.status(200).json(getBackupData());
-        }
-
-        res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate');
-        return res.status(200).json(finalCoupons);
-
-    } catch (error) {
-        console.error("Erro Geral:", error.message);
-        return res.status(200).json(getBackupData());
+    } else {
+        debugLog.push({ erro: "Lomadee: Token não configurado na Vercel" });
     }
+
+    // 2. TESTE AWIN
+    if (awinToken && awinPublisherId) {
+        try {
+            const url = `https://api.awin.com/publishers/${awinPublisherId}/promotions`;
+            const resp = await axios.get(url, { headers: { Authorization: `Bearer ${awinToken}` }});
+            
+            if (resp.data && Array.isArray(resp.data)) {
+                const items = resp.data.slice(0, 5).map(item => ({
+                    store: item.advertiser.name, logo: "https://placehold.co/80", title: item.title,
+                    desc: "Oferta Awin", link: item.url, code: null, exclusive: false
+                }));
+                apiCoupons = [...apiCoupons, ...items];
+            }
+        } catch (e) {
+            const status = e.response ? e.response.status : "Sem Status";
+            const msg = e.response ? JSON.stringify(e.response.data) : e.message;
+            debugLog.push({ erro: `Awin Falhou (${status})`, detalhe: msg });
+        }
+    } else {
+        debugLog.push({ erro: "Awin: Token ou ID não configurado na Vercel" });
+    }
+
+    // MISTURA TUDO
+    let finalResult = [...OFERTAS_MANUAIS, ...apiCoupons];
+
+    // SE FALHOU TUDO, MOSTRA O LOG DE ERRO NO LUGAR DO CUPOM
+    if (finalResult.length === 1) { // Só tem o manual
+        const errorCards = debugLog.map(log => ({
+            store: "ERRO API",
+            logo: "https://placehold.co/80x80/FF0000/FFFFFF?text=ERRO",
+            title: log.erro,
+            desc: log.detalhe ? log.detalhe.substring(0, 100) + "..." : "Verifique chaves",
+            link: "#",
+            code: "DEBUG",
+            exclusive: true
+        }));
+        finalResult = [...finalResult, ...errorCards];
+    }
+
+    res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
+    return res.status(200).json(finalResult);
 };
-
-function getDomain(url) {
-    try { return url.replace('http://','').replace('https://','').split('/')[0]; } catch(e) { return 'awin.com'; }
-}
-
-function getBackupData() {
-    return [
-        { store: "Sistema", logo: "https://placehold.co/80x80?text=Info", title: "Aguardando Conexão", desc: "Verifique os logs da Vercel para detalhes do erro.", link: "#", code: "INFO", exclusive: true }
-    ];
-}
