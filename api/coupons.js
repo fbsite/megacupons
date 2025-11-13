@@ -1,87 +1,101 @@
 const axios = require('axios');
 
-module.exports = async (req, res) => {
-    // 1. Configurar CORS (Permite que o site leia os dados)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-
-    // Tratamento de Pre-flight request
-    if (req.method === 'OPTIONS') {
-        res.status(200).end();
-        return;
+// ------------------------------------------------------------------
+// ÁREA VIP: SEUS LINKS MANUAIS
+// ------------------------------------------------------------------
+const OFERTAS_MANUAIS = [
+    {
+        store: "Amazon",
+        logo: "https://logo.clearbit.com/amazon.com.br",
+        title: "Ofertas do Dia Amazon",
+        desc: "Descontos exclusivos em eletrônicos.",
+        link: "#", // COLE SEU LINK AQUI
+        code: null,
+        exclusive: true
     }
+];
 
-    // 2. Dados de Backup (Mock Data)
-    // Estes dados aparecerão se as chaves de API não estiverem configuradas ou falharem
-    const mockCoupons = [
-        { store: "Amazon", logo: "https://logo.clearbit.com/amazon.com.br", title: "Ofertas do Dia", desc: "Até 50% OFF", link: "https://amazon.com.br", code: "AMZ50", exclusive: true },
-        { store: "Magalu", logo: "https://logo.clearbit.com/magazineluiza.com.br", title: "Cupom App", desc: "10% de desconto", link: "https://magazineluiza.com.br", code: "APP10", exclusive: false },
-        { store: "Nike", logo: "https://logo.clearbit.com/nike.com.br", title: "Lançamentos", desc: "Frete Grátis", link: "https://nike.com.br", code: null, exclusive: false },
-        { store: "Samsung", logo: "https://logo.clearbit.com/samsung.com.br", title: "Galaxy Week", desc: "Troca Smart", link: "https://samsung.com.br", code: "GALAXY", exclusive: true }
-    ];
+module.exports = async (req, res) => {
+    // Apenas o Token principal agora
+    const lomadeeToken = process.env.LOMADEE_TOKEN; 
+    const awinToken = process.env.AWIN_TOKEN;
+    const awinPublisherId = process.env.AWIN_PUBLISHER_ID;
+
+    let apiCoupons = [];
 
     try {
-        const coupons = [];
-        const LOMADEE_TOKEN = process.env.LOMADEE_TOKEN;
-        const AWIN_TOKEN = process.env.AWIN_TOKEN;
-
-        // Se não tiver tokens configurados, retorna Mock imediatamente para não gastar tempo
-        if (!LOMADEE_TOKEN && !AWIN_TOKEN) {
-            console.log("⚠️ Sem chaves de API configuradas (Env Vars). Retornando Mock Data.");
-            return res.status(200).json(mockCoupons);
-        }
-
-        // --- TENTATIVA LOMADEE ---
-        if (LOMADEE_TOKEN) {
+        // 1. LOMADEE V3 (Simplificado: Apenas Token na URL)
+        if (lomadeeToken) {
             try {
-                console.log("Tentando conectar Lomadee...");
-                const lomadeeRes = await axios.get(`https://api.lomadee.com/v3/${LOMADEE_TOKEN}/offer/_store/5632?sourceId=35964357`, { timeout: 5000 });
+                // Documentação nova: GET /v3/{AppToken}/offer/_search
+                const lomaUrl = `https://api.lomadee.com/v3/${lomadeeToken}/offer/_search?size=10&sort=rating`;
                 
-                if (lomadeeRes.data && lomadeeRes.data.offers) {
-                    lomadeeRes.data.offers.forEach(offer => {
-                        coupons.push({
-                            store: offer.store.name,
-                            logo: offer.store.thumbnail,
-                            title: offer.name,
-                            desc: `Por: R$ ${offer.price}`,
-                            link: offer.link,
-                            code: null,
-                            exclusive: false
-                        });
-                    });
+                const respL = await axios.get(lomaUrl);
+                
+                if (respL.data && respL.data.offers) {
+                    const lomaItems = respL.data.offers.map(item => ({
+                        store: item.store.name,
+                        logo: item.store.thumbnail,
+                        title: item.name,
+                        desc: `Oferta verificada na ${item.store.name}`,
+                        link: item.link,
+                        code: null,
+                        exclusive: false
+                    }));
+                    apiCoupons = [...apiCoupons, ...lomaItems];
                 }
-            } catch (err) {
-                console.error("Erro Lomadee:", err.message);
-                // Não damos 'throw' aqui para permitir que o código continue para a AWIN ou Mock
+            } catch (errL) {
+                console.log("Lomadee Error:", errL.response ? errL.response.data : errL.message);
             }
         }
 
-        // --- TENTATIVA AWIN ---
-        if (AWIN_TOKEN) {
+        // 2. AWIN (Continua igual, verifique se o ID é numérico)
+        if (awinToken && awinPublisherId) {
             try {
-                // Nota: Substitua 'YOUR_ID' pelo seu ID de Publisher real nas variáveis de ambiente se necessário
-                // A Awin geralmente requer autenticação Bearer Token
-                console.log("Tentando conectar Awin...");
-                // Exemplo genérico (ajuste conforme documentação específica da Awin para cupons)
-                // const awinRes = await axios.get(...) 
-            } catch (err) {
-                console.error("Erro Awin:", err.message);
+                const respA = await axios.get(`https://api.awin.com/publishers/${awinPublisherId}/promotions`, {
+                    headers: { Authorization: `Bearer ${awinToken}` }
+                });
+                
+                if (respA.data && Array.isArray(respA.data)) {
+                    const awinItems = respA.data.slice(0, 8).map(item => ({
+                        store: item.advertiser.name,
+                        logo: `https://logo.clearbit.com/${getDomain(item.advertiser.url)}`,
+                        title: item.title,
+                        desc: item.description || "Oferta Awin",
+                        link: item.url,
+                        code: item.voucher_code || null,
+                        exclusive: false
+                    }));
+                    apiCoupons = [...apiCoupons, ...awinItems];
+                }
+            } catch (errA) {
+                console.log("Awin Error:", errA.response ? errA.response.status : errA.message);
             }
         }
 
-        // 3. RESPOSTA FINAL
-        if (coupons.length > 0) {
-            return res.status(200).json(coupons);
-        } else {
-            // Se as APIs falharam, retornamos o Mock para o site não ficar vazio
-            return res.status(200).json(mockCoupons);
+        // 3. MISTURA E RETORNO
+        let finalCoupons = [...OFERTAS_MANUAIS, ...apiCoupons];
+
+        // Se falhar tudo, mostra backup para não quebrar o layout
+        if (finalCoupons.length === 0 || (finalCoupons.length === 1 && finalCoupons[0].link === "#")) {
+             return res.status(200).json(getBackupData());
         }
+
+        res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate');
+        return res.status(200).json(finalCoupons);
 
     } catch (error) {
-        console.error("❌ ERRO CRÍTICO NO SERVIDOR:", error);
-        // Mesmo no pior cenário, retornamos 200 com Mock para o usuário não ver tela de erro
-        return res.status(200).json(mockCoupons);
+        console.error("Erro Geral:", error.message);
+        return res.status(200).json(getBackupData());
     }
 };
+
+function getDomain(url) {
+    try { return url.replace('http://','').replace('https://','').split('/')[0]; } catch(e) { return 'awin.com'; }
+}
+
+function getBackupData() {
+    return [
+        { store: "Sistema", logo: "https://placehold.co/80x80?text=Info", title: "Aguardando Conexão", desc: "Verifique os logs da Vercel para detalhes do erro.", link: "#", code: "INFO", exclusive: true }
+    ];
+}
