@@ -4,191 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todas as Lojas | MegaCupons</title>
-    <meta name="description" content="Encontre cupons e ofertas de todas as nossas lojas parceiras.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description" content="Lista completa de lojas parceiras com cupons e ofertas verificadas.">
+
+    <!-- VERIFICAÇÃO LOMADEE (ADICIONADA) -->
+    <meta name="lomadee" content="2324685" />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
-            --primary: #FF3B80;
-            --secondary: #00BFA6;
-            --bg: #121212;
-            --surface: #1E1E1E;
-            --text: #FFFFFF;
-            --text-muted: #B0B0B0;
+            --color-primary: #FF3B80;
+            --color-secondary: #00BFA6;
+            --color-background: #121212;
+            --color-surface: #1E1E1E;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #B0B0B0;
+            --font-main: 'Inter', sans-serif;
         }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding-bottom: 80px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            padding-bottom: 60px;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 92%; max-width: 1100px; margin: 0 auto; }
         
-        .header { background: var(--surface); border-bottom: 2px solid var(--primary); padding: 15px 0; }
-        .container { width: 95%; max-width: 1100px; margin: 0 auto; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.6rem; font-weight: 900; color: var(--primary); text-decoration: none; }
-        .navbar a { color: var(--text-muted); text-decoration: none; font-weight: 700; margin-left: 20px; transition: 0.3s; }
-        .navbar a.active, .navbar a:hover { color: var(--text); }
+        .header { background-color: var(--color-surface); border-bottom: 1px solid #333; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--color-primary); letter-spacing: -1px; }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-link { color: var(--color-text-secondary); font-weight: 600; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-primary); }
 
-        /* Seção de Busca Centralizada */
-        .search-section { padding: 40px 0; text-align: center; background: radial-gradient(circle at center, #2a1a20 0%, var(--bg) 100%); border-bottom: 1px solid #333; }
-        .section-title { font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
-        .section-subtitle { color: var(--text-muted); margin-bottom: 30px; }
-        
-        .search-wrapper {
-            display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            width: 100%;
-        }
-        
-        .search-box { 
-            width: 100%; 
-            max-width: 600px; /* Largura máxima confortável */
-            padding: 15px 25px; 
-            border-radius: 50px; 
-            border: 2px solid #333; 
-            background: var(--surface); 
-            color: #fff; 
-            font-size: 1.1rem; 
-            outline: none; 
-            transition: 0.3s;
-            text-align: center; /* Texto dentro da caixa centralizado */
-        }
-        .search-box:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(255, 59, 128, 0.3); }
-        .search-box::placeholder { color: #666; }
+        .page-title { text-align: center; padding: 40px 0 20px; }
+        .page-title h1 { font-size: 2rem; margin-bottom: 10px; }
+        .page-title p { color: var(--color-text-secondary); }
 
-        /* Grid de Lojas */
-        .stores-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 20px; 
-            margin-top: 40px; 
-        }
-        
-        .store-item { 
-            background: var(--surface); 
-            border: 1px solid #333; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            text-decoration: none; 
-            color: var(--text); 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 20px; 
-            transition: 0.3s; 
-        }
-        .store-item:hover { transform: translateY(-5px); border-color: var(--secondary); }
-        
-        .store-logo-box { 
-            width: 90px; height: 90px; 
-            background: #fff; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            margin-bottom: 15px; 
-            padding: 10px;
-        }
-        .store-logo-box img { width: 100%; height: 100%; object-fit: contain; }
-        
-        .store-name { font-weight: 700; margin-bottom: 10px; text-align: center; }
-        .store-cta { font-size: 0.8rem; color: var(--secondary); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        /* Busca Centralizada */
+        .search-container { max-width: 500px; margin: 0 auto 40px; position: relative; }
+        .search-box { width: 100%; padding: 15px 20px; border-radius: 30px; border: 2px solid #333; background: var(--color-surface); color: white; font-size: 1rem; outline: none; padding-right: 50px; }
+        .search-box:focus { border-color: var(--color-primary); }
+        .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--color-text-secondary); }
 
-        .footer { background: var(--surface); text-align: center; padding: 30px 0; margin-top: 50px; border-top: 1px solid #333; color: var(--text-muted); }
-        .loader { text-align: center; padding: 40px; color: var(--primary); }
+        .stores-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
+        
+        .store-card { background: var(--color-surface); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid #333; transition: 0.3s; height: 100%; }
+        .store-card:hover { border-color: var(--color-primary); transform: translateY(-5px); }
+        .store-logo-box { width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; padding: 10px; }
+        .store-logo { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .store-name { font-weight: 700; margin-bottom: 10px; font-size: 1rem; }
+        .store-cta { margin-top: auto; background: #333; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; transition: 0.2s; white-space: nowrap; }
+        .store-card:hover .store-cta { background: var(--color-primary); }
+
+        /* Loader */
+        .loader-container { display: flex; justify-content: center; padding: 50px; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #333; border-top-color: var(--color-primary); border-radius: 50%; animation: spin 1s infinite linear; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .footer { border-top: 1px solid #333; margin-top: 50px; padding: 30px 0; text-align: center; color: var(--color-text-secondary); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="container nav-flex">
+        <div class="container header-content">
             <a href="index.html" class="logo"><i class="fa-solid fa-rocket"></i> MegaCupons</a>
-            <nav class="navbar">
-                <a href="index.html">Início</a>
-                <a href="stores.html" class="active">Lojas</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="stores.html" class="nav-link active">Lojas</a>
             </nav>
         </div>
     </header>
 
-    <section class="search-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-store" style="color: var(--secondary);"></i> Todas as Lojas Parceiras</h2>
-            <p class="section-subtitle">Lojas com cupons ou ofertas ativas no momento.</p>
-            
-            <div class="search-wrapper">
-                <input type="text" id="search-input" class="search-box" placeholder="Digite o nome da loja (ex: Amazon, Nike)...">
-            </div>
-        </div>
-    </section>
-
     <main class="container">
-        <div id="loader" class="loader"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>
-        <div id="stores-grid" class="stores-grid" style="display: none;"></div>
+        <div class="page-title">
+            <h1>Lojas Parceiras</h1>
+            <p>Encontre cupons em suas lojas favoritas</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="store-search" class="search-box" placeholder="Buscar loja...">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+
+        <div id="loader" class="loader-container"><div class="spinner"></div></div>
+        <div id="stores-grid" class="stores-grid"></div>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>MegaCupons &copy; <span id="year"></span> - Todos os direitos reservados.</p>
-            <p>Economia real, 100% grátis e verificada para você.</p>
+            <p>MegaCupons &copy; <span id="year"></span></p>
         </div>
     </footer>
 
+    <!-- Script MasterTag Awin -->
+    <script src="https://www.dwin2.com/pub.2589771.min.js"></script>
+
     <script>
-        let allStores = [];
+        document.getElementById('year').innerText = new Date().getFullYear();
 
         document.addEventListener('DOMContentLoaded', async () => {
-            document.getElementById('year').textContent = new Date().getFullYear();
-            const loader = document.getElementById('loader');
             const grid = document.getElementById('stores-grid');
-            const searchInput = document.getElementById('search-input');
-
+            const loader = document.getElementById('loader');
+            const searchInput = document.getElementById('store-search');
+            
             try {
-                // Conecta na sua API real
                 const res = await fetch('/api/lojas');
-                if (!res.ok) throw new Error('Falha ao carregar lojas');
-                
-                allStores = await res.json();
-                
-                renderStores(allStores);
-                loader.style.display = 'none';
-                grid.style.display = 'grid';
+                let stores = await res.json();
 
-                // Lógica de busca instantânea
+                // Ordenação A-Z
+                stores.sort((a, b) => a.name.localeCompare(b.name));
+
+                renderStores(stores);
+                loader.style.display = 'none';
+
+                // Filtro de Busca
                 searchInput.addEventListener('input', (e) => {
                     const term = e.target.value.toLowerCase();
-                    const filtered = allStores.filter(store => store.name.toLowerCase().includes(term));
+                    const filtered = stores.filter(s => s.name.toLowerCase().includes(term));
                     renderStores(filtered);
                 });
 
-            } catch (err) {
-                console.error(err);
-                loader.innerHTML = "<p>Erro ao carregar lojas. Tente atualizar a página.</p>";
+            } catch (error) {
+                loader.style.display = 'none';
+                grid.innerHTML = '<p style="grid-column:1/-1; text-align:center;">Erro ao carregar lojas.</p>';
             }
         });
 
         function renderStores(stores) {
             const grid = document.getElementById('stores-grid');
             grid.innerHTML = '';
-
-            if (stores.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color: #777;">Nenhuma loja encontrada com este nome.</p>';
-                return;
-            }
-
             stores.forEach(store => {
-                const html = `
-                    <a href="${store.link}" target="_blank" class="store-item" title="Ver ofertas de ${store.name}">
+                grid.innerHTML += `
+                    <a href="${store.link || '#'}" target="_blank" class="store-card">
                         <div class="store-logo-box">
-                            <img src="${store.logoUrl}" alt="Logo ${store.name}" onerror="this.src='https://placehold.co/80'">
+                            <img src="${store.logoUrl}" class="store-logo" alt="${store.name}" onerror="this.src='https://placehold.co/60'">
                         </div>
                         <div class="store-name">${store.name}</div>
-                        <div class="store-cta">VER OFERTAS</div>
+                        <div class="store-cta">Ver Ofertas</div>
                     </a>
                 `;
-                grid.innerHTML += html;
             });
         }
     </script>
-    <script src="https://www.dwin2.com/pub.2589771.min.js"></script>
 </body>
 </html>
