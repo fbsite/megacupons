@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnóstico Vercel</title>
+    <style>
+        body { font-family: monospace; background: #222; color: #fff; padding: 20px; }
+        .box { border: 1px solid #444; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        .success { border-color: #0f0; color: #0f0; }
+        .error { border-color: #f00; color: #f55; }
+        h1 { border-bottom: 1px solid #fff; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>📡 Teste de Conexão API (Vercel)</h1>
+    <div id="results">Aguarde, testando conexões...</div>
+
+    <script>
+        const logDiv = document.getElementById('results');
+        
+        function addLog(endpoint, status, msg, isError) {
+            const div = document.createElement('div');
+            div.className = isError ? 'box error' : 'box success';
+            div.innerHTML = `
+                <strong>Endpoint:</strong> ${endpoint}<br>
+                <strong>Status:</strong> ${status}<br>
+                <strong>Resposta:</strong> ${msg}
+            `;
+            logDiv.appendChild(div);
+        }
+
+        async function testEndpoint(url) {
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                
+                let displayMsg = text.substring(0, 100) + (text.length > 100 ? '...' : '');
+                
+                if (response.ok) {
+                    addLog(url, response.status, "✅ SUCESSO: " + displayMsg, false);
+                } else {
+                    addLog(url, response.status, "❌ ERRO: " + displayMsg, true);
+                }
+            } catch (err) {
+                addLog(url, "FALHA DE REDE", "O navegador não conseguiu nem conectar. O arquivo existe?", true);
+            }
+        }
+
+        async function runTests() {
+            logDiv.innerHTML = '';
+            await testEndpoint('/api/coupons');
+            await testEndpoint('/api/campaigns');
+            await testEndpoint('/api/products');
+            await testEndpoint('/api/lojas');
+        }
+
+        runTests();
+    </script>
+</body>
+</html>
