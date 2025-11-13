@@ -1,7 +1,7 @@
 {
   "name": "megacupons-backend",
   "version": "1.0.0",
-  "description": "API Proxy para MegaCupons",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0"
   }
